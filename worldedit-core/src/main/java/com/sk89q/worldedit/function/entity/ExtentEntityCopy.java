@@ -53,10 +53,10 @@ public class ExtentEntityCopy implements EntityFunction {
     /**
      * Create a new instance.
      *
-     * @param from the from position
+     * @param from        the from position
      * @param destination the destination {@code Extent}
-     * @param to the destination position
-     * @param transform the transformation to apply to both position and orientation
+     * @param to          the destination position
+     * @param transform   the transformation to apply to both position and orientation
      */
     public ExtentEntityCopy(Vector3 from, Extent destination, Vector3 to, Transform transform) {
         checkNotNull(from);
@@ -147,12 +147,12 @@ public class ExtentEntityCopy implements EntityFunction {
                     Vector3 tilePosition = Vector3.at(leashCompound.asInt("X"), leashCompound.asInt("Y"), leashCompound.asInt("Z"));
                     BlockVector3 newLeash = transform.apply(tilePosition.subtract(from)).add(to).toBlockPoint();
                     return new BaseEntity(state.getType(), tag.createBuilder()
-                            .put("Leash", leashCompound.createBuilder()
-                                .putInt("X", newLeash.getBlockX())
-                                .putInt("Y", newLeash.getBlockY())
-                                .putInt("Z", newLeash.getBlockZ())
-                                .build()
-                            ).build());
+                        .put("Leash", leashCompound.createBuilder()
+                            .putInt("X", newLeash.getBlockX())
+                            .putInt("Y", newLeash.getBlockY())
+                            .putInt("Z", newLeash.getBlockZ())
+                            .build()
+                        ).build());
                 }
             }
 
@@ -165,9 +165,9 @@ public class ExtentEntityCopy implements EntityFunction {
                 BlockVector3 newTilePosition = transform.apply(tilePosition.subtract(from)).add(to).toBlockPoint();
 
                 CompoundTagBuilder builder = tag.createBuilder()
-                        .putInt("TileX", newTilePosition.getBlockX())
-                        .putInt("TileY", newTilePosition.getBlockY())
-                        .putInt("TileZ", newTilePosition.getBlockZ());
+                    .putInt("TileX", newTilePosition.getBlockX())
+                    .putInt("TileY", newTilePosition.getBlockY())
+                    .putInt("TileZ", newTilePosition.getBlockZ());
 
                 if (hasFacing) {
                     boolean isPainting = state.getType() == EntityTypes.PAINTING; // Paintings have different facing values

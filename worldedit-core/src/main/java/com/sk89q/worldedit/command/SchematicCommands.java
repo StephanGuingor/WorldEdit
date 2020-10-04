@@ -114,8 +114,8 @@ public class SchematicCommands {
 
         File dir = worldEdit.getWorkingDirectoryPath(config.saveDir).toFile();
         File f = worldEdit.getSafeOpenFile(actor, dir, filename,
-                BuiltInClipboardFormat.SPONGE_SCHEMATIC.getPrimaryFileExtension(),
-                ClipboardFormats.getFileExtensionArray());
+            BuiltInClipboardFormat.SPONGE_SCHEMATIC.getPrimaryFileExtension(),
+            ClipboardFormats.getFileExtensionArray());
 
         if (!f.exists()) {
             actor.printError(TranslatableComponent.of("worldedit.schematic.load.does-not-exist", TextComponent.of(filename)));
@@ -133,22 +133,22 @@ public class SchematicCommands {
 
         SchematicLoadTask task = new SchematicLoadTask(actor, f, format);
         AsyncCommandBuilder.wrap(task, actor)
-                .registerWithSupervisor(worldEdit.getSupervisor(), "Loading schematic " + filename)
-                .setDelayMessage(TranslatableComponent.of("worldedit.schematic.load.loading"))
-                .setWorkingMessage(TranslatableComponent.of("worldedit.schematic.load.still-loading"))
-                .onSuccess(TextComponent.of(filename, TextColor.GOLD)
-                                .append(TextComponent.of(" loaded. Paste it with ", TextColor.LIGHT_PURPLE))
-                                .append(CodeFormat.wrap("//paste").clickEvent(ClickEvent.of(ClickEvent.Action.SUGGEST_COMMAND, "//paste"))),
-                        session::setClipboard)
-                .onFailure("Failed to load schematic", worldEdit.getPlatformManager().getPlatformCommandManager().getExceptionConverter())
-                .buildAndExec(worldEdit.getExecutorService());
+            .registerWithSupervisor(worldEdit.getSupervisor(), "Loading schematic " + filename)
+            .setDelayMessage(TranslatableComponent.of("worldedit.schematic.load.loading"))
+            .setWorkingMessage(TranslatableComponent.of("worldedit.schematic.load.still-loading"))
+            .onSuccess(TextComponent.of(filename, TextColor.GOLD)
+                    .append(TextComponent.of(" loaded. Paste it with ", TextColor.LIGHT_PURPLE))
+                    .append(CodeFormat.wrap("//paste").clickEvent(ClickEvent.of(ClickEvent.Action.SUGGEST_COMMAND, "//paste"))),
+                session::setClipboard)
+            .onFailure("Failed to load schematic", worldEdit.getPlatformManager().getPlatformCommandManager().getExceptionConverter())
+            .buildAndExec(worldEdit.getExecutorService());
     }
 
     @Command(
         name = "save",
         desc = "Save a schematic into your clipboard"
     )
-    @CommandPermissions({ "worldedit.clipboard.save", "worldedit.schematic.save" })
+    @CommandPermissions({"worldedit.clipboard.save", "worldedit.schematic.save"})
     public void save(Actor actor, LocalSession session,
                      @Arg(desc = "File name.")
                          String filename,
@@ -189,7 +189,7 @@ public class SchematicCommands {
         if (parent != null && !parent.exists()) {
             if (!parent.mkdirs()) {
                 throw new StopExecutionException(TranslatableComponent.of(
-                        "worldedit.schematic.save.failed-directory"));
+                    "worldedit.schematic.save.failed-directory"));
             }
         }
 
@@ -197,12 +197,12 @@ public class SchematicCommands {
 
         SchematicSaveTask task = new SchematicSaveTask(actor, f, format, holder, overwrite);
         AsyncCommandBuilder.wrap(task, actor)
-                .registerWithSupervisor(worldEdit.getSupervisor(), "Saving schematic " + filename)
-                .setDelayMessage(TranslatableComponent.of("worldedit.schematic.save.saving"))
-                .setWorkingMessage(TranslatableComponent.of("worldedit.schematic.save.still-saving"))
-                .onSuccess(filename + " saved" + (overwrite ? " (overwriting previous file)." : "."), null)
-                .onFailure("Failed to save schematic", worldEdit.getPlatformManager().getPlatformCommandManager().getExceptionConverter())
-                .buildAndExec(worldEdit.getExecutorService());
+            .registerWithSupervisor(worldEdit.getSupervisor(), "Saving schematic " + filename)
+            .setDelayMessage(TranslatableComponent.of("worldedit.schematic.save.saving"))
+            .setWorkingMessage(TranslatableComponent.of("worldedit.schematic.save.still-saving"))
+            .onSuccess(filename + " saved" + (overwrite ? " (overwriting previous file)." : "."), null)
+            .onFailure("Failed to save schematic", worldEdit.getPlatformManager().getPlatformCommandManager().getExceptionConverter())
+            .buildAndExec(worldEdit.getExecutorService());
     }
 
     @Command(
@@ -218,7 +218,7 @@ public class SchematicCommands {
         File dir = worldEdit.getWorkingDirectoryPath(config.saveDir).toFile();
 
         File f = worldEdit.getSafeOpenFile(actor,
-                dir, filename, "schematic", ClipboardFormats.getFileExtensionArray());
+            dir, filename, "schematic", ClipboardFormats.getFileExtensionArray());
 
         if (!f.exists()) {
             actor.printError(TranslatableComponent.of("worldedit.schematic.delete.does-not-exist", TextComponent.of(filename)));
@@ -294,11 +294,11 @@ public class SchematicCommands {
             flag = "";
         }
         final String pageCommand = actor.isPlayer()
-                ? "//schem list -p %page%" + flag : null;
+            ? "//schem list -p %page%" + flag : null;
 
         WorldEditAsyncCommandBuilder.createAndSendMessage(actor,
-                new SchematicListTask(saveDir, pathComparator, page, pageCommand),
-                SubtleFormat.wrap("(Please wait... gathering schematic list.)"));
+            new SchematicListTask(saveDir, pathComparator, page, pageCommand),
+            SubtleFormat.wrap("(Please wait... gathering schematic list.)"));
     }
 
     private static class SchematicLoadTask implements Callable<ClipboardHolder> {
@@ -440,20 +440,20 @@ public class SchematicCommands {
             boolean inRoot = file.getParent().equals(rootDir);
 
             String path = inRoot
-                    ? file.getFileName().toString()
-                    : file.toString().substring(rootDir.toString().length());
+                ? file.getFileName().toString()
+                : file.toString().substring(rootDir.toString().length());
 
             return TextComponent.builder()
-                    .content("")
-                    .append(TextComponent.of("[L]")
-                            .color(TextColor.GOLD)
-                            .clickEvent(ClickEvent.of(ClickEvent.Action.RUN_COMMAND, "/schem load \"" + path + "\""))
-                            .hoverEvent(HoverEvent.of(HoverEvent.Action.SHOW_TEXT, TextComponent.of("Click to load"))))
-                    .append(TextComponent.space())
-                    .append(TextComponent.of(path)
-                            .color(TextColor.DARK_GREEN)
-                            .hoverEvent(HoverEvent.of(HoverEvent.Action.SHOW_TEXT, TextComponent.of(format))))
-                    .build();
+                .content("")
+                .append(TextComponent.of("[L]")
+                    .color(TextColor.GOLD)
+                    .clickEvent(ClickEvent.of(ClickEvent.Action.RUN_COMMAND, "/schem load \"" + path + "\""))
+                    .hoverEvent(HoverEvent.of(HoverEvent.Action.SHOW_TEXT, TextComponent.of("Click to load"))))
+                .append(TextComponent.space())
+                .append(TextComponent.of(path)
+                    .color(TextColor.DARK_GREEN)
+                    .hoverEvent(HoverEvent.of(HoverEvent.Action.SHOW_TEXT, TextComponent.of(format))))
+                .build();
         }
 
         @Override

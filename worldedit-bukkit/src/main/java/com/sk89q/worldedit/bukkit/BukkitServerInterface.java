@@ -111,8 +111,7 @@ public class BukkitServerInterface extends AbstractPlatform implements MultiUser
         if (!type.startsWith("minecraft:")) {
             return false;
         }
-        @SuppressWarnings("deprecation")
-        final EntityType entityType = EntityType.fromName(type.substring(10));
+        @SuppressWarnings("deprecation") final EntityType entityType = EntityType.fromName(type.substring(10));
         return entityType != null && entityType.isAlive();
     }
 
@@ -226,7 +225,7 @@ public class BukkitServerInterface extends AbstractPlatform implements MultiUser
     }
 
     private static final Set<SideEffect> SUPPORTED_SIDE_EFFECTS = Sets.immutableEnumSet(
-            SideEffect.NEIGHBORS
+        SideEffect.NEIGHBORS
     );
 
     @Override

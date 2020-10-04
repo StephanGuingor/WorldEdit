@@ -86,9 +86,9 @@ public interface Platform {
      * Schedules the given {@code task} to be invoked once every
      * {@code period} ticks after an initial delay of {@code delay} ticks.
      *
-     * @param delay Delay in server ticks before executing first repeat
+     * @param delay  Delay in server ticks before executing first repeat
      * @param period Period in server ticks of the task
-     * @param task Task to be executed
+     * @param task   Task to be executed
      * @return Task id number (-1 if scheduling failed)
      */
     int schedule(long delay, long period, Runnable task);
@@ -98,7 +98,8 @@ public interface Platform {
      *
      * @return the watchdog service, or {@code null} if none
      */
-    default @Nullable Watchdog getWatchdog() {
+    default @Nullable
+    Watchdog getWatchdog() {
         return null;
     }
 
@@ -117,7 +118,8 @@ public interface Platform {
      * @param player the player to match
      * @return a matched player, otherwise null
      */
-    @Nullable Player matchPlayer(Player player);
+    @Nullable
+    Player matchPlayer(Player player);
 
     /**
      * Create a duplicate of the given world.
@@ -127,7 +129,8 @@ public interface Platform {
      * @param world the world to match
      * @return a matched world, otherwise null
      */
-    @Nullable World matchWorld(World world);
+    @Nullable
+    World matchWorld(World world);
 
     /**
      * Register the commands contained within the given command manager.

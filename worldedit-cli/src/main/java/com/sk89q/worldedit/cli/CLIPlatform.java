@@ -111,9 +111,9 @@ class CLIPlatform extends AbstractPlatform {
     @Override
     public World matchWorld(World world) {
         return this.worlds.stream()
-                .filter(w -> w.getId().equals(world.getId()))
-                .findAny()
-                .orElse(null);
+            .filter(w -> w.getId().equals(world.getId()))
+            .findAny()
+            .orElse(null);
     }
 
     @Override

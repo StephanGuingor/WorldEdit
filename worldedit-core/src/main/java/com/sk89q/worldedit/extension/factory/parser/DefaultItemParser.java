@@ -97,8 +97,8 @@ public class DefaultItemParser extends InputParser<BaseItem> {
             return ((Player) actor).getItemInHand(handSide);
         } else {
             throw new InputParseException(TranslatableComponent.of(
-                    "worldedit.error.parser.player-only",
-                    TextComponent.of(handSide == HandSide.MAIN_HAND ? "hand" : "offhand")
+                "worldedit.error.parser.player-only",
+                TextComponent.of(handSide == HandSide.MAIN_HAND ? "hand" : "offhand")
             ));
         }
     }

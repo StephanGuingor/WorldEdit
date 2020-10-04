@@ -46,7 +46,7 @@ public class RhinoCraftScriptEngine implements CraftScriptEngine {
 
     @Override
     public Object evaluate(String script, String filename, Map<String, Object> args)
-            throws ScriptException, Throwable {
+        throws ScriptException, Throwable {
         RhinoContextFactory factory = new RhinoContextFactory(timeLimit);
         Context cx = factory.enterContext();
         cx.setClassShutter(new MinecraftHidingClassShutter());
@@ -55,7 +55,7 @@ public class RhinoCraftScriptEngine implements CraftScriptEngine {
 
         for (Map.Entry<String, Object> entry : args.entrySet()) {
             ScriptableObject.putProperty(scope, entry.getKey(),
-                    Context.javaToJS(entry.getValue(), scope));
+                Context.javaToJS(entry.getValue(), scope));
         }
         try {
             return cx.evaluateString(scope, script, filename, 1, null);
@@ -79,7 +79,7 @@ public class RhinoCraftScriptEngine implements CraftScriptEngine {
             }
 
             ScriptException scriptException =
-                    new ScriptException(msg, e.sourceName(), line);
+                new ScriptException(msg, e.sourceName(), line);
             scriptException.initCause(e);
 
             throw scriptException;

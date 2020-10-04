@@ -106,7 +106,7 @@ public interface BukkitImplAdapter {
      * Create the given entity.
      *
      * @param location the location
-     * @param state the state
+     * @param state    the state
      * @return the created entity or null
      */
     @Nullable
@@ -147,8 +147,8 @@ public interface BukkitImplAdapter {
     /**
      * Send the given NBT data to the player.
      *
-     * @param player The player
-     * @param pos The position
+     * @param player  The player
+     * @param pos     The position
      * @param nbtData The NBT Data
      */
     void sendFakeNBT(Player player, BlockVector3 pos, CompoundTag nbtData);
@@ -164,10 +164,10 @@ public interface BukkitImplAdapter {
     /**
      * Simulates a player using an item.
      *
-     * @param world the world
+     * @param world    the world
      * @param position the location
-     * @param item the item to be used
-     * @param face the direction in which to "face" when using the item
+     * @param item     the item to be used
+     * @param face     the direction in which to "face" when using the item
      * @return whether the usage was successful
      */
     default boolean simulateItemUse(World world, BlockVector3 position, BaseItem item, Direction face) {
@@ -213,9 +213,10 @@ public interface BukkitImplAdapter {
 
     /**
      * Regenerate a region in the given world, so it appears "as new".
-     * @param world the world to regen in
-     * @param region the region to regen
-     * @param extent the extent to use for setting blocks
+     *
+     * @param world   the world to regen in
+     * @param region  the region to regen
+     * @param extent  the extent to use for setting blocks
      * @param options the regeneration options
      * @return true on success, false on failure
      */

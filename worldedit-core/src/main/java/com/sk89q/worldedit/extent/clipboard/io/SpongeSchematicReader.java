@@ -92,7 +92,7 @@ public class SpongeSchematicReader extends NBTSchematicReader {
         Map<String, Tag> schematic = schematicTag.getValue();
 
         final Platform platform = WorldEdit.getInstance().getPlatformManager()
-                .queryCapability(Capability.WORLD_EDITING);
+            .queryCapability(Capability.WORLD_EDITING);
         int liveDataVersion = platform.getDataVersion();
 
         if (schematicVersion == 1) {
@@ -109,15 +109,15 @@ public class SpongeSchematicReader extends NBTSchematicReader {
             }
             if (dataVersion > liveDataVersion) {
                 log.warn("Schematic was made in a newer Minecraft version ({} > {}). Data may be incompatible.",
-                        dataVersion, liveDataVersion);
+                    dataVersion, liveDataVersion);
             } else if (dataVersion < liveDataVersion) {
                 fixer = platform.getDataFixer();
                 if (fixer != null) {
                     log.debug("Schematic was made in an older Minecraft version ({} < {}), will attempt DFU.",
-                            dataVersion, liveDataVersion);
+                        dataVersion, liveDataVersion);
                 } else {
                     log.info("Schematic was made in an older Minecraft version ({} < {}), but DFU is not available. Data may be incompatible.",
-                            dataVersion, liveDataVersion);
+                        dataVersion, liveDataVersion);
                 }
             }
 
@@ -171,7 +171,7 @@ public class SpongeSchematicReader extends NBTSchematicReader {
         int[] offsetParts;
         if (offsetTag != null) {
             offsetParts = offsetTag.getValue();
-            if  (offsetParts.length != 3) {
+            if (offsetParts.length != 3) {
                 throw new IOException("Invalid offset specified in schematic.");
             }
         } else {
@@ -232,9 +232,9 @@ public class SpongeSchematicReader extends NBTSchematicReader {
         }
         if (tileEntities != null) {
             List<Map<String, Tag>> tileEntityTags = tileEntities.getValue().stream()
-                    .map(tag -> (CompoundTag) tag)
-                    .map(CompoundTag::getValue)
-                    .collect(Collectors.toList());
+                .map(tag -> (CompoundTag) tag)
+                .map(CompoundTag::getValue)
+                .collect(Collectors.toList());
 
             for (Map<String, Tag> tileEntity : tileEntityTags) {
                 int[] pos = requireTag(tileEntity, "Pos", IntArrayTag.class).getValue();
@@ -391,8 +391,8 @@ public class SpongeSchematicReader extends NBTSchematicReader {
             EntityType entityType = EntityTypes.get(id);
             if (entityType != null) {
                 Location location = NBTConversions.toLocation(clipboard,
-                        requireTag(tags, "Pos", ListTag.class),
-                        requireTag(tags, "Rotation", ListTag.class));
+                    requireTag(tags, "Pos", ListTag.class),
+                    requireTag(tags, "Rotation", ListTag.class));
                 BaseEntity state = new BaseEntity(entityType, entityTag);
                 clipboard.createEntity(location, state);
             } else {

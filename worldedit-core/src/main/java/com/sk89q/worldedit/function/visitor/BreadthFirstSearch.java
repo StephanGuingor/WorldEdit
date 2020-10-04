@@ -134,7 +134,7 @@ public abstract class BreadthFirstSearch implements Operation {
      * Try to visit the given 'to' location.
      *
      * @param from the origin block
-     * @param to the block under question
+     * @param to   the block under question
      */
     private void visit(BlockVector3 from, BlockVector3 to) {
         if (!visited.contains(to)) {
@@ -150,7 +150,7 @@ public abstract class BreadthFirstSearch implements Operation {
      * 'from' block.
      *
      * @param from the origin block
-     * @param to the block under question
+     * @param to   the block under question
      * @return true if the 'to' block should be visited
      */
     protected abstract boolean isVisitable(BlockVector3 from, BlockVector3 to);
@@ -188,8 +188,8 @@ public abstract class BreadthFirstSearch implements Operation {
     @Override
     public Iterable<Component> getStatusMessages() {
         return ImmutableList.of(TranslatableComponent.of(
-                "worldedit.operation.affected.block",
-                TextComponent.of(getAffected())
+            "worldedit.operation.affected.block",
+            TextComponent.of(getAffected())
         ).color(TextColor.LIGHT_PURPLE));
     }
 

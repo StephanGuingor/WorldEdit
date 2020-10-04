@@ -82,12 +82,12 @@ public class DoubleArrayList<A, B> implements Iterable<Map.Entry<A, B>> {
     public Iterator<Map.Entry<A, B>> iterator(boolean reversed) {
         if (reversed) {
             return new ReverseEntryIterator<>(
-                    listA.listIterator(listA.size()),
-                    listB.listIterator(listB.size()));
+                listA.listIterator(listA.size()),
+                listB.listIterator(listB.size()));
         } else {
             return new ForwardEntryIterator<>(
-                    listA.iterator(),
-                    listB.iterator());
+                listA.iterator(),
+                listB.iterator());
         }
     }
 
@@ -100,7 +100,7 @@ public class DoubleArrayList<A, B> implements Iterable<Map.Entry<A, B>> {
      * Entry iterator.
      */
     public class ForwardEntryIterator<T extends Map.Entry<A, B>>
-            implements Iterator<Map.Entry<A, B>> {
+        implements Iterator<Map.Entry<A, B>> {
 
         private final Iterator<A> keyIterator;
         private final Iterator<B> valueIterator;
@@ -130,7 +130,7 @@ public class DoubleArrayList<A, B> implements Iterable<Map.Entry<A, B>> {
      * Entry iterator.
      */
     public class ReverseEntryIterator<T extends Map.Entry<A, B>>
-            implements Iterator<Map.Entry<A, B>> {
+        implements Iterator<Map.Entry<A, B>> {
 
         private final ListIterator<A> keyIterator;
         private final ListIterator<B> valueIterator;

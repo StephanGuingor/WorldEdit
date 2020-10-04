@@ -76,16 +76,16 @@ public class BukkitPlayer extends AbstractPlayerActor {
     @Override
     public BaseItemStack getItemInHand(HandSide handSide) {
         ItemStack itemStack = handSide == HandSide.MAIN_HAND
-                ? player.getInventory().getItemInMainHand()
-                : player.getInventory().getItemInOffHand();
+            ? player.getInventory().getItemInMainHand()
+            : player.getInventory().getItemInOffHand();
         return BukkitAdapter.adapt(itemStack);
     }
 
     @Override
     public BaseBlock getBlockInHand(HandSide handSide) throws WorldEditException {
         ItemStack itemStack = handSide == HandSide.MAIN_HAND
-                ? player.getInventory().getItemInMainHand()
-                : player.getInventory().getItemInOffHand();
+            ? player.getInventory().getItemInMainHand()
+            : player.getInventory().getItemInOffHand();
         return BukkitAdapter.asBlockState(itemStack).toBaseBlock();
     }
 
@@ -170,8 +170,8 @@ public class BukkitPlayer extends AbstractPlayerActor {
     @Override
     public boolean hasPermission(String perm) {
         return (!plugin.getLocalConfiguration().noOpPermissions && player.isOp())
-                || plugin.getPermissionsResolver().hasPermission(
-                        player.getWorld().getName(), player, perm);
+            || plugin.getPermissionsResolver().hasPermission(
+            player.getWorld().getName(), player, perm);
     }
 
     @Override
@@ -213,10 +213,10 @@ public class BukkitPlayer extends AbstractPlayerActor {
         Location nativeLocation = player.getLocation();
         Vector3 position = BukkitAdapter.asVector(nativeLocation);
         return new com.sk89q.worldedit.util.Location(
-                getWorld(),
-                position,
-                nativeLocation.getYaw(),
-                nativeLocation.getPitch());
+            getWorld(),
+            position,
+            nativeLocation.getYaw(),
+            nativeLocation.getPitch());
     }
 
     @Override
@@ -233,8 +233,8 @@ public class BukkitPlayer extends AbstractPlayerActor {
     public void sendAnnouncements() {
         if (WorldEditPlugin.getInstance().getBukkitImplAdapter() == null) {
             printError(TranslatableComponent.of("worldedit.version.bukkit.unsupported-adapter",
-                    TextComponent.of("https://enginehub.org/worldedit/#downloads", TextColor.AQUA)
-                        .clickEvent(ClickEvent.openUrl("https://enginehub.org/worldedit/#downloads"))));
+                TextComponent.of("https://enginehub.org/worldedit/#downloads", TextColor.AQUA)
+                    .clickEvent(ClickEvent.openUrl("https://enginehub.org/worldedit/#downloads"))));
         }
     }
 

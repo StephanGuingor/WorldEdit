@@ -252,7 +252,7 @@ enum FSSDTestType {
     };
 
     List<DynamicTest> singleSnapTest(FSSDContext context, String name,
-                                                    ZonedDateTime time) {
+                                     ZonedDateTime time) {
         return ImmutableList.of(
             dynamicTest("return a valid snapshot for " + name, () -> {
                 try (Snapshot snapshot = context.requireSnapshot(name)) {

@@ -229,8 +229,8 @@ public class CLIWorldEdit {
 
     public void saveAllWorlds(boolean force) {
         platform.getWorlds().stream()
-                .filter(world -> world instanceof CLIWorld)
-                .forEach(world -> ((CLIWorld) world).save(force));
+            .filter(world -> world instanceof CLIWorld)
+            .forEach(world -> ((CLIWorld) world).save(force));
     }
 
     public void run(InputStream inputStream) {
@@ -286,17 +286,17 @@ public class CLIWorldEdit {
                 ClipboardFormat format = ClipboardFormats.findByFile(file);
                 if (format != null) {
                     ClipboardReader dataVersionReader = format
-                            .getReader(Files.newInputStream(file.toPath(), StandardOpenOption.READ));
+                        .getReader(Files.newInputStream(file.toPath(), StandardOpenOption.READ));
                     int dataVersion = dataVersionReader.getDataVersion()
-                            .orElseThrow(() -> new IllegalArgumentException("Failed to obtain data version from schematic."));
+                        .orElseThrow(() -> new IllegalArgumentException("Failed to obtain data version from schematic."));
                     dataVersionReader.close();
                     app.platform.setDataVersion(dataVersion);
                     app.onStarted();
                     try (ClipboardReader clipboardReader = format.getReader(Files.newInputStream(file.toPath(), StandardOpenOption.READ))) {
                         ClipboardWorld world = new ClipboardWorld(
-                                file,
-                                clipboardReader.read(),
-                                file.getName()
+                            file,
+                            clipboardReader.read(),
+                            file.getName()
                         );
                         app.platform.addWorld(world);
                         WorldEdit.getInstance().getSessionManager().get(app.commandSender).setWorldOverride(world);

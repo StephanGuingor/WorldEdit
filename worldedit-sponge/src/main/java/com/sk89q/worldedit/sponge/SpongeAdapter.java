@@ -123,10 +123,10 @@ public class SpongeAdapter {
         checkNotNull(location);
         Vector3 position = asVector(location);
         return new Location(
-                adapt(location.getExtent()),
-                position,
-                (float) rotation.getX(),
-                (float) rotation.getY());
+            adapt(location.getExtent()),
+            position,
+            (float) rotation.getX(),
+            (float) rotation.getY());
     }
 
     /**
@@ -139,8 +139,8 @@ public class SpongeAdapter {
         checkNotNull(location);
         Vector3 position = location.toVector();
         return new org.spongepowered.api.world.Location<>(
-                adapt((World) location.getExtent()),
-                position.getX(), position.getY(), position.getZ());
+            adapt((World) location.getExtent()),
+            position.getX(), position.getY(), position.getZ());
     }
 
     /**

@@ -138,7 +138,8 @@ public abstract class AbstractWorld implements World {
     }
 
     @Override
-    public @Nullable Operation commit() {
+    public @Nullable
+    Operation commit() {
         return null;
     }
 

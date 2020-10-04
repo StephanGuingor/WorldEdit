@@ -116,16 +116,16 @@ public class WorldEditExceptionConverter extends ExceptionConverterHelper {
     @ExceptionMatch
     public void convert(MaxBrushRadiusException e) throws CommandException {
         throw newCommandException(
-                TranslatableComponent.of("worldedit.error.max-brush-radius", TextComponent.of(worldEdit.getConfiguration().maxBrushRadius)),
-                e
+            TranslatableComponent.of("worldedit.error.max-brush-radius", TextComponent.of(worldEdit.getConfiguration().maxBrushRadius)),
+            e
         );
     }
 
     @ExceptionMatch
     public void convert(MaxRadiusException e) throws CommandException {
         throw newCommandException(
-                TranslatableComponent.of("worldedit.error.max-radius", TextComponent.of(worldEdit.getConfiguration().maxRadius)),
-                e
+            TranslatableComponent.of("worldedit.error.max-radius", TextComponent.of(worldEdit.getConfiguration().maxRadius)),
+            e
         );
     }
 
@@ -157,24 +157,24 @@ public class WorldEditExceptionConverter extends ExceptionConverterHelper {
     @ExceptionMatch
     public void convert(InvalidFilenameException e) throws CommandException {
         throw newCommandException(
-                TranslatableComponent.of("worldedit.error.invalid-filename", TextComponent.of(e.getFilename()), e.getRichMessage()),
-                e
+            TranslatableComponent.of("worldedit.error.invalid-filename", TextComponent.of(e.getFilename()), e.getRichMessage()),
+            e
         );
     }
 
     @ExceptionMatch
     public void convert(FilenameResolutionException e) throws CommandException {
         throw newCommandException(
-                TranslatableComponent.of("worldedit.error.file-resolution", TextComponent.of(e.getFilename()), e.getRichMessage()),
-                e
+            TranslatableComponent.of("worldedit.error.file-resolution", TextComponent.of(e.getFilename()), e.getRichMessage()),
+            e
         );
     }
 
     @ExceptionMatch
     public void convert(InvalidToolBindException e) throws CommandException {
         throw newCommandException(
-                TranslatableComponent.of("worldedit.tool.error.cannot-bind", e.getItemType().getRichName(), e.getRichMessage()),
-                e
+            TranslatableComponent.of("worldedit.tool.error.cannot-bind", e.getItemType().getRichName(), e.getRichMessage()),
+            e
         );
     }
 

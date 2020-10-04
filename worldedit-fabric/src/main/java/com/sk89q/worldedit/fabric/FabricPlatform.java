@@ -62,7 +62,8 @@ class FabricPlatform extends AbstractPlatform implements MultiUserPlatform {
     private final FabricWorldEdit mod;
     private final MinecraftServer server;
     private final FabricDataFixer dataFixer;
-    private final @Nullable Watchdog watchdog;
+    private final @Nullable
+    Watchdog watchdog;
     private boolean hookingEvents = false;
     private CommandDispatcher<ServerCommandSource> nativeDispatcher;
 
@@ -212,10 +213,10 @@ class FabricPlatform extends AbstractPlatform implements MultiUserPlatform {
     }
 
     private static final Set<SideEffect> SUPPORTED_SIDE_EFFECTS = Sets.immutableEnumSet(
-            SideEffect.VALIDATION,
-            SideEffect.ENTITY_AI,
-            SideEffect.LIGHTING,
-            SideEffect.NEIGHBORS
+        SideEffect.VALIDATION,
+        SideEffect.ENTITY_AI,
+        SideEffect.LIGHTING,
+        SideEffect.NEIGHBORS
     );
 
     @Override

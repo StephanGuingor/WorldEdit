@@ -90,16 +90,16 @@ public class CommandListBox extends PaginationBox {
             TextComponentProducer line = new TextComponentProducer();
             if (!hideHelp) {
                 line.append(SubtleFormat.wrap("? ")
-                        .clickEvent(ClickEvent.of(ClickEvent.Action.RUN_COMMAND, CommandListBox.this.helpCommand + " " + insertion))
-                        .hoverEvent(HoverEvent.of(HoverEvent.Action.SHOW_TEXT, TextComponent.of("Additional Help"))));
+                    .clickEvent(ClickEvent.of(ClickEvent.Action.RUN_COMMAND, CommandListBox.this.helpCommand + " " + insertion))
+                    .hoverEvent(HoverEvent.of(HoverEvent.Action.SHOW_TEXT, TextComponent.of("Additional Help"))));
             }
             TextComponent command = TextComponent.of(alias, TextColor.GOLD);
             if (insertion == null) {
                 line.append(command);
             } else {
                 line.append(command
-                        .clickEvent(ClickEvent.of(ClickEvent.Action.SUGGEST_COMMAND, insertion))
-                        .hoverEvent(HoverEvent.of(HoverEvent.Action.SHOW_TEXT, TextComponent.of("Click to select"))));
+                    .clickEvent(ClickEvent.of(ClickEvent.Action.SUGGEST_COMMAND, insertion))
+                    .hoverEvent(HoverEvent.of(HoverEvent.Action.SHOW_TEXT, TextComponent.of("Click to select"))));
             }
             return line.append(TextComponent.of(": ")).append(description).create();
         }

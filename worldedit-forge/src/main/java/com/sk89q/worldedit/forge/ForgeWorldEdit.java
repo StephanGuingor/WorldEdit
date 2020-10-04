@@ -229,12 +229,12 @@ public class ForgeWorldEdit {
         }
 
         boolean isLeftDeny = event instanceof PlayerInteractEvent.LeftClickBlock
-                && ((PlayerInteractEvent.LeftClickBlock) event)
-                        .getUseItem() == Event.Result.DENY;
+            && ((PlayerInteractEvent.LeftClickBlock) event)
+            .getUseItem() == Event.Result.DENY;
         boolean isRightDeny =
-                event instanceof PlayerInteractEvent.RightClickBlock
-                        && ((PlayerInteractEvent.RightClickBlock) event)
-                                .getUseItem() == Event.Result.DENY;
+            event instanceof PlayerInteractEvent.RightClickBlock
+                && ((PlayerInteractEvent.RightClickBlock) event)
+                .getUseItem() == Event.Result.DENY;
         if (isLeftDeny || isRightDeny || event.getEntity().world.isRemote || event.getHand() == Hand.OFF_HAND) {
             return;
         }

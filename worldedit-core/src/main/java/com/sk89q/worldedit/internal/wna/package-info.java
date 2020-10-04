@@ -24,4 +24,5 @@
  * Contains internal helper functions for sharing code between platforms.
  * </p>
  */
+
 package com.sk89q.worldedit.internal.wna;

@@ -170,7 +170,7 @@ public class AnvilChunk13 implements Chunk {
             return;
         }
         List<Tag> tags = NBTUtils.getChildTag(rootTag.getValue(),
-                "TileEntities", ListTag.class).getValue();
+            "TileEntities", ListTag.class).getValue();
 
         for (Tag tag : tags) {
             if (!(tag instanceof CompoundTag)) {

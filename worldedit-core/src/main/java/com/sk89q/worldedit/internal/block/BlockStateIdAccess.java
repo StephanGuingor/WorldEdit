@@ -54,6 +54,7 @@ public final class BlockStateIdAccess {
 
     /**
      * An invalid internal ID, for verification purposes.
+     *
      * @return an internal ID which is never valid
      */
     public static int invalidId() {
@@ -68,7 +69,8 @@ public final class BlockStateIdAccess {
         return blockStateInternalId.getInternalId(holder);
     }
 
-    public static @Nullable BlockState getBlockStateById(int id) {
+    public static @Nullable
+    BlockState getBlockStateById(int id) {
         return TO_STATE.get(id);
     }
 

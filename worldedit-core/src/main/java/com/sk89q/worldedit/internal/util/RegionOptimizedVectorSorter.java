@@ -110,7 +110,7 @@ public class RegionOptimizedVectorSorter {
      * </p>
      *
      * @param parallel {@code true} to sort in parallel
-     * @param vectors the vectors to sort
+     * @param vectors  the vectors to sort
      */
     public static void sort(boolean parallel, List<BlockVector3> vectors) {
         // Currently we don't do an in-place radix sort, but we could in the future.

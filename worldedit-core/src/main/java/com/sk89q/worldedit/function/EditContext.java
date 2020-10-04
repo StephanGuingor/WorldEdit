@@ -31,9 +31,12 @@ import static com.google.common.base.Preconditions.checkNotNull;
 public class EditContext {
 
     private Extent destination;
-    @Nullable private Region region;
-    @Nullable private Pattern fill;
-    @Nullable private LocalSession session;
+    @Nullable
+    private Region region;
+    @Nullable
+    private Pattern fill;
+    @Nullable
+    private LocalSession session;
 
     public Extent getDestination() {
         return destination;

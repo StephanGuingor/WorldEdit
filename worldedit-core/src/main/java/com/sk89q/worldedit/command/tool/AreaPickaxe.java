@@ -82,7 +82,7 @@ public class AreaPickaxe implements BlockTool {
                             editSession.setBlock(pos, BlockTypes.AIR.getDefaultState());
 
                             ((World) clicked.getExtent()).queueBlockBreakEffect(server, pos, initialType,
-                                    clicked.toVector().toBlockPoint().distanceSq(pos));
+                                clicked.toVector().toBlockPoint().distanceSq(pos));
                         }
                     }
                 }

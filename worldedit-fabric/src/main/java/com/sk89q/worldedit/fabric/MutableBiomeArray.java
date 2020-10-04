@@ -29,6 +29,7 @@ public interface MutableBiomeArray {
 
     /**
      * Hook into the given biome array, to allow edits on it.
+     *
      * @param biomeArray the biome array to edit
      * @return the mutable interface to the biome array
      */

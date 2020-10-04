@@ -66,7 +66,7 @@ public class MobSpawnerBlock extends BaseBlock {
      * Construct the mob spawner block.
      *
      * @param blockState The block state
-     * @param mobType mob type
+     * @param mobType    mob type
      */
     public MobSpawnerBlock(BlockState blockState, String mobType) {
         super(blockState);
@@ -136,8 +136,8 @@ public class MobSpawnerBlock extends BaseBlock {
         }
         if (spawnPotentials == null) {
             values.put("SpawnPotentials", new ListTag(CompoundTag.class, ImmutableList.of(
-                    new CompoundTag(ImmutableMap.of("Weight", new IntTag(1), "Entity",
-                            new CompoundTag(ImmutableMap.of("id", new StringTag(mobType))))))));
+                new CompoundTag(ImmutableMap.of("Weight", new IntTag(1), "Entity",
+                    new CompoundTag(ImmutableMap.of("id", new StringTag(mobType))))))));
         } else {
             values.put("SpawnPotentials", new ListTag(CompoundTag.class, spawnPotentials.getValue()));
         }

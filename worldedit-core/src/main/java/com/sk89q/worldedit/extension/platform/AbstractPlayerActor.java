@@ -97,11 +97,11 @@ public abstract class AbstractPlayerActor implements Actor, Player, Cloneable {
     public boolean isHoldingPickAxe() {
         ItemType item = getItemInHand(HandSide.MAIN_HAND).getType();
         return item == ItemTypes.IRON_PICKAXE
-                || item == ItemTypes.WOODEN_PICKAXE
-                || item == ItemTypes.STONE_PICKAXE
-                || item == ItemTypes.DIAMOND_PICKAXE
-                || item == ItemTypes.GOLDEN_PICKAXE
-                || item == ItemTypes.NETHERITE_PICKAXE;
+            || item == ItemTypes.WOODEN_PICKAXE
+            || item == ItemTypes.STONE_PICKAXE
+            || item == ItemTypes.DIAMOND_PICKAXE
+            || item == ItemTypes.GOLDEN_PICKAXE
+            || item == ItemTypes.NETHERITE_PICKAXE;
     }
 
     @Override

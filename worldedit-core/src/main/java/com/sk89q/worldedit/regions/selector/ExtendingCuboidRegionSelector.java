@@ -73,7 +73,7 @@ public class ExtendingCuboidRegionSelector extends CuboidRegionSelector {
     /**
      * Create a new selector.
      *
-     * @param world the world
+     * @param world     the world
      * @param position1 the first position
      * @param position2 the second position
      */
@@ -132,9 +132,9 @@ public class ExtendingCuboidRegionSelector extends CuboidRegionSelector {
     @Override
     public void explainPrimarySelection(Actor player, LocalSession session, BlockVector3 pos) {
         player.printInfo(TranslatableComponent.of(
-                "worldedit.selection.extend.explain.primary",
-                TextComponent.of(pos.toString()),
-                TextComponent.of(region.getVolume())
+            "worldedit.selection.extend.explain.primary",
+            TextComponent.of(pos.toString()),
+            TextComponent.of(region.getVolume())
         ));
 
         explainRegionAdjust(player, session);
@@ -143,9 +143,9 @@ public class ExtendingCuboidRegionSelector extends CuboidRegionSelector {
     @Override
     public void explainSecondarySelection(Actor player, LocalSession session, BlockVector3 pos) {
         player.printInfo(TranslatableComponent.of(
-                "worldedit.selection.extend.explain.secondary",
-                TextComponent.of(pos.toString()),
-                TextComponent.of(region.getVolume())
+            "worldedit.selection.extend.explain.secondary",
+            TextComponent.of(pos.toString()),
+            TextComponent.of(region.getVolume())
         ));
 
         explainRegionAdjust(player, session);

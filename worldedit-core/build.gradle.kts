@@ -58,8 +58,8 @@ tasks.named<AntlrTask>("generateGrammarSource").configure {
     val pkg = "com.sk89q.worldedit.antlr"
     outputDirectory = file("build/generated-src/antlr/main/${pkg.replace('.', '/')}")
     arguments = listOf(
-        "-visitor", "-package", pkg,
-        "-Xexact-output-dir"
+            "-visitor", "-package", pkg,
+            "-Xexact-output-dir"
     )
 }
 
@@ -102,10 +102,10 @@ if (project.hasProperty(crowdinApiKey) && !gradle.startParameter.isOffline) {
         apiKey = "${project.property(crowdinApiKey)}"
         projectId = "worldedit-core"
         files = arrayOf(
-            object {
-                var name = "strings.json"
-                var source = "$i18nSource"
-            }
+                object {
+                    var name = "strings.json"
+                    var source = "$i18nSource"
+                }
         )
     }
 

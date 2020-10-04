@@ -109,7 +109,7 @@ public class BrushCommands {
 
     @Command(
         name = "sphere",
-        aliases = { "s" },
+        aliases = {"s"},
         desc = "Choose the sphere brush"
     )
     @CommandPermissions("worldedit.brush.sphere")
@@ -137,7 +137,7 @@ public class BrushCommands {
 
     @Command(
         name = "cylinder",
-        aliases = { "cyl", "c" },
+        aliases = {"cyl", "c"},
         desc = "Choose the cylinder brush"
     )
     @CommandPermissions("worldedit.brush.cylinder")
@@ -168,7 +168,7 @@ public class BrushCommands {
 
     @Command(
         name = "clipboard",
-        aliases = { "copy" },
+        aliases = {"copy"},
         desc = "Choose the clipboard brush"
     )
     @CommandPermissions("worldedit.brush.clipboard")
@@ -222,16 +222,16 @@ public class BrushCommands {
         tool.setBrush(new SmoothBrush(iterations, mask), "worldedit.brush.smooth");
 
         player.printInfo(TranslatableComponent.of(
-                "worldedit.brush.smooth.equip",
-                TextComponent.of((int) radius),
-                TextComponent.of(iterations),
-                TextComponent.of(mask == null ? "any block" : "filter")
+            "worldedit.brush.smooth.equip",
+            TextComponent.of((int) radius),
+            TextComponent.of(iterations),
+            TextComponent.of(mask == null ? "any block" : "filter")
         ));
     }
 
     @Command(
         name = "extinguish",
-        aliases = { "ex" },
+        aliases = {"ex"},
         desc = "Shortcut fire extinguisher brush"
     )
     @CommandPermissions("worldedit.brush.ex")
@@ -251,7 +251,7 @@ public class BrushCommands {
 
     @Command(
         name = "gravity",
-        aliases = { "grav" },
+        aliases = {"grav"},
         desc = "Gravity brush, simulates the effect of gravity"
     )
     @CommandPermissions("worldedit.brush.gravity")
@@ -278,7 +278,7 @@ public class BrushCommands {
 
     @Command(
         name = "butcher",
-        aliases = { "kill" },
+        aliases = {"kill"},
         desc = "Butcher brush, kills mobs within a radius"
     )
     @CommandPermissions("worldedit.brush.butcher")
@@ -338,18 +338,18 @@ public class BrushCommands {
     )
     @CommandPermissions("worldedit.brush.heightmap")
     void heightmapBrush(Player player, LocalSession session,
-                    @Arg(desc = "The name of the image")
-                        String imageName,
-                    @Arg(desc = "The size of the brush", def = "5")
-                        double radius,
-                    @Arg(desc = "The intensity of the brush", def = "5")
-                        double intensity,
-                    @Switch(name = 'e', desc = "Erase blocks instead of filling them")
-                        boolean erase,
-                    @Switch(name = 'f', desc = "Don't change blocks above the selected height")
-                        boolean flatten,
-                    @Switch(name = 'r', desc = "Randomizes the brush's height slightly.")
-                        boolean randomize) throws WorldEditException {
+                        @Arg(desc = "The name of the image")
+                            String imageName,
+                        @Arg(desc = "The size of the brush", def = "5")
+                            double radius,
+                        @Arg(desc = "The intensity of the brush", def = "5")
+                            double intensity,
+                        @Switch(name = 'e', desc = "Erase blocks instead of filling them")
+                            boolean erase,
+                        @Switch(name = 'f', desc = "Don't change blocks above the selected height")
+                            boolean flatten,
+                        @Switch(name = 'r', desc = "Randomizes the brush's height slightly.")
+                            boolean randomize) throws WorldEditException {
         Optional<AssetLoader<ImageHeightmap>> loader = worldEdit.getAssetLoaders().getAssetLoader(ImageHeightmap.class, imageName);
 
         if (loader.isPresent()) {
@@ -501,9 +501,9 @@ public class BrushCommands {
     }
 
     static void setOperationBasedBrush(Player player, LocalSession session, double radius,
-                                        Contextual<? extends Operation> factory,
-                                        RegionFactory shape,
-                                        String permission) throws WorldEditException {
+                                       Contextual<? extends Operation> factory,
+                                       RegionFactory shape,
+                                       String permission) throws WorldEditException {
         WorldEdit.getInstance().checkMaxBrushRadius(radius);
         BrushTool tool = session.getBrushTool(player.getItemInHand(HandSide.MAIN_HAND).getType());
         tool.setSize(radius);

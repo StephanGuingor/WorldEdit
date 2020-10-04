@@ -39,7 +39,7 @@ public interface ResourceLoader {
      * The path name <b>must not</b> start with {@code /}.
      * </p>
      *
-     * @param clazz The class to search relative to
+     * @param clazz    The class to search relative to
      * @param pathName The path name
      * @return The URL to this bundled resource
      * @throws IOException if an IO issue occurs

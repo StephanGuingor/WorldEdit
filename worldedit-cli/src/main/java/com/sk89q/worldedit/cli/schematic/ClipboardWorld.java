@@ -113,7 +113,7 @@ public class ClipboardWorld extends AbstractWorld implements Clipboard, CLIWorld
 
     @Override
     public boolean generateTree(TreeGenerator.TreeType type, EditSession editSession, BlockVector3 position)
-            throws MaxChangedBlocksException {
+        throws MaxChangedBlocksException {
         return false;
     }
 

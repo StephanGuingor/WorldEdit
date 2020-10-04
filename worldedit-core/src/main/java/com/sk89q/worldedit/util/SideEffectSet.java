@@ -31,7 +31,7 @@ import java.util.stream.Collectors;
 
 public class SideEffectSet {
     private static final SideEffectSet DEFAULT = new SideEffectSet(
-            Arrays.stream(SideEffect.values()).collect(Collectors.toMap(Function.identity(), SideEffect::getDefaultValue))
+        Arrays.stream(SideEffect.values()).collect(Collectors.toMap(Function.identity(), SideEffect::getDefaultValue))
     );
     private static final SideEffectSet NONE = new SideEffectSet();
 
@@ -47,10 +47,10 @@ public class SideEffectSet {
         this.sideEffects = Maps.immutableEnumMap(sideEffects);
 
         appliedSideEffects = sideEffects.entrySet()
-                .stream()
-                .filter(entry -> entry.getValue() != SideEffect.State.OFF)
-                .map(Map.Entry::getKey)
-                .collect(Collectors.toSet());
+            .stream()
+            .filter(entry -> entry.getValue() != SideEffect.State.OFF)
+            .map(Map.Entry::getKey)
+            .collect(Collectors.toSet());
         appliesAny = !appliedSideEffects.isEmpty();
     }
 

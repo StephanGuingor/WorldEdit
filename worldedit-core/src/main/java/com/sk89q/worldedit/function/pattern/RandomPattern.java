@@ -44,7 +44,7 @@ public class RandomPattern extends AbstractPattern {
      * the sum of the probabilities of all added patterns.</p>
      *
      * @param pattern the pattern
-     * @param chance the chance, which can be any positive number
+     * @param chance  the chance, which can be any positive number
      */
     public void add(Pattern pattern, double chance) {
         checkNotNull(pattern);

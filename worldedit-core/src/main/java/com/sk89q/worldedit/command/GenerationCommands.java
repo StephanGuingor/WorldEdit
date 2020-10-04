@@ -274,7 +274,7 @@ public class GenerationCommands {
 
     @Command(
         name = "/generate",
-        aliases = { "/gen", "/g" },
+        aliases = {"/gen", "/g"},
         desc = "Generates a shape according to a formula.",
         descFooter = "See also https://tinyurl.com/weexpr."
     )
@@ -343,7 +343,7 @@ public class GenerationCommands {
 
     @Command(
         name = "/generatebiome",
-        aliases = { "/genbiome", "/gb" },
+        aliases = {"/genbiome", "/gb"},
         desc = "Sets biome according to a formula.",
         descFooter = "See also https://tinyurl.com/weexpr."
     )

@@ -115,7 +115,7 @@ public class McRegionReader {
      *
      * @param position chunk position
      * @return an input stream
-     * @throws IOException if there is an error getting the chunk data
+     * @throws IOException   if there is an error getting the chunk data
      * @throws DataException if there is an error getting the chunk data
      */
     public synchronized InputStream getChunkInputStream(BlockVector2 position) throws IOException, DataException {
@@ -137,7 +137,7 @@ public class McRegionReader {
 
         if (length > SECTOR_BYTES * numSectors) {
             throw new DataException("MCRegion chunk at "
-                    + x + "," + z + " has an invalid length of " + length);
+                + x + "," + z + " has an invalid length of " + length);
         }
 
         byte version = dataStream.readByte();
@@ -146,19 +146,19 @@ public class McRegionReader {
             byte[] data = new byte[length - 1];
             if (dataStream.read(data) < length - 1) {
                 throw new DataException("MCRegion file does not contain "
-                        + x + "," + z + " in full");
+                    + x + "," + z + " in full");
             }
             return new GZIPInputStream(new ByteArrayInputStream(data));
         } else if (version == VERSION_DEFLATE) {
             byte[] data = new byte[length - 1];
             if (dataStream.read(data) < length - 1) {
                 throw new DataException("MCRegion file does not contain "
-                        + x + "," + z + " in full");
+                    + x + "," + z + " in full");
             }
             return new InflaterInputStream(new ByteArrayInputStream(data));
         } else {
             throw new DataException("MCRegion chunk at "
-                    + x + "," + z + " has an unsupported version of " + version);
+                + x + "," + z + " has an unsupported version of " + version);
         }
     }
 

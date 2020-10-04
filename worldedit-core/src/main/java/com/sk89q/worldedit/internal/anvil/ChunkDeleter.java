@@ -59,9 +59,9 @@ public final class ChunkDeleter {
     );
 
     private static final Gson chunkDeleterGson = new GsonBuilder()
-            .registerTypeAdapter(BlockVector2.class, new BlockVector2Adapter())
-            .setPrettyPrinting()
-            .create();
+        .registerTypeAdapter(BlockVector2.class, new BlockVector2Adapter())
+        .setPrettyPrinting()
+        .create();
 
     public static ChunkDeletionInfo readInfo(Path chunkFile) throws IOException, JsonSyntaxException {
         String json = new String(Files.readAllBytes(chunkFile), StandardCharsets.UTF_8);
@@ -69,7 +69,8 @@ public final class ChunkDeleter {
     }
 
     public static void writeInfo(ChunkDeletionInfo info, Path chunkFile) throws IOException, JsonIOException {
-        String json = chunkDeleterGson.toJson(info, new TypeToken<ChunkDeletionInfo>() {}.getType());
+        String json = chunkDeleterGson.toJson(info, new TypeToken<ChunkDeletionInfo>() {
+        }.getType());
         try (BufferedWriter writer = Files.newBufferedWriter(chunkFile)) {
             writer.write(json);
         }
@@ -87,8 +88,8 @@ public final class ChunkDeleter {
         long start = System.currentTimeMillis();
         if (chunkDeleter.runDeleter()) {
             logger.info("Successfully deleted {} matching chunks (out of {}, taking {} ms).",
-                    chunkDeleter.getDeletedChunkCount(), chunkDeleter.getDeletionsRequested(),
-                    System.currentTimeMillis() - start);
+                chunkDeleter.getDeletedChunkCount(), chunkDeleter.getDeletionsRequested(),
+                System.currentTimeMillis() - start);
             if (deleteOnSuccess) {
                 boolean deletedFile = false;
                 try {
@@ -208,9 +209,9 @@ public final class ChunkDeleter {
             return (r, p) -> true;
         }
         return deletionPredicates.stream()
-                .map(this::createPredicate)
-                .reduce(BiPredicate::and)
-                .orElse((r, p) -> true);
+            .map(this::createPredicate)
+            .reduce(BiPredicate::and)
+            .orElse((r, p) -> true);
     }
 
     private BiPredicate<RegionAccess, BlockVector2> createPredicate(ChunkDeletionInfo.DeletionPredicate deletionPredicate) {
@@ -254,7 +255,7 @@ public final class ChunkDeleter {
     private boolean deleteChunks(Path regionFile, Stream<BlockVector2> chunks,
                                  BiPredicate<RegionAccess, BlockVector2> deletionPredicate) {
         try (RegionAccess region = new RegionAccess(regionFile, shouldPreload)) {
-            for (Iterator<BlockVector2> iterator = chunks.iterator(); iterator.hasNext();) {
+            for (Iterator<BlockVector2> iterator = chunks.iterator(); iterator.hasNext(); ) {
                 BlockVector2 chunk = iterator.next();
                 if (chunk == null) {
                     break;

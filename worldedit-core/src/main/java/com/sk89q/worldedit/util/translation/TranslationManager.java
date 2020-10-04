@@ -66,7 +66,8 @@ import static java.util.stream.Collectors.toMap;
 public class TranslationManager {
 
     private static final Gson gson = new GsonBuilder().create();
-    private static final Type STRING_MAP_TYPE = new TypeToken<Map<String, String>>() {}.getType();
+    private static final Type STRING_MAP_TYPE = new TypeToken<Map<String, String>>() {
+    }.getType();
 
     public static String makeTranslationKey(String type, String id) {
         String[] parts = id.split(":", 2);

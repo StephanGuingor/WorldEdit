@@ -41,7 +41,7 @@ public class SpongePermissionsProvider {
 
     public String[] getGroups(Player player) {
         return player.getParents().stream()
-                .map(SubjectReference::getSubjectIdentifier)
-                .toArray(String[]::new);
+            .map(SubjectReference::getSubjectIdentifier)
+            .toArray(String[]::new);
     }
 }

@@ -124,7 +124,7 @@ public class FlatFilePermissionsResolver implements PermissionsResolver {
             defaultPermissionsCache = userGroupPermissions.get("default");
         }
 
-        BufferedReader buff =  null;
+        BufferedReader buff = null;
 
         try {
             FileReader input = new FileReader(this.userFile);
@@ -188,7 +188,7 @@ public class FlatFilePermissionsResolver implements PermissionsResolver {
         Set<String> perms = userPermissionsCache.get(player.toLowerCase(Locale.ROOT));
         if (perms == null) {
             return defaultPermissionsCache.contains(permission)
-                    || defaultPermissionsCache.contains("*");
+                || defaultPermissionsCache.contains("*");
         }
 
         return perms.contains("*") || perms.contains(permission);
@@ -197,7 +197,7 @@ public class FlatFilePermissionsResolver implements PermissionsResolver {
     @Override
     public boolean hasPermission(String worldName, String player, String permission) {
         return hasPermission(player, "worlds." + worldName + "." + permission)
-                || hasPermission(player, permission);
+            || hasPermission(player, permission);
     }
 
     @Override

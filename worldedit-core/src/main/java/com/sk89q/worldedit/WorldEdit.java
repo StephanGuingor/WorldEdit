@@ -121,12 +121,12 @@ public final class WorldEdit {
     private final EditSessionFactory editSessionFactory = new EditSessionFactory.EditSessionFactoryImpl();
     private final SessionManager sessions = new SessionManager(this);
     private final ListeningExecutorService executorService = MoreExecutors.listeningDecorator(
-            EvenMoreExecutors.newBoundedCachedThreadPool(0, 1, 20, "WorldEdit Task Executor - %s"));
+        EvenMoreExecutors.newBoundedCachedThreadPool(0, 1, 20, "WorldEdit Task Executor - %s"));
     private final Supervisor supervisor = new SimpleSupervisor();
     private final LazyReference<TranslationManager> translationManager =
-            LazyReference.from(() -> new TranslationManager(
-                    WorldEdit.getInstance().getPlatformManager().queryCapability(Capability.CONFIGURATION).getResourceLoader()
-            ));
+        LazyReference.from(() -> new TranslationManager(
+            WorldEdit.getInstance().getPlatformManager().queryCapability(Capability.CONFIGURATION).getResourceLoader()
+        ));
     private final AssetLoaders assetLoaders = new AssetLoaders(this);
 
     private final BlockFactory blockFactory = new BlockFactory(this);
@@ -268,9 +268,9 @@ public final class WorldEdit {
      * traversal exploits by checking the root directory and the file directory.
      * On success, a {@code java.io.File} object will be returned.
      *
-     * @param actor the actor
-     * @param dir sub-directory to look in
-     * @param filename filename (user-submitted)
+     * @param actor      the actor
+     * @param dir        sub-directory to look in
+     * @param filename   filename (user-submitted)
      * @param defaultExt append an extension if missing one, null to not use
      * @param extensions list of extensions, null for any
      * @return a file
@@ -286,9 +286,9 @@ public final class WorldEdit {
      * traversal exploits by checking the root directory and the file directory.
      * On success, a {@code java.io.File} object will be returned.
      *
-     * @param actor the actor
-     * @param dir sub-directory to look in
-     * @param filename filename (user-submitted)
+     * @param actor      the actor
+     * @param dir        sub-directory to look in
+     * @param filename   filename (user-submitted)
      * @param defaultExt append an extension if missing one, null to not use
      * @param extensions list of extensions, null for any
      * @return a file
@@ -301,12 +301,12 @@ public final class WorldEdit {
     /**
      * Get a safe path to a file.
      *
-     * @param actor the actor
-     * @param dir sub-directory to look in
-     * @param filename filename (user-submitted)
+     * @param actor      the actor
+     * @param dir        sub-directory to look in
+     * @param filename   filename (user-submitted)
      * @param defaultExt append an extension if missing one, null to not use
      * @param extensions list of extensions, null for any
-     * @param isSave true if the purpose is for saving
+     * @param isSave     true if the purpose is for saving
      * @return a file
      * @throws FilenameException thrown if the filename is invalid
      */
@@ -372,7 +372,7 @@ public final class WorldEdit {
             }
         }
         File result = null;
-        for (Iterator<String> iter = exts.iterator(); iter.hasNext() && (result == null || (!isSave && !result.exists()));) {
+        for (Iterator<String> iter = exts.iterator(); iter.hasNext() && (result == null || (!isSave && !result.exists())); ) {
             result = getSafeFileWithExtension(dir, filename, iter.next());
         }
         if (result == null) {
@@ -581,7 +581,7 @@ public final class WorldEdit {
     /**
      * Flush a block bag's changes to a player.
      *
-     * @param actor the actor
+     * @param actor       the actor
      * @param editSession the edit session
      */
     public void flushBlockBag(Actor actor, EditSession editSession) {
@@ -644,7 +644,7 @@ public final class WorldEdit {
     /**
      * Called on right click.
      *
-     * @param player the player
+     * @param player  the player
      * @param clicked the clicked block
      * @return false if you want the action to go through
      */
@@ -656,9 +656,9 @@ public final class WorldEdit {
     /**
      * Called on right click.
      *
-     * @param player the player
+     * @param player  the player
      * @param clicked the clicked block
-     * @param face The clicked face
+     * @param face    The clicked face
      * @return false if you want the action to go through
      */
     public boolean handleBlockRightClick(Player player, Location clicked, @Nullable Direction face) {
@@ -670,7 +670,7 @@ public final class WorldEdit {
     /**
      * Called on left click.
      *
-     * @param player the player
+     * @param player  the player
      * @param clicked the clicked block
      * @return false if you want the action to go through
      */
@@ -682,9 +682,9 @@ public final class WorldEdit {
     /**
      * Called on left click.
      *
-     * @param player the player
+     * @param player  the player
      * @param clicked the clicked block
-     * @param face The clicked face
+     * @param face    The clicked face
      * @return false if you want the action to go through
      */
     public boolean handleBlockLeftClick(Player player, Location clicked, @Nullable Direction face) {
@@ -697,8 +697,8 @@ public final class WorldEdit {
      * Executes a WorldEdit script.
      *
      * @param player the player
-     * @param f the script file to execute
-     * @param args arguments for the script
+     * @param f      the script file to execute
+     * @param args   arguments for the script
      * @throws WorldEditException if something goes wrong
      */
     public void runScript(Player player, File f, String[] args) throws WorldEditException {
@@ -739,7 +739,7 @@ public final class WorldEdit {
 
         LocalSession session = getSessionManager().get(player);
         CraftScriptContext scriptContext = new CraftScriptContext(this, getPlatformManager().queryCapability(Capability.USER_COMMANDS),
-                getConfiguration(), session, player, args);
+            getConfiguration(), session, player, args);
 
         CraftScriptEngine engine;
 
@@ -769,7 +769,7 @@ public final class WorldEdit {
             throw e;
         } catch (Throwable e) {
             player.printError(TranslatableComponent.of("worldedit.script.failed-console", TextComponent.of(e.getClass().getCanonicalName(),
-                    TextColor.WHITE)));
+                TextColor.WHITE)));
             logger.warn("Failed to execute script", e);
         } finally {
             for (EditSession editSession : scriptContext.getEditSessions()) {

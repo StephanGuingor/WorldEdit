@@ -160,10 +160,10 @@ public abstract class SpongeWorld extends AbstractWorld {
         BlockState newState = getBlockState(block);
 
         BlockSnapshot snapshot = builder.reset()
-                .blockState(newState)
-                .position(pos)
-                .world(world.getProperties())
-                .build();
+            .blockState(newState)
+            .position(pos)
+            .world(world.getProperties())
+            .build();
 
         snapshot.restore(true, notifyAndLight ? BlockChangeFlags.ALL : BlockChangeFlags.NONE);
 
@@ -230,8 +230,8 @@ public abstract class SpongeWorld extends AbstractWorld {
         }
 
         org.spongepowered.api.entity.Entity entity = getWorld().createEntity(
-                EntityTypes.ITEM,
-                new Vector3d(position.getX(), position.getY(), position.getZ())
+            EntityTypes.ITEM,
+            new Vector3d(position.getX(), position.getY(), position.getZ())
         );
 
         entity.offer(Keys.REPRESENTED_ITEM, SpongeWorldEdit.toSpongeItemStack(item).createSnapshot());
@@ -259,7 +259,7 @@ public abstract class SpongeWorld extends AbstractWorld {
             return otherWorld != null && otherWorld.equals(thisWorld);
         } else {
             return o instanceof com.sk89q.worldedit.world.World
-                    && ((com.sk89q.worldedit.world.World) o).getName().equals(getName());
+                && ((com.sk89q.worldedit.world.World) o).getName().equals(getName());
         }
     }
 
@@ -303,8 +303,8 @@ public abstract class SpongeWorld extends AbstractWorld {
         Vector3 dir = location.getDirection();
 
         newEnt.setLocationAndRotation(
-                new org.spongepowered.api.world.Location<>(getWorld(), pos),
-                new Vector3d(dir.getX(), dir.getY(), dir.getZ())
+            new org.spongepowered.api.world.Location<>(getWorld(), pos),
+            new Vector3d(dir.getX(), dir.getY(), dir.getZ())
         );
 
         if (world.spawnEntity(newEnt)) {

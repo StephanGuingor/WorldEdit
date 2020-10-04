@@ -57,7 +57,7 @@ public class NavigationCommands {
 
     @Command(
         name = "unstuck",
-        aliases = { "!" },
+        aliases = {"!"},
         desc = "Escape from being stuck inside a block"
     )
     @CommandPermissions("worldedit.navigation.unstuck")
@@ -68,7 +68,7 @@ public class NavigationCommands {
 
     @Command(
         name = "ascend",
-        aliases = { "asc" },
+        aliases = {"asc"},
         desc = "Go up a floor"
     )
     @CommandPermissions("worldedit.navigation.ascend")
@@ -91,7 +91,7 @@ public class NavigationCommands {
 
     @Command(
         name = "descend",
-        aliases = { "desc" },
+        aliases = {"desc"},
         desc = "Go down a floor"
     )
     @CommandPermissions("worldedit.navigation.descend")
@@ -150,7 +150,7 @@ public class NavigationCommands {
 
     @Command(
         name = "jumpto",
-        aliases = { "j" },
+        aliases = {"j"},
         desc = "Teleport to a location"
     )
     @CommandPermissions("worldedit.navigation.jumpto.command")
@@ -190,7 +190,7 @@ public class NavigationCommands {
      * Helper function for /up and /ceil.
      *
      * @param forceFlight if flight should be used, rather than the default config option
-     * @param forceGlass if glass should always be placed, rather than the default config option
+     * @param forceGlass  if glass should always be placed, rather than the default config option
      * @return true, if glass should always be put under the player
      */
     private boolean getAlwaysGlass(boolean forceFlight, boolean forceGlass) {

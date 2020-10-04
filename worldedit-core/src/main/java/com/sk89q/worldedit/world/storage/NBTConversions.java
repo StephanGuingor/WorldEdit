@@ -40,8 +40,8 @@ public final class NBTConversions {
      *
      * <p>For values that are unavailable, their values will be 0.</p>
      *
-     * @param extent the extent
-     * @param positionTag the position tag
+     * @param extent       the extent
+     * @param positionTag  the position tag
      * @param directionTag the direction tag
      * @return a location
      */
@@ -50,9 +50,9 @@ public final class NBTConversions {
         checkNotNull(positionTag);
         checkNotNull(directionTag);
         return new Location(
-                extent,
-                positionTag.asDouble(0), positionTag.asDouble(1), positionTag.asDouble(2),
-                directionTag.getFloat(0), directionTag.getFloat(1));
+            extent,
+            positionTag.asDouble(0), positionTag.asDouble(1), positionTag.asDouble(2),
+            directionTag.getFloat(0), directionTag.getFloat(1));
     }
 
 }

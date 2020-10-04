@@ -69,8 +69,7 @@ public class ClipboardFormats {
     /**
      * Find the clipboard format named by the given alias.
      *
-     * @param alias
-     *            the alias
+     * @param alias the alias
      * @return the format, otherwise null if none is matched
      */
     @Nullable
@@ -82,8 +81,7 @@ public class ClipboardFormats {
     /**
      * Detect the format of given a file.
      *
-     * @param file
-     *            the file
+     * @param file the file
      * @return the format, otherwise null if one cannot be detected
      */
     @Nullable

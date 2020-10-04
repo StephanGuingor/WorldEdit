@@ -60,7 +60,7 @@ public class SnapshotUtilCommands {
 
     @Command(
         name = "restore",
-        aliases = { "/restore" },
+        aliases = {"/restore"},
         desc = "Restore the selection from a snapshot"
     )
     @Logging(REGION)

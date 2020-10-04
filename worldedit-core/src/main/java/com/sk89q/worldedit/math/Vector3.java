@@ -62,10 +62,10 @@ public final class Vector3 {
     private static final class YzxOrderComparator {
         private static final Comparator<Vector3> YZX_ORDER = (a, b) -> {
             return ComparisonChain.start()
-                    .compare(a.y, b.y)
-                    .compare(a.z, b.z)
-                    .compare(a.x, b.x)
-                    .result();
+                .compare(a.y, b.y)
+                .compare(a.z, b.z)
+                .compare(a.x, b.x)
+                .result();
         };
     }
 
@@ -472,9 +472,9 @@ public final class Vector3 {
     /**
      * Perform a 2D transformation on this vector and return a new one.
      *
-     * @param angle in degrees
-     * @param aboutX about which x coordinate to rotate
-     * @param aboutZ about which z coordinate to rotate
+     * @param angle      in degrees
+     * @param aboutX     about which x coordinate to rotate
+     * @param aboutZ     about which z coordinate to rotate
      * @param translateX what to add after rotation
      * @param translateZ what to add after rotation
      * @return a new vector
@@ -538,9 +538,9 @@ public final class Vector3 {
      */
     public Vector3 getMinimum(Vector3 v2) {
         return new Vector3(
-                Math.min(x, v2.x),
-                Math.min(y, v2.y),
-                Math.min(z, v2.z)
+            Math.min(x, v2.x),
+            Math.min(y, v2.y),
+            Math.min(z, v2.z)
         );
     }
 
@@ -552,9 +552,9 @@ public final class Vector3 {
      */
     public Vector3 getMaximum(Vector3 v2) {
         return new Vector3(
-                Math.max(x, v2.x),
-                Math.max(y, v2.y),
-                Math.max(z, v2.z)
+            Math.max(x, v2.x),
+            Math.max(y, v2.y),
+            Math.max(z, v2.z)
         );
     }
 

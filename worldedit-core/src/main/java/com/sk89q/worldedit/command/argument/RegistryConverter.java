@@ -101,9 +101,9 @@ public final class RegistryConverter<V extends Keyed> implements ArgumentConvert
     public ConversionResult<V> convert(String argument, InjectedValueAccess injectedValueAccess) {
         V result = registry.get(argument.toLowerCase(Locale.ROOT));
         return result == null
-                ? FailedConversion.from(new IllegalArgumentException(
-                    "Not a valid " + registry.getName() + ": " + argument))
-                : SuccessfulConversion.fromSingle(result);
+            ? FailedConversion.from(new IllegalArgumentException(
+            "Not a valid " + registry.getName() + ": " + argument))
+            : SuccessfulConversion.fromSingle(result);
     }
 
     @Override

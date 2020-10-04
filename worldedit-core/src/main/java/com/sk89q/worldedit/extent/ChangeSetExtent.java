@@ -50,7 +50,7 @@ public class ChangeSetExtent extends AbstractDelegateExtent {
     /**
      * Create a new instance.
      *
-     * @param extent the extent
+     * @param extent    the extent
      * @param changeSet the change set
      */
     public ChangeSetExtent(Extent extent, ChangeSet changeSet) {

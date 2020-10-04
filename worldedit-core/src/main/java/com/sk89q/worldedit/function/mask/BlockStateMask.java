@@ -42,7 +42,7 @@ public class BlockStateMask extends AbstractExtentMask {
      * @param extent the extent to get blocks from
      * @param states the desired states (property -> value) that a block should have to match the mask
      * @param strict true to only match blocks that have all properties and values, false to also match blocks that
-     *              do not have the properties (but only fail blocks with the properties but wrong values)
+     *               do not have the properties (but only fail blocks with the properties but wrong values)
      */
     public BlockStateMask(Extent extent, Map<String, String> states, boolean strict) {
         super(extent);
@@ -54,12 +54,12 @@ public class BlockStateMask extends AbstractExtentMask {
     public boolean test(BlockVector3 vector) {
         BlockState block = getExtent().getBlock(vector);
         final Map<Property<Object>, Object> checkProps = cache
-                .computeIfAbsent(block.getBlockType(), (b -> Blocks.resolveProperties(states, b)));
+            .computeIfAbsent(block.getBlockType(), (b -> Blocks.resolveProperties(states, b)));
         if (strict && checkProps.isEmpty()) {
             return false;
         }
         return checkProps.entrySet().stream()
-                .allMatch(entry -> block.getState(entry.getKey()) == entry.getValue());
+            .allMatch(entry -> block.getState(entry.getKey()) == entry.getValue());
     }
 
     @Nullable

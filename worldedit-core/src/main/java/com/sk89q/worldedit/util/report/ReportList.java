@@ -171,11 +171,11 @@ public class ReportList implements Report, List<Report> {
             StringBuilder builder = new StringBuilder();
             for (Report report : reports) {
                 builder.append("================================\n")
-                        .append(report.getTitle())
-                        .append("\n================================")
-                        .append("\n\n")
-                        .append(report.toString())
-                        .append("\n\n");
+                    .append(report.getTitle())
+                    .append("\n================================")
+                    .append("\n\n")
+                    .append(report.toString())
+                    .append("\n\n");
             }
             return builder.toString();
         } else {

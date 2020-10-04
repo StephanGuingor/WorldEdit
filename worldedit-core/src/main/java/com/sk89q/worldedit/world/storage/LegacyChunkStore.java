@@ -39,7 +39,7 @@ public abstract class LegacyChunkStore extends ChunkStore {
     /**
      * Get the filename of a chunk.
      *
-     * @param position chunk position
+     * @param position  chunk position
      * @param separator folder separator character
      * @return pathname
      */
@@ -50,7 +50,7 @@ public abstract class LegacyChunkStore extends ChunkStore {
         String folder1 = Integer.toString(divisorMod(x, 64), 36);
         String folder2 = Integer.toString(divisorMod(z, 64), 36);
         String filename = "c." + Integer.toString(x, 36)
-                + "." + Integer.toString(z, 36) + ".dat";
+            + "." + Integer.toString(z, 36) + ".dat";
 
         return folder1 + separator + folder2 + separator + filename;
     }
@@ -74,7 +74,7 @@ public abstract class LegacyChunkStore extends ChunkStore {
         String folder1 = Integer.toString(divisorMod(x, 64), 36);
         String folder2 = Integer.toString(divisorMod(z, 64), 36);
         String filename = "c." + Integer.toString(x, 36)
-                + "." + Integer.toString(z, 36) + ".dat";
+            + "." + Integer.toString(z, 36) + ".dat";
 
         return ChunkStoreHelper.readCompoundTag(() ->
             new GZIPInputStream(getInputStream(folder1, folder2, filename))
@@ -88,8 +88,8 @@ public abstract class LegacyChunkStore extends ChunkStore {
     /**
      * Get the input stream for a chunk file.
      *
-     * @param f1 the first part of the path
-     * @param f2 the second part of the path
+     * @param f1   the first part of the path
+     * @param f2   the second part of the path
      * @param name the name
      * @return an input stream
      * @throws IOException if there is an error getting the chunk data

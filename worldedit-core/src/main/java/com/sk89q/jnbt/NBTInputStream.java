@@ -89,7 +89,7 @@ public final class NBTInputStream implements Closeable {
     /**
      * Reads the payload of a tag given the type.
      *
-     * @param type the type
+     * @param type  the type
      * @param depth the depth
      * @return the tag
      * @throws IOException if an I/O error occurs.

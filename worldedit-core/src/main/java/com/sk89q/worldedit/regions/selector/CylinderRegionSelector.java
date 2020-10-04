@@ -110,11 +110,11 @@ public class CylinderRegionSelector implements RegionSelector, CUIRegion {
     /**
      * Create a new selector.
      *
-     * @param world the world
+     * @param world  the world
      * @param center the center
      * @param radius the radius
-     * @param minY the minimum Y
-     * @param maxY the maximum Y
+     * @param minY   the minimum Y
+     * @param maxY   the maximum Y
      */
     public CylinderRegionSelector(@Nullable World world, BlockVector2 center, Vector2 radius, int minY, int maxY) {
         this(world);
@@ -179,10 +179,10 @@ public class CylinderRegionSelector implements RegionSelector, CUIRegion {
 
         if (!center.equals(Vector3.ZERO)) {
             player.printInfo(TranslatableComponent.of(
-                    "worldedit.selection.cylinder.explain.secondary",
-                    TextComponent.of(NUMBER_FORMAT.format(region.getRadius().getX())),
-                    TextComponent.of(NUMBER_FORMAT.format(region.getRadius().getZ())),
-                    TextComponent.of(region.getVolume())
+                "worldedit.selection.cylinder.explain.secondary",
+                TextComponent.of(NUMBER_FORMAT.format(region.getRadius().getX())),
+                TextComponent.of(NUMBER_FORMAT.format(region.getRadius().getZ())),
+                TextComponent.of(region.getVolume())
             ));
         } else {
             player.printError(TranslatableComponent.of("worldedit.selection.cylinder.explain.secondary-missing"));

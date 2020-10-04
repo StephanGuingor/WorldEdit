@@ -56,7 +56,7 @@ public class BiomeMask extends AbstractMask {
      * Create a new biome mask.
      *
      * @param extent the extent
-     * @param biome an array of biomes to match
+     * @param biome  an array of biomes to match
      */
     public BiomeMask(Extent extent, BiomeType... biome) {
         this(extent, Arrays.asList(checkNotNull(biome)));

@@ -73,7 +73,7 @@ public class SpongePlayer extends AbstractPlayerActor {
     @Override
     public BaseItemStack getItemInHand(HandSide handSide) {
         Optional<ItemStack> is = this.player.getItemInHand(handSide == HandSide.MAIN_HAND
-                ? HandTypes.MAIN_HAND : HandTypes.OFF_HAND);
+            ? HandTypes.MAIN_HAND : HandTypes.OFF_HAND);
         return is.map(itemStack -> new BaseItemStack(ItemTypes.get(itemStack.getType().getId()))).orElse(null);
     }
 
@@ -114,7 +114,7 @@ public class SpongePlayer extends AbstractPlayerActor {
     @Override
     public void giveItem(BaseItemStack itemStack) {
         this.player.getInventory().offer(
-                ItemStack.of(Sponge.getGame().getRegistry().getType(ItemType.class, itemStack.getType().getId()).get(),
+            ItemStack.of(Sponge.getGame().getRegistry().getType(ItemType.class, itemStack.getType().getId()).get(),
                 itemStack.getAmount())
         );
     }
@@ -202,7 +202,7 @@ public class SpongePlayer extends AbstractPlayerActor {
     @Override
     public void setGameMode(GameMode gameMode) {
         player.getGameModeData().type().set(Sponge.getRegistry().getType(org.spongepowered.api.entity.living.player.gamemode.GameMode.class,
-                gameMode.getId()).get());
+            gameMode.getId()).get());
     }
 
     @Override

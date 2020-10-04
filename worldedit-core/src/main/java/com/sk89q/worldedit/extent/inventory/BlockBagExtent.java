@@ -42,7 +42,7 @@ public class BlockBagExtent extends AbstractDelegateExtent {
     /**
      * Create a new instance.
      *
-     * @param extent the extent
+     * @param extent   the extent
      * @param blockBag the block bag
      */
     public BlockBagExtent(Extent extent, @Nullable BlockBag blockBag) {
@@ -55,7 +55,8 @@ public class BlockBagExtent extends AbstractDelegateExtent {
      *
      * @return a block bag, which may be null if none is used
      */
-    public @Nullable BlockBag getBlockBag() {
+    public @Nullable
+    BlockBag getBlockBag() {
         return blockBag;
     }
 

@@ -59,6 +59,7 @@ public class ArchiveNioSupports {
 
     /**
      * Get an {@link ArchiveNioSupport} that combines all known instances.
+     *
      * @return a combined {@link ArchiveNioSupport} instance
      */
     public static ArchiveNioSupport combined() {

@@ -85,15 +85,15 @@ public class CommandArgParser {
         if (strPart.startsWith("\"")) {
             if (strPart.endsWith("\"") && strPart.length() > 1) {
                 currentArg.add(Substring.wrap(
-                        strPart.substring(1, strPart.length() - 1),
-                        part.getStart() + 1, part.getEnd() - 1
+                    strPart.substring(1, strPart.length() - 1),
+                    part.getStart() + 1, part.getEnd() - 1
                 ));
                 finishArg();
             } else {
                 state = State.QUOTE;
                 currentArg.add(Substring.wrap(
-                        strPart.substring(1),
-                        part.getStart() + 1, part.getEnd()
+                    strPart.substring(1),
+                    part.getStart() + 1, part.getEnd()
                 ));
             }
         } else {

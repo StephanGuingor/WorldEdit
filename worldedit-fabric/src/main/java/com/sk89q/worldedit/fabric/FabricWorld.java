@@ -244,7 +244,7 @@ public class FabricWorld extends AbstractWorld {
     }
 
     private static final LoadingCache<ServerWorld, WorldEditFakePlayer> fakePlayers
-            = CacheBuilder.newBuilder().weakKeys().softValues().build(CacheLoader.from(WorldEditFakePlayer::new));
+        = CacheBuilder.newBuilder().weakKeys().softValues().build(CacheLoader.from(WorldEditFakePlayer::new));
 
     @Override
     public boolean useItem(BlockVector3 position, BaseItem item, Direction face) {
@@ -258,10 +258,10 @@ public class FabricWorld extends AbstractWorld {
         }
         fakePlayer.setStackInHand(Hand.MAIN_HAND, stack);
         fakePlayer.updatePositionAndAngles(position.getBlockX(), position.getBlockY(), position.getBlockZ(),
-                (float) face.toVector().toYaw(), (float) face.toVector().toPitch());
+            (float) face.toVector().toYaw(), (float) face.toVector().toPitch());
         final BlockPos blockPos = FabricAdapter.toBlockPos(position);
         final BlockHitResult rayTraceResult = new BlockHitResult(FabricAdapter.toVec3(position),
-                FabricAdapter.adapt(face), blockPos, false);
+            FabricAdapter.adapt(face), blockPos, false);
         ItemUsageContext itemUseContext = new ItemUsageContext(fakePlayer, Hand.MAIN_HAND, rayTraceResult);
         ActionResult used = stack.useOnBlock(itemUseContext);
         if (used != ActionResult.SUCCESS) {
@@ -449,26 +449,46 @@ public class FabricWorld extends AbstractWorld {
     private static ConfiguredFeature<?, ?> createTreeFeatureGenerator(TreeType type) {
         switch (type) {
             // Based off of the SaplingGenerator class, as well as uses of DefaultBiomeFeatures fields
-            case TREE: return ConfiguredFeatures.OAK;
-            case BIG_TREE: return ConfiguredFeatures.FANCY_OAK;
-            case REDWOOD: return ConfiguredFeatures.SPRUCE;
-            case TALL_REDWOOD: return ConfiguredFeatures.MEGA_SPRUCE;
-            case MEGA_REDWOOD: return ConfiguredFeatures.MEGA_PINE;
-            case BIRCH: return ConfiguredFeatures.BIRCH;
-            case JUNGLE: return ConfiguredFeatures.MEGA_JUNGLE_TREE;
-            case SMALL_JUNGLE: return ConfiguredFeatures.JUNGLE_TREE;
-            case SHORT_JUNGLE: return ConfiguredFeatures.JUNGLE_TREE_NO_VINE;
-            case JUNGLE_BUSH: return ConfiguredFeatures.JUNGLE_BUSH;
-            case SWAMP: return ConfiguredFeatures.SWAMP_TREE;
-            case ACACIA: return ConfiguredFeatures.ACACIA;
-            case DARK_OAK: return ConfiguredFeatures.DARK_OAK;
-            case TALL_BIRCH: return ConfiguredFeatures.BIRCH_TALL;
-            case RED_MUSHROOM: return ConfiguredFeatures.HUGE_RED_MUSHROOM;
-            case BROWN_MUSHROOM: return ConfiguredFeatures.HUGE_BROWN_MUSHROOM;
-            case WARPED_FUNGUS: return ConfiguredFeatures.WARPED_FUNGI;
-            case CRIMSON_FUNGUS: return ConfiguredFeatures.CRIMSON_FUNGI;
-            case CHORUS_PLANT: return ConfiguredFeatures.CHORUS_PLANT;
-            case RANDOM: return createTreeFeatureGenerator(TreeType.values()[ThreadLocalRandom.current().nextInt(TreeType.values().length)]);
+            case TREE:
+                return ConfiguredFeatures.OAK;
+            case BIG_TREE:
+                return ConfiguredFeatures.FANCY_OAK;
+            case REDWOOD:
+                return ConfiguredFeatures.SPRUCE;
+            case TALL_REDWOOD:
+                return ConfiguredFeatures.MEGA_SPRUCE;
+            case MEGA_REDWOOD:
+                return ConfiguredFeatures.MEGA_PINE;
+            case BIRCH:
+                return ConfiguredFeatures.BIRCH;
+            case JUNGLE:
+                return ConfiguredFeatures.MEGA_JUNGLE_TREE;
+            case SMALL_JUNGLE:
+                return ConfiguredFeatures.JUNGLE_TREE;
+            case SHORT_JUNGLE:
+                return ConfiguredFeatures.JUNGLE_TREE_NO_VINE;
+            case JUNGLE_BUSH:
+                return ConfiguredFeatures.JUNGLE_BUSH;
+            case SWAMP:
+                return ConfiguredFeatures.SWAMP_TREE;
+            case ACACIA:
+                return ConfiguredFeatures.ACACIA;
+            case DARK_OAK:
+                return ConfiguredFeatures.DARK_OAK;
+            case TALL_BIRCH:
+                return ConfiguredFeatures.BIRCH_TALL;
+            case RED_MUSHROOM:
+                return ConfiguredFeatures.HUGE_RED_MUSHROOM;
+            case BROWN_MUSHROOM:
+                return ConfiguredFeatures.HUGE_BROWN_MUSHROOM;
+            case WARPED_FUNGUS:
+                return ConfiguredFeatures.WARPED_FUNGI;
+            case CRIMSON_FUNGUS:
+                return ConfiguredFeatures.CRIMSON_FUNGI;
+            case CHORUS_PLANT:
+                return ConfiguredFeatures.CHORUS_PLANT;
+            case RANDOM:
+                return createTreeFeatureGenerator(TreeType.values()[ThreadLocalRandom.current().nextInt(TreeType.values().length)]);
             default:
                 return null;
         }
@@ -577,8 +597,8 @@ public class FabricWorld extends AbstractWorld {
     @Override
     public BlockState getBlock(BlockVector3 position) {
         net.minecraft.block.BlockState mcState = getWorld()
-                .getChunk(position.getBlockX() >> 4, position.getBlockZ() >> 4)
-                .getBlockState(FabricAdapter.toBlockPos(position));
+            .getChunk(position.getBlockX() >> 4, position.getBlockZ() >> 4)
+            .getBlockState(FabricAdapter.toBlockPos(position));
 
         BlockState matchingBlock = BlockStateIdAccess.getBlockStateById(Block.getRawIdFromState(mcState));
         if (matchingBlock != null) {

@@ -125,7 +125,7 @@ public class ApplyBrushCommands {
                      @Direction(includeDiagonals = true)
                          com.sk89q.worldedit.util.Direction direction) throws WorldEditException {
         player.print(TextComponent.builder().append("WARNING: ", TextColor.RED, TextDecoration.BOLD)
-                .append(TranslatableComponent.of("worldedit.brush.apply.item.warning")).build());
+            .append(TranslatableComponent.of("worldedit.brush.apply.item.warning")).build());
         setApplyBrush(parameters, player, localSession, new ItemUseFactory(item, direction));
     }
 

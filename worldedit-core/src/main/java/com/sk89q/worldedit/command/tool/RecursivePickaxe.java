@@ -75,7 +75,7 @@ public class RecursivePickaxe implements BlockTool {
 
             try {
                 recurse(server, editSession, world, clicked.toVector().toBlockPoint(),
-                        clicked.toVector().toBlockPoint(), range, initialType, new HashSet<>());
+                    clicked.toVector().toBlockPoint(), range, initialType, new HashSet<>());
             } catch (MaxChangedBlocksException e) {
                 player.printError(TranslatableComponent.of("worldedit.tool.max-block-changes"));
             } finally {
@@ -87,7 +87,7 @@ public class RecursivePickaxe implements BlockTool {
     }
 
     private static void recurse(Platform server, EditSession editSession, World world, BlockVector3 pos,
-            BlockVector3 origin, double size, BlockType initialType, Set<BlockVector3> visited) throws MaxChangedBlocksException {
+                                BlockVector3 origin, double size, BlockType initialType, Set<BlockVector3> visited) throws MaxChangedBlocksException {
 
         final double distanceSq = origin.distanceSq(pos);
         if (distanceSq > size * size || visited.contains(pos)) {
@@ -105,17 +105,17 @@ public class RecursivePickaxe implements BlockTool {
         world.queueBlockBreakEffect(server, pos, initialType, distanceSq);
 
         recurse(server, editSession, world, pos.add(1, 0, 0),
-                origin, size, initialType, visited);
+            origin, size, initialType, visited);
         recurse(server, editSession, world, pos.add(-1, 0, 0),
-                origin, size, initialType, visited);
+            origin, size, initialType, visited);
         recurse(server, editSession, world, pos.add(0, 0, 1),
-                origin, size, initialType, visited);
+            origin, size, initialType, visited);
         recurse(server, editSession, world, pos.add(0, 0, -1),
-                origin, size, initialType, visited);
+            origin, size, initialType, visited);
         recurse(server, editSession, world, pos.add(0, 1, 0),
-                origin, size, initialType, visited);
+            origin, size, initialType, visited);
         recurse(server, editSession, world, pos.add(0, -1, 0),
-                origin, size, initialType, visited);
+            origin, size, initialType, visited);
     }
 
 }

@@ -48,11 +48,11 @@ public interface BiomePattern {
      * @param position the position
      * @return a biome
      * @apiNote This must be overridden by new subclasses. See {@link NonAbstractForCompatibility}
-     *          for details
+     * for details
      */
     @NonAbstractForCompatibility(
         delegateName = "apply",
-        delegateParams = { BlockVector2.class }
+        delegateParams = {BlockVector2.class}
     )
     default BiomeType applyBiome(BlockVector3 position) {
         DeprecationUtil.checkDelegatingOverride(getClass());

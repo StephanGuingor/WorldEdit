@@ -94,7 +94,7 @@ public class PrintCommandHelp {
                     TextComponent.of(toCommandString(visited)), TextComponent.of(subCommand)));
                 // full help for single command
                 CommandUsageBox box = new CommandUsageBox(visited, visited.stream()
-                        .map(Command::getName).collect(Collectors.joining(" ")), helpRootCommand);
+                    .map(Command::getName).collect(Collectors.joining(" ")), helpRootCommand);
                 actor.print(box.create());
                 return;
             }
@@ -135,9 +135,9 @@ public class PrintCommandHelp {
 
         String used = commandList.isEmpty() ? null : toCommandString(commandList);
         CommandListBox box = new CommandListBox(
-                (used == null ? "Help" : "Subcommands: " + used),
-                helpRootCommand + " -s -p %page%" + (used == null ? "" : " " + used),
-                helpRootCommand);
+            (used == null ? "Help" : "Subcommands: " + used),
+            helpRootCommand + " -s -p %page%" + (used == null ? "" : " " + used),
+            helpRootCommand);
         if (!actor.isPlayer()) {
             box.formatForConsole();
         }

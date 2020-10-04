@@ -41,9 +41,9 @@ public class DownwardVisitor extends RecursiveVisitor {
     /**
      * Create a new visitor.
      *
-     * @param mask the mask
+     * @param mask     the mask
      * @param function the function
-     * @param baseY the base Y
+     * @param baseY    the base Y
      */
     public DownwardVisitor(Mask mask, RegionFunction function, int baseY) {
         super(mask, function);

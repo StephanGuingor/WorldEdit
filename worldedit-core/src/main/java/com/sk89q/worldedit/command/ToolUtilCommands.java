@@ -46,7 +46,7 @@ public class ToolUtilCommands {
 
     @Command(
         name = "/",
-        aliases = { "," },
+        aliases = {","},
         desc = "Toggle the super pickaxe function"
     )
     @CommandPermissions("worldedit.superpickaxe")
@@ -86,7 +86,7 @@ public class ToolUtilCommands {
 
     @Command(
         name = "material",
-        aliases = { "/material" },
+        aliases = {"/material"},
         desc = "Set the brush material"
     )
     @CommandPermissions("worldedit.brush.options.material")
@@ -130,7 +130,7 @@ public class ToolUtilCommands {
     @CommandPermissions("worldedit.brush.options.tracemask")
     public void traceMask(Player player, LocalSession session,
                           @Arg(desc = "The trace mask to set", def = "")
-                             Mask mask) throws WorldEditException {
+                              Mask mask) throws WorldEditException {
         session.getBrushTool(player.getItemInHand(HandSide.MAIN_HAND).getType()).setTraceMask(mask);
         if (mask == null) {
             player.printInfo(TranslatableComponent.of("worldedit.tool.tracemask.disabled"));

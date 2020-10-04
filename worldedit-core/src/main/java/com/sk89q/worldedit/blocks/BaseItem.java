@@ -53,7 +53,7 @@ public class BaseItem implements NbtValued {
      * Construct the object.
      *
      * @param itemType Type of the item
-     * @param tag NBT Compound tag
+     * @param tag      NBT Compound tag
      */
     public BaseItem(ItemType itemType, @Nullable CompoundTag tag) {
         checkNotNull(itemType);

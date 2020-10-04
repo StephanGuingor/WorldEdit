@@ -48,7 +48,7 @@ public class BaseEntity implements NbtValued {
     /**
      * Create a new base entity.
      *
-     * @param type the entity type
+     * @param type    the entity type
      * @param nbtData NBT data
      */
     public BaseEntity(EntityType type, CompoundTag nbtData) {

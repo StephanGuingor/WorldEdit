@@ -38,7 +38,7 @@ public class RegionMaskingFilter implements RegionFunction {
     /**
      * Create a new masking filter.
      *
-     * @param mask the mask
+     * @param mask     the mask
      * @param function the function
      */
     public RegionMaskingFilter(Mask mask, RegionFunction function) {

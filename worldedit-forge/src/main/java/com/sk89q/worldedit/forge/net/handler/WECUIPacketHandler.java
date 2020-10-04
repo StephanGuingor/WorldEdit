@@ -37,8 +37,8 @@ public final class WECUIPacketHandler {
     public static final Charset UTF_8_CHARSET = Charset.forName("UTF-8");
     private static final int PROTOCOL_VERSION = 1;
     private static final EventNetworkChannel HANDLER = PacketHandlerUtil
-            .buildLenientHandler(ForgeWorldEdit.CUI_PLUGIN_CHANNEL, PROTOCOL_VERSION)
-            .eventNetworkChannel();
+        .buildLenientHandler(ForgeWorldEdit.CUI_PLUGIN_CHANNEL, PROTOCOL_VERSION)
+        .eventNetworkChannel();
 
     public static void init() {
         HANDLER.addListener(WECUIPacketHandler::onPacketData);

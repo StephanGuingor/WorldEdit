@@ -65,7 +65,8 @@ import static com.google.common.base.Preconditions.checkNotNull;
 
 public final class FabricAdapter {
 
-    private static @Nullable MinecraftServer server;
+    private static @Nullable
+    MinecraftServer server;
 
     private static MinecraftServer requireServer() {
         return Objects.requireNonNull(server, "No server injected");
@@ -109,11 +110,16 @@ public final class FabricAdapter {
 
     public static net.minecraft.util.math.Direction adapt(Direction face) {
         switch (face) {
-            case NORTH: return net.minecraft.util.math.Direction.NORTH;
-            case SOUTH: return net.minecraft.util.math.Direction.SOUTH;
-            case WEST: return net.minecraft.util.math.Direction.WEST;
-            case EAST: return net.minecraft.util.math.Direction.EAST;
-            case DOWN: return net.minecraft.util.math.Direction.DOWN;
+            case NORTH:
+                return net.minecraft.util.math.Direction.NORTH;
+            case SOUTH:
+                return net.minecraft.util.math.Direction.SOUTH;
+            case WEST:
+                return net.minecraft.util.math.Direction.WEST;
+            case EAST:
+                return net.minecraft.util.math.Direction.EAST;
+            case DOWN:
+                return net.minecraft.util.math.Direction.DOWN;
             case UP:
             default:
                 return net.minecraft.util.math.Direction.UP;
@@ -125,11 +131,16 @@ public final class FabricAdapter {
             return null;
         }
         switch (face) {
-            case NORTH: return Direction.NORTH;
-            case SOUTH: return Direction.SOUTH;
-            case WEST: return Direction.WEST;
-            case EAST: return Direction.EAST;
-            case DOWN: return Direction.DOWN;
+            case NORTH:
+                return Direction.NORTH;
+            case SOUTH:
+                return Direction.SOUTH;
+            case WEST:
+                return Direction.WEST;
+            case EAST:
+                return Direction.EAST;
+            case DOWN:
+                return Direction.DOWN;
             case UP:
             default:
                 return Direction.UP;
@@ -149,15 +160,15 @@ public final class FabricAdapter {
         }
         if (property instanceof DirectionProperty) {
             return new DirectionalProperty(property.getName(), ((DirectionProperty) property).getValues().stream()
-                    .map(FabricAdapter::adaptEnumFacing)
-                    .collect(Collectors.toList()));
+                .map(FabricAdapter::adaptEnumFacing)
+                .collect(Collectors.toList()));
         }
         if (property instanceof net.minecraft.state.property.EnumProperty) {
             // Note: do not make x.asString a method reference.
             // It will cause runtime bootstrap exceptions.
             return new EnumProperty(property.getName(), ((net.minecraft.state.property.EnumProperty<?>) property).getValues().stream()
-                    .map(x -> x.asString())
-                    .collect(Collectors.toList()));
+                .map(x -> x.asString())
+                .collect(Collectors.toList()));
         }
         return new PropertyAdapter<>(property);
     }
@@ -176,7 +187,7 @@ public final class FabricAdapter {
         return props;
     }
 
-    @SuppressWarnings({ "unchecked", "rawtypes" })
+    @SuppressWarnings({"unchecked", "rawtypes"})
     private static net.minecraft.block.BlockState applyProperties(StateManager<Block, net.minecraft.block.BlockState> stateContainer,
                                                                   net.minecraft.block.BlockState newState, Map<Property<?>, Object> states) {
         for (Map.Entry<Property<?>, Object> state : states.entrySet()) {

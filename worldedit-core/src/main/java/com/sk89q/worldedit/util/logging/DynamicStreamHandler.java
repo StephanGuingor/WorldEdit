@@ -36,10 +36,14 @@ import javax.annotation.Nullable;
  */
 public class DynamicStreamHandler extends StreamHandler {
 
-    private @Nullable StreamHandler handler;
-    private @Nullable Formatter formatter;
-    private @Nullable Filter filter;
-    private @Nullable String encoding;
+    private @Nullable
+    StreamHandler handler;
+    private @Nullable
+    Formatter formatter;
+    private @Nullable
+    Filter filter;
+    private @Nullable
+    String encoding;
     private Level level = Level.ALL;
 
     /**
@@ -47,7 +51,8 @@ public class DynamicStreamHandler extends StreamHandler {
      *
      * @return the delegate handler (Which may be null)
      */
-    public @Nullable synchronized StreamHandler getHandler() {
+    public @Nullable
+    synchronized StreamHandler getHandler() {
         return handler;
     }
 

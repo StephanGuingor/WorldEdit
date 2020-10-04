@@ -38,7 +38,7 @@ import java.util.stream.Stream;
  */
 public final class VariedVectors implements ArgumentsProvider, AnnotationConsumer<VariedVectors.Test> {
 
-    @Target({ ElementType.ANNOTATION_TYPE, ElementType.METHOD })
+    @Target({ElementType.ANNOTATION_TYPE, ElementType.METHOD})
     @Retention(RetentionPolicy.RUNTIME)
     @Documented
     @ArgumentsSource(VariedVectors.class)

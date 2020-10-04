@@ -32,9 +32,12 @@ public final class Request {
 
     private static final ThreadLocal<Request> threadLocal = ThreadLocal.withInitial(Request::new);
 
-    private @Nullable World world;
-    private @Nullable LocalSession session;
-    private @Nullable EditSession editSession;
+    private @Nullable
+    World world;
+    private @Nullable
+    LocalSession session;
+    private @Nullable
+    EditSession editSession;
     private boolean valid;
 
     private Request() {
@@ -45,7 +48,8 @@ public final class Request {
      *
      * @return the world, which may be null
      */
-    public @Nullable World getWorld() {
+    public @Nullable
+    World getWorld() {
         return world;
     }
 
@@ -63,7 +67,8 @@ public final class Request {
      *
      * @return the session, which may be null
      */
-    public @Nullable LocalSession getSession() {
+    public @Nullable
+    LocalSession getSession() {
         return session;
     }
 
@@ -81,7 +86,8 @@ public final class Request {
      *
      * @return the edit session, which may be null
      */
-    public @Nullable EditSession getEditSession() {
+    public @Nullable
+    EditSession getEditSession() {
         return editSession;
     }
 

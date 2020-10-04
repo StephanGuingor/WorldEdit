@@ -238,9 +238,9 @@ public class GeneralCommands {
             if (newState != null && newState == currentState) {
                 if (!showInfoBox) {
                     actor.printError(TranslatableComponent.of(
-                            "worldedit.perf.sideeffect.already-set",
-                            TranslatableComponent.of(sideEffect.getDisplayName()),
-                            TranslatableComponent.of(newState.getDisplayName())
+                        "worldedit.perf.sideeffect.already-set",
+                        TranslatableComponent.of(sideEffect.getDisplayName()),
+                        TranslatableComponent.of(newState.getDisplayName())
                     ));
                 }
                 return;
@@ -250,16 +250,16 @@ public class GeneralCommands {
                 session.setSideEffectSet(session.getSideEffectSet().with(sideEffect, newState));
                 if (!showInfoBox) {
                     actor.printInfo(TranslatableComponent.of(
-                            "worldedit.perf.sideeffect.set",
-                            TranslatableComponent.of(sideEffect.getDisplayName()),
-                            TranslatableComponent.of(newState.getDisplayName())
+                        "worldedit.perf.sideeffect.set",
+                        TranslatableComponent.of(sideEffect.getDisplayName()),
+                        TranslatableComponent.of(newState.getDisplayName())
                     ));
                 }
             } else {
                 actor.printInfo(TranslatableComponent.of(
-                        "worldedit.perf.sideeffect.get",
-                        TranslatableComponent.of(sideEffect.getDisplayName()),
-                        TranslatableComponent.of(currentState.getDisplayName())
+                    "worldedit.perf.sideeffect.get",
+                    TranslatableComponent.of(sideEffect.getDisplayName()),
+                    TranslatableComponent.of(currentState.getDisplayName())
                 ));
             }
         } else if (newState != null) {
@@ -270,8 +270,8 @@ public class GeneralCommands {
             session.setSideEffectSet(applier);
             if (!showInfoBox) {
                 actor.printInfo(TranslatableComponent.of(
-                        "worldedit.perf.sideeffect.set-all",
-                        TranslatableComponent.of(newState.getDisplayName())
+                    "worldedit.perf.sideeffect.set-all",
+                    TranslatableComponent.of(newState.getDisplayName())
                 ));
             }
         }
@@ -332,7 +332,7 @@ public class GeneralCommands {
     )
     @CommandPermissions("worldedit.world")
     public void world(Actor actor, LocalSession session,
-            @Arg(desc = "The world override", def = "") World world) {
+                      @Arg(desc = "The world override", def = "") World world) {
         session.setWorldOverride(world);
         if (world == null) {
             actor.printInfo(TranslatableComponent.of("worldedit.world.remove"));
@@ -421,7 +421,7 @@ public class GeneralCommands {
         }
 
         WorldEditAsyncCommandBuilder.createAndSendMessage(actor, new ItemSearcher(search, blocksOnly, itemsOnly, page),
-                TranslatableComponent.of("worldedit.searchitem.searching"));
+            TranslatableComponent.of("worldedit.searchitem.searching"));
     }
 
     private static class ItemSearcher implements Callable<Component> {

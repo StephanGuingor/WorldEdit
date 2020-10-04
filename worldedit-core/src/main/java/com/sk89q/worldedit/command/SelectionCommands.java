@@ -129,7 +129,7 @@ public class SelectionCommands {
         }
 
         session.getRegionSelector(world)
-                .explainPrimarySelection(actor, session, pos.toVector().toBlockPoint());
+            .explainPrimarySelection(actor, session, pos.toVector().toBlockPoint());
     }
 
     @Command(
@@ -157,7 +157,7 @@ public class SelectionCommands {
         }
 
         session.getRegionSelector(world)
-                .explainSecondarySelection(actor, session, pos.toVector().toBlockPoint());
+            .explainSecondarySelection(actor, session, pos.toVector().toBlockPoint());
     }
 
     @Command(
@@ -176,7 +176,7 @@ public class SelectionCommands {
             }
 
             session.getRegionSelector(player.getWorld())
-                    .explainPrimarySelection(player, session, pos.toVector().toBlockPoint());
+                .explainPrimarySelection(player, session, pos.toVector().toBlockPoint());
         } else {
             player.printError(TranslatableComponent.of("worldedit.hpos.no-block"));
         }
@@ -198,7 +198,7 @@ public class SelectionCommands {
             }
 
             session.getRegionSelector(player.getWorld())
-                    .explainSecondarySelection(player, session, pos.toVector().toBlockPoint());
+                .explainSecondarySelection(player, session, pos.toVector().toBlockPoint());
         } else {
             player.printError(TranslatableComponent.of("worldedit.hpos.no-block"));
         }
@@ -289,7 +289,7 @@ public class SelectionCommands {
     )
     @CommandPermissions("worldedit.wand")
     public void wand(Player player, LocalSession session,
-                        @Switch(name = 'n', desc = "Get a navigation wand") boolean navWand) throws WorldEditException {
+                     @Switch(name = 'n', desc = "Get a navigation wand") boolean navWand) throws WorldEditException {
         String wandId = navWand ? session.getNavWandItem() : session.getWandItem();
         if (wandId == null) {
             wandId = navWand ? we.getConfiguration().navigationWand : we.getConfiguration().wandItem;
@@ -316,14 +316,14 @@ public class SelectionCommands {
     @CommandPermissions("worldedit.wand.toggle")
     public void toggleWand(Player player) {
         player.printInfo(TextComponent.of("The selection wand is now a normal tool. You can disable it with ")
-                .append(TextComponent.of("/none", TextColor.AQUA).clickEvent(
-                        ClickEvent.of(ClickEvent.Action.RUN_COMMAND, "/none")))
-                .append(TextComponent.of(" and rebind it to any item with "))
-                .append(TextComponent.of("//selwand", TextColor.AQUA).clickEvent(
-                        ClickEvent.of(ClickEvent.Action.RUN_COMMAND, "//selwand")))
-                .append(TextComponent.of(" or get a new wand with "))
-                .append(TextComponent.of("//wand", TextColor.AQUA).clickEvent(
-                        ClickEvent.of(ClickEvent.Action.RUN_COMMAND, "//wand"))));
+            .append(TextComponent.of("/none", TextColor.AQUA).clickEvent(
+                ClickEvent.of(ClickEvent.Action.RUN_COMMAND, "/none")))
+            .append(TextComponent.of(" and rebind it to any item with "))
+            .append(TextComponent.of("//selwand", TextColor.AQUA).clickEvent(
+                ClickEvent.of(ClickEvent.Action.RUN_COMMAND, "//selwand")))
+            .append(TextComponent.of(" or get a new wand with "))
+            .append(TextComponent.of("//wand", TextColor.AQUA).clickEvent(
+                ClickEvent.of(ClickEvent.Action.RUN_COMMAND, "//wand"))));
     }
 
     @Command(
@@ -476,8 +476,8 @@ public class SelectionCommands {
             }
         }
         BlockVector3 size = region.getMaximumPoint()
-                .subtract(region.getMinimumPoint())
-                .add(1, 1, 1);
+            .subtract(region.getMinimumPoint())
+            .add(1, 1, 1);
 
         actor.printInfo(TranslatableComponent.of("worldedit.size.size", TextComponent.of(size.toString())));
         actor.printInfo(TranslatableComponent.of("worldedit.size.distance", TextComponent.of(region.getMaximumPoint().distance(region.getMinimumPoint()))));
@@ -490,8 +490,8 @@ public class SelectionCommands {
     )
     @CommandPermissions("worldedit.analysis.count")
     public int count(Actor actor, World world, LocalSession session, EditSession editSession,
-                      @Arg(desc = "The mask of blocks to match")
-                          Mask mask) throws WorldEditException {
+                     @Arg(desc = "The mask of blocks to match")
+                         Mask mask) throws WorldEditException {
         int count = editSession.countBlocks(session.getSelection(world), mask);
         actor.printInfo(TranslatableComponent.of("worldedit.count.counted", TextComponent.of(count)));
         return count;
@@ -550,7 +550,7 @@ public class SelectionCommands {
 
     @Command(
         name = "/sel",
-        aliases = { ";", "/desel", "/deselect" },
+        aliases = {";", "/desel", "/deselect"},
         desc = "Choose a region selector"
     )
     public void select(Actor actor, World world, LocalSession session,
@@ -699,7 +699,7 @@ public class SelectionCommands {
         @Override
         public Component create(int page) throws InvalidComponentException {
             super.getContents().append(TranslatableComponent.of("worldedit.distr.total", TextColor.GRAY, TextComponent.of(totalBlocks)))
-                    .append(TextComponent.newline());
+                .append(TextComponent.newline());
             return super.create(page);
         }
     }

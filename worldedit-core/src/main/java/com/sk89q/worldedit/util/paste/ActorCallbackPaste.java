@@ -39,9 +39,9 @@ public final class ActorCallbackPaste {
      * Submit data to a pastebin service and inform the sender of
      * success or failure.
      *
-     * @param supervisor The supervisor instance
-     * @param sender The sender
-     * @param content The content
+     * @param supervisor     The supervisor instance
+     * @param sender         The sender
+     * @param content        The content
      * @param successMessage The message, formatted with {@link String#format(String, Object...)} on success
      * @deprecated Use the Component-based version
      */
@@ -50,31 +50,31 @@ public final class ActorCallbackPaste {
         Callable<URL> task = paster.paste(content);
 
         AsyncCommandBuilder.wrap(task, sender)
-                .registerWithSupervisor(supervisor, "Submitting content to a pastebin service.")
-                .sendMessageAfterDelay("(Please wait... sending output to pastebin...)")
-                .onSuccess((String) null, url -> sender.print(String.format(successMessage, url)))
-                .onFailure("Failed to submit paste", null)
-                .buildAndExec(Pasters.getExecutor());
+            .registerWithSupervisor(supervisor, "Submitting content to a pastebin service.")
+            .sendMessageAfterDelay("(Please wait... sending output to pastebin...)")
+            .onSuccess((String) null, url -> sender.print(String.format(successMessage, url)))
+            .onFailure("Failed to submit paste", null)
+            .buildAndExec(Pasters.getExecutor());
     }
 
     /**
      * Submit data to a pastebin service and inform the sender of
      * success or failure.
      *
-     * @param supervisor The supervisor instance
-     * @param sender The sender
-     * @param content The content
+     * @param supervisor     The supervisor instance
+     * @param sender         The sender
+     * @param content        The content
      * @param successMessage The message builder, given the URL as an arg
      */
     public static void pastebin(Supervisor supervisor, final Actor sender, String content, final TranslatableComponent.Builder successMessage) {
         Callable<URL> task = paster.paste(content);
 
         AsyncCommandBuilder.wrap(task, sender)
-                .registerWithSupervisor(supervisor, "Submitting content to a pastebin service.")
-                .setDelayMessage(TranslatableComponent.of("worldedit.pastebin.uploading"))
-                .onSuccess((String) null, url -> sender.printInfo(successMessage.args(TextComponent.of(url.toString())).build()))
-                .onFailure("Failed to submit paste", null)
-                .buildAndExec(Pasters.getExecutor());
+            .registerWithSupervisor(supervisor, "Submitting content to a pastebin service.")
+            .setDelayMessage(TranslatableComponent.of("worldedit.pastebin.uploading"))
+            .onSuccess((String) null, url -> sender.printInfo(successMessage.args(TextComponent.of(url.toString())).build()))
+            .onFailure("Failed to submit paste", null)
+            .buildAndExec(Pasters.getExecutor());
     }
 
 }

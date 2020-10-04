@@ -70,9 +70,9 @@ public final class CommandWrapper {
 
         for (String alias : aliases.build()) {
             LiteralArgumentBuilder<ServerCommandSource> base = literal(alias).executes(commandRunner)
-                    .then(argument("args", StringArgumentType.greedyString())
-                            .suggests(CommandWrapper::suggest)
-                            .executes(commandRunner));
+                .then(argument("args", StringArgumentType.greedyString())
+                    .suggests(CommandWrapper::suggest)
+                    .executes(commandRunner));
             if (command.getCondition() != org.enginehub.piston.Command.Condition.TRUE) {
                 base.requires(requirementsFor(command));
             }
@@ -94,10 +94,10 @@ public final class CommandWrapper {
     }
 
     private static CompletableFuture<Suggestions> suggest(CommandContext<ServerCommandSource> context,
-            SuggestionsBuilder builder) throws CommandSyntaxException {
+                                                          SuggestionsBuilder builder) throws CommandSyntaxException {
         CommandSuggestionEvent event = new CommandSuggestionEvent(
-                FabricAdapter.adaptPlayer(context.getSource().getPlayer()),
-                builder.getInput()
+            FabricAdapter.adaptPlayer(context.getSource().getPlayer()),
+            builder.getInput()
         );
         WorldEdit.getInstance().getEventBus().post(event);
         List<Substring> suggestions = event.getSuggestions();
@@ -109,19 +109,19 @@ public final class CommandWrapper {
             // If at end, we are actually suggesting the next argument
             // Ensure there is a space!
             if (suggestion.getStart() == suggestion.getEnd()
-                    && suggestion.getEnd() == builder.getInput().length()
-                    && !builder.getInput().endsWith(" ")
-                    && !builder.getInput().endsWith("\"")) {
+                && suggestion.getEnd() == builder.getInput().length()
+                && !builder.getInput().endsWith(" ")
+                && !builder.getInput().endsWith("\"")) {
                 suggestionText = " " + suggestionText;
             }
             result.add(new Suggestion(
-                    StringRange.between(suggestion.getStart(), suggestion.getEnd()),
-                    suggestionText
+                StringRange.between(suggestion.getStart(), suggestion.getEnd()),
+                suggestionText
             ));
         }
 
         return CompletableFuture.completedFuture(
-                Suggestions.create(builder.getInput(), result.build())
+            Suggestions.create(builder.getInput(), result.build())
         );
     }
 

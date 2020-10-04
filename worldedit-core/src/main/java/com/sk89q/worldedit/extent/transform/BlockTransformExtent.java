@@ -79,7 +79,7 @@ public class BlockTransformExtent extends AbstractDelegateExtent {
     /**
      * Transform a block without making a copy.
      *
-     * @param block the block
+     * @param block   the block
      * @param reverse true to transform in the opposite direction
      * @return the same block
      */
@@ -109,7 +109,7 @@ public class BlockTransformExtent extends AbstractDelegateExtent {
      *
      * <p>The provided block is <em>not</em> modified.</p>
      *
-     * @param block the block
+     * @param block     the block
      * @param transform the transform
      * @return the same block
      */
@@ -249,7 +249,7 @@ public class BlockTransformExtent extends AbstractDelegateExtent {
         for (Property<?> prop : properties) {
             if (directionNames.contains(prop.getName())) {
                 if (prop instanceof BooleanProperty && (Boolean) block.getState(prop)
-                        || prop instanceof EnumProperty && !block.getState(prop).toString().equals("none")) {
+                    || prop instanceof EnumProperty && !block.getState(prop).toString().equals("none")) {
                     String origProp = prop.getName().toUpperCase(Locale.ROOT);
                     Direction dir = Direction.valueOf(origProp);
                     Direction closest = Direction.findClosest(transform.apply(dir.toVector()), Direction.Flag.CARDINAL);
@@ -285,8 +285,8 @@ public class BlockTransformExtent extends AbstractDelegateExtent {
      * Get the new value with the transformed direction.
      *
      * @param allowedStates the allowed states
-     * @param transform the transform
-     * @param oldDirection the old direction to transform
+     * @param transform     the transform
+     * @param oldDirection  the old direction to transform
      * @return a new state or null if none could be found
      */
     @Nullable

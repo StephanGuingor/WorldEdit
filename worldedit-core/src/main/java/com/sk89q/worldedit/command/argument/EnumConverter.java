@@ -50,10 +50,10 @@ public final class EnumConverter {
                 r -> ImmutableSet.of(r.getDisplayName()),
                 null));
         commandManager.registerConverter(Key.of(SideEffect.State.class),
-                MultiKeyConverter.from(
-                    EnumSet.of(SideEffect.State.OFF, SideEffect.State.ON),
-                    r -> ImmutableSet.of(r.name().toLowerCase(Locale.US)),
-                    null));
+            MultiKeyConverter.from(
+                EnumSet.of(SideEffect.State.OFF, SideEffect.State.ON),
+                r -> ImmutableSet.of(r.name().toLowerCase(Locale.US)),
+                null));
         commandManager.registerConverter(Key.of(HookMode.class),
             basic(HookMode.class));
         commandManager.registerConverter(Key.of(TracingExtent.Action.class),

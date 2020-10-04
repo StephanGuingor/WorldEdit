@@ -53,8 +53,8 @@ public class ImageHeightmap {
     /**
      * Gets the height at the given position with scaling applied.
      *
-     * @param x The x position
-     * @param y The y position
+     * @param x    The x position
+     * @param y    The y position
      * @param size The size to sample the image as
      * @return The height at the location
      */

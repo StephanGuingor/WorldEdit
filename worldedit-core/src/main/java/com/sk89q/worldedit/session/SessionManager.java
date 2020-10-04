@@ -73,7 +73,7 @@ public class SessionManager {
     public static int EXPIRATION_GRACE = 10 * 60 * 1000;
     private static final int FLUSH_PERIOD = 1000 * 30;
     private static final ListeningExecutorService executorService = MoreExecutors.listeningDecorator(
-            EvenMoreExecutors.newBoundedCachedThreadPool(0, 1, 5, "WorldEdit Session Saver - %s"));
+        EvenMoreExecutors.newBoundedCachedThreadPool(0, 1, 5, "WorldEdit Session Saver - %s"));
     private static final Logger log = LoggerFactory.getLogger(SessionManager.class);
     private static final Set<String> warnedInvalidTool = Collections.newSetFromMap(new ConcurrentHashMap<>());
 
@@ -201,9 +201,9 @@ public class SessionManager {
         // Have the session use inventory if it's enabled and the owner
         // doesn't have an override
         session.setUseInventory(config.useInventory
-                && !(config.useInventoryOverride
-                && (owner.hasPermission("worldedit.inventory.unrestricted")
-                || (config.useInventoryCreativeOverride && (!(owner instanceof Player) || ((Player) owner).getGameMode() == GameModes.CREATIVE)))));
+            && !(config.useInventoryOverride
+            && (owner.hasPermission("worldedit.inventory.unrestricted")
+            || (config.useInventoryCreativeOverride && (!(owner instanceof Player) || ((Player) owner).getGameMode() == GameModes.CREATIVE)))));
 
         // Force non-locatable actors to use placeAtPos1
         if (!(owner instanceof Locatable)) {
@@ -216,7 +216,7 @@ public class SessionManager {
     private boolean shouldBoundLimit(SessionOwner owner, String permission, int currentLimit, int maxLimit) {
         if (maxLimit > -1) { // if max is finite
             return (currentLimit < 0 || currentLimit > maxLimit) // make sure current is finite and less than max
-                    && !owner.hasPermission(permission); // unless user has unlimited permission
+                && !owner.hasPermission(permission); // unless user has unlimited permission
         }
         return false;
     }

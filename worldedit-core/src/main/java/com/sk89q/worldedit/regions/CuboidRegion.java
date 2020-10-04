@@ -120,17 +120,17 @@ public class CuboidRegion extends AbstractRegion implements FlatRegion {
         BlockVector3 max = getMaximumPoint();
 
         return new RegionIntersection(
-                // Project to Z-Y plane
-                new CuboidRegion(pos1.withX(min.getX()), pos2.withX(min.getX())),
-                new CuboidRegion(pos1.withX(max.getX()), pos2.withX(max.getX())),
+            // Project to Z-Y plane
+            new CuboidRegion(pos1.withX(min.getX()), pos2.withX(min.getX())),
+            new CuboidRegion(pos1.withX(max.getX()), pos2.withX(max.getX())),
 
-                // Project to X-Y plane
-                new CuboidRegion(pos1.withZ(min.getZ()), pos2.withZ(min.getZ())),
-                new CuboidRegion(pos1.withZ(max.getZ()), pos2.withZ(max.getZ())),
+            // Project to X-Y plane
+            new CuboidRegion(pos1.withZ(min.getZ()), pos2.withZ(min.getZ())),
+            new CuboidRegion(pos1.withZ(max.getZ()), pos2.withZ(max.getZ())),
 
-                // Project to the X-Z plane
-                new CuboidRegion(pos1.withY(min.getY()), pos2.withY(min.getY())),
-                new CuboidRegion(pos1.withY(max.getY()), pos2.withY(max.getY())));
+            // Project to the X-Z plane
+            new CuboidRegion(pos1.withY(min.getY()), pos2.withY(min.getY())),
+            new CuboidRegion(pos1.withY(max.getY()), pos2.withY(max.getY())));
     }
 
     /**
@@ -144,13 +144,13 @@ public class CuboidRegion extends AbstractRegion implements FlatRegion {
         BlockVector3 max = getMaximumPoint();
 
         return new RegionIntersection(
-                // Project to Z-Y plane
-                new CuboidRegion(pos1.withX(min.getX()), pos2.withX(min.getX())),
-                new CuboidRegion(pos1.withX(max.getX()), pos2.withX(max.getX())),
+            // Project to Z-Y plane
+            new CuboidRegion(pos1.withX(min.getX()), pos2.withX(min.getX())),
+            new CuboidRegion(pos1.withX(max.getX()), pos2.withX(max.getX())),
 
-                // Project to X-Y plane
-                new CuboidRegion(pos1.withZ(min.getZ()), pos2.withZ(min.getZ())),
-                new CuboidRegion(pos1.withZ(max.getZ()), pos2.withZ(max.getZ())));
+            // Project to X-Y plane
+            new CuboidRegion(pos1.withZ(min.getZ()), pos2.withZ(min.getZ())),
+            new CuboidRegion(pos1.withZ(max.getZ()), pos2.withZ(max.getZ())));
     }
 
     @Override
@@ -419,7 +419,7 @@ public class CuboidRegion extends AbstractRegion implements FlatRegion {
     /**
      * Make a cuboid from the center.
      *
-     * @param origin the origin
+     * @param origin  the origin
      * @param apothem the apothem, where 0 is the minimum value to make a 1x1 cuboid
      * @return a cuboid region
      */

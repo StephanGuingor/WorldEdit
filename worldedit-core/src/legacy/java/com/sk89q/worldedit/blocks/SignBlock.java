@@ -36,18 +36,18 @@ public class SignBlock extends BaseBlock {
 
     private String[] text;
 
-    private static final String EMPTY =  "{\"text\":\"\"}";
+    private static final String EMPTY = "{\"text\":\"\"}";
 
     /**
      * Construct the sign with text.
      *
      * @param blockState The block state
-     * @param text lines of text
+     * @param text       lines of text
      */
     public SignBlock(BlockState blockState, String[] text) {
         super(blockState);
         if (text == null) {
-            this.text = new String[] { EMPTY, EMPTY, EMPTY, EMPTY };
+            this.text = new String[] {EMPTY, EMPTY, EMPTY, EMPTY};
             return;
         }
         for (int i = 0; i < text.length; i++) {
@@ -111,7 +111,7 @@ public class SignBlock extends BaseBlock {
 
         Tag t;
 
-        text = new String[] { EMPTY, EMPTY, EMPTY, EMPTY };
+        text = new String[] {EMPTY, EMPTY, EMPTY, EMPTY};
 
         t = values.get("id");
         if (!(t instanceof StringTag) || !((StringTag) t).getValue().equals(getNbtId())) {

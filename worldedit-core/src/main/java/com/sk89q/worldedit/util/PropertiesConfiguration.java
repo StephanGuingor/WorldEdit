@@ -48,10 +48,13 @@ import java.util.Set;
  */
 public class PropertiesConfiguration extends LocalConfiguration {
 
-    @Unreported private static final Logger log = LoggerFactory.getLogger(PropertiesConfiguration.class);
+    @Unreported
+    private static final Logger log = LoggerFactory.getLogger(PropertiesConfiguration.class);
 
-    @Unreported protected Properties properties;
-    @Unreported protected File path;
+    @Unreported
+    protected Properties properties;
+    @Unreported
+    protected File path;
 
     /**
      * Construct the object. The configuration isn't loaded yet.
@@ -187,7 +190,7 @@ public class PropertiesConfiguration extends LocalConfiguration {
             return def;
         } else {
             return val.equalsIgnoreCase("true")
-                    || val.equals("1");
+                || val.equals("1");
         }
     }
 

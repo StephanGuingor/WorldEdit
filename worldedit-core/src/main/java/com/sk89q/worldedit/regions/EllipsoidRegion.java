@@ -59,7 +59,7 @@ public class EllipsoidRegion extends AbstractRegion {
     /**
      * Construct a new instance of this ellipsoid region.
      *
-     * @param world the world
+     * @param world  the world
      * @param center the center
      * @param radius the radius
      */
@@ -88,11 +88,11 @@ public class EllipsoidRegion extends AbstractRegion {
     @Override
     public long getVolume() {
         return ELLIPSOID_BASE_MULTIPLIER
-                .multiply(BigDecimal.valueOf(radius.getX()))
-                .multiply(BigDecimal.valueOf(radius.getY()))
-                .multiply(BigDecimal.valueOf(radius.getZ()))
-                .setScale(0, RoundingMode.FLOOR)
-                .longValue();
+            .multiply(BigDecimal.valueOf(radius.getX()))
+            .multiply(BigDecimal.valueOf(radius.getY()))
+            .multiply(BigDecimal.valueOf(radius.getZ()))
+            .setScale(0, RoundingMode.FLOOR)
+            .longValue();
     }
 
     @Override

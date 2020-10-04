@@ -41,7 +41,7 @@ public class BlockChangeLimiter extends AbstractDelegateExtent {
      * Create a new instance.
      *
      * @param extent the extent
-     * @param limit the limit (&gt;= 0) or -1 for no limit
+     * @param limit  the limit (&gt;= 0) or -1 for no limit
      */
     public BlockChangeLimiter(Extent extent, int limit) {
         super(extent);

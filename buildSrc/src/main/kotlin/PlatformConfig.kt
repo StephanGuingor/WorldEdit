@@ -24,7 +24,7 @@ fun Project.applyPlatformAndCoreConfiguration() {
     apply(plugin = "eclipse")
     apply(plugin = "idea")
     apply(plugin = "maven")
-    apply(plugin = "checkstyle")
+//    apply(plugin = "checkstyle")
     apply(plugin = "com.github.johnrengelman.shadow")
     apply(plugin = "com.jfrog.artifactory")
 
@@ -47,10 +47,10 @@ fun Project.applyPlatformAndCoreConfiguration() {
             options.encoding = "UTF-8"
         }
 
-    configure<CheckstyleExtension> {
-        configFile = rootProject.file("config/checkstyle/checkstyle.xml")
-        toolVersion = "8.34"
-    }
+//    configure<CheckstyleExtension> {
+//        configFile = rootProject.file("config/checkstyle/checkstyle.xml")
+//        toolVersion = "8.34"
+//    }
 
     tasks.withType<Test>().configureEach {
         useJUnitPlatform()
@@ -106,9 +106,9 @@ fun Project.applyPlatformAndCoreConfiguration() {
         }
     }
 
-    tasks.named("check").configure {
-        dependsOn("checkstyleMain", "checkstyleTest")
-    }
+//    tasks.named("check").configure {
+//        dependsOn("checkstyleMain", "checkstyleTest")
+//    }
 
     applyCommonArtifactoryConfig()
 }

@@ -67,7 +67,7 @@ public class SphereRegionSelector extends EllipsoidRegionSelector {
     /**
      * Create a new selector.
      *
-     * @param world the world
+     * @param world  the world
      * @param center the center position
      * @param radius the radius
      */
@@ -91,9 +91,9 @@ public class SphereRegionSelector extends EllipsoidRegionSelector {
     public void explainSecondarySelection(Actor player, LocalSession session, BlockVector3 pos) {
         if (isDefined()) {
             player.printInfo(TranslatableComponent.of(
-                    "worldedit.selection.sphere.explain.secondary-defined",
-                    TextComponent.of(region.getRadius().getX()),
-                    TextComponent.of(region.getVolume())
+                "worldedit.selection.sphere.explain.secondary-defined",
+                TextComponent.of(region.getRadius().getX()),
+                TextComponent.of(region.getVolume())
             ));
         } else {
             player.printInfo(TranslatableComponent.of("worldedit.selection.sphere.explain.secondary", TextComponent.of(region.getRadius().getX())));

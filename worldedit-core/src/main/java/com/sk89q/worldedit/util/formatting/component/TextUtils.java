@@ -34,7 +34,7 @@ public class TextUtils {
      * Join an array of components with a joiner component.
      *
      * @param components The components to join
-     * @param joiner The joiner component
+     * @param joiner     The joiner component
      * @return The joined component
      */
     public static Component join(List<Component> components, Component joiner) {

@@ -34,7 +34,7 @@ public class ForgeBlockCategoryRegistry implements BlockCategoryRegistry {
     @Override
     public Set<BlockType> getCategorisedByName(String category) {
         return Optional.ofNullable(BlockTags.getCollection().get(new ResourceLocation(category)))
-                .map(ITag::func_230236_b_).orElse(Collections.emptyList())
-                .stream().map(ForgeAdapter::adapt).collect(Collectors.toSet());
+            .map(ITag::func_230236_b_).orElse(Collections.emptyList())
+            .stream().map(ForgeAdapter::adapt).collect(Collectors.toSet());
     }
 }

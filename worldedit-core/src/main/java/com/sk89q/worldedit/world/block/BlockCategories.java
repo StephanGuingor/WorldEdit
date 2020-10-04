@@ -47,7 +47,8 @@ public final class BlockCategories {
     public static final BlockCategory CRIMSON_STEMS = get("minecraft:crimson_stems");
     public static final BlockCategory CROPS = get("minecraft:crops");
     public static final BlockCategory DARK_OAK_LOGS = get("minecraft:dark_oak_logs");
-    @Deprecated public static final BlockCategory DIRT_LIKE = get("minecraft:dirt_like");
+    @Deprecated
+    public static final BlockCategory DIRT_LIKE = get("minecraft:dirt_like");
     public static final BlockCategory DOORS = get("minecraft:doors");
     public static final BlockCategory DRAGON_IMMUNE = get("minecraft:dragon_immune");
     public static final BlockCategory ENDERMAN_HOLDABLE = get("minecraft:enderman_holdable");

@@ -34,7 +34,8 @@ public class BukkitConfiguration extends YAMLConfiguration {
 
     public boolean noOpPermissions = false;
     public boolean commandBlockSupport = false;
-    @Unreported private final WorldEditPlugin plugin;
+    @Unreported
+    private final WorldEditPlugin plugin;
 
     public BukkitConfiguration(YAMLProcessor config, WorldEditPlugin plugin) {
         super(config, LoggerFactory.getLogger(plugin.getLogger().getName()));

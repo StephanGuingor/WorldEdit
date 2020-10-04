@@ -50,7 +50,7 @@ public class TracingExtent extends AbstractDelegateExtent {
 
     private final Set<BlockVector3> touchedLocations = Collections.newSetFromMap(BlockMap.create());
     private final SetMultimap<BlockVector3, Action> failedActions = Multimaps.newSetMultimap(
-            BlockMap.create(), () -> EnumSet.noneOf(Action.class)
+        BlockMap.create(), () -> EnumSet.noneOf(Action.class)
     );
 
     /**

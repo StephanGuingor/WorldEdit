@@ -56,9 +56,9 @@ public class Location {
      * with a direction vector of 0, 0, 0.
      *
      * @param extent the extent
-     * @param x the X coordinate
-     * @param y the Y coordinate
-     * @param z the Z coordinate
+     * @param x      the X coordinate
+     * @param y      the Y coordinate
+     * @param z      the Z coordinate
      */
     public Location(Extent extent, double x, double y, double z) {
         this(extent, Vector3.at(x, y, z), 0f, 90f);
@@ -68,7 +68,7 @@ public class Location {
      * Create a new instance in the given extent with the given position
      * vector and a direction vector of 0, 0, 0.
      *
-     * @param extent the extent
+     * @param extent   the extent
      * @param position the position vector
      */
     public Location(Extent extent, Vector3 position) {
@@ -79,10 +79,10 @@ public class Location {
      * Create a new instance in the given extent with the given coordinates
      * and the given direction vector.
      *
-     * @param extent the extent
-     * @param x the X coordinate
-     * @param y the Y coordinate
-     * @param z the Z coordinate
+     * @param extent    the extent
+     * @param x         the X coordinate
+     * @param y         the Y coordinate
+     * @param z         the Z coordinate
      * @param direction the direction vector
      */
     public Location(Extent extent, double x, double y, double z, Vector3 direction) {
@@ -94,11 +94,11 @@ public class Location {
      * and the given direction vector.
      *
      * @param extent the extent
-     * @param x the X coordinate
-     * @param y the Y coordinate
-     * @param z the Z coordinate
-     * @param yaw the yaw, in degrees
-     * @param pitch the pitch, in degrees
+     * @param x      the X coordinate
+     * @param y      the Y coordinate
+     * @param z      the Z coordinate
+     * @param yaw    the yaw, in degrees
+     * @param pitch  the pitch, in degrees
      */
     public Location(Extent extent, double x, double y, double z, float yaw, float pitch) {
         this(extent, Vector3.at(x, y, z), yaw, pitch);
@@ -108,8 +108,8 @@ public class Location {
      * Create a new instance in the given extent with the given position vector
      * and the given direction vector.
      *
-     * @param extent the extent
-     * @param position the position vector
+     * @param extent    the extent
+     * @param position  the position vector
      * @param direction the direction vector
      */
     public Location(Extent extent, Vector3 position, Vector3 direction) {
@@ -120,10 +120,10 @@ public class Location {
      * Create a new instance in the given extent with the given position vector
      * and the given direction vector.
      *
-     * @param extent the extent
+     * @param extent   the extent
      * @param position the position vector
-     * @param yaw the yaw, in degrees
-     * @param pitch the pitch, in degrees
+     * @param yaw      the yaw, in degrees
+     * @param pitch    the pitch, in degrees
      */
     public Location(Extent extent, Vector3 position, float yaw, float pitch) {
         checkNotNull(extent);
@@ -194,7 +194,7 @@ public class Location {
     /**
      * Create a clone of this object with the given yaw and pitch.
      *
-     * @param yaw the new yaw
+     * @param yaw   the new yaw
      * @param pitch the new pitch
      * @return the new instance
      */
@@ -215,9 +215,9 @@ public class Location {
         double pitch = Math.toRadians(this.getPitch());
         double xz = Math.cos(pitch);
         return Vector3.at(
-                -xz * Math.sin(yaw),
-                -Math.sin(pitch),
-                xz * Math.cos(yaw));
+            -xz * Math.sin(yaw),
+            -Math.sin(pitch),
+            xz * Math.cos(yaw));
     }
 
     /**

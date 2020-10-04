@@ -46,9 +46,9 @@ public class ConfigurationPermissionsResolver implements PermissionsResolver {
             "worldedit.selection",
             "worlds.creative.worldedit.region"
         });
-        section.setProperty("groups.admins.permissions", new String[] { "*" });
-        section.setProperty("users.sk89q.permissions", new String[] { "worldedit" });
-        section.setProperty("users.sk89q.groups", new String[] { "admins" });
+        section.setProperty("groups.admins.permissions", new String[] {"*"});
+        section.setProperty("users.sk89q.permissions", new String[] {"worldedit"});
+        section.setProperty("users.sk89q.groups", new String[] {"admins"});
         return section;
     }
 
@@ -65,7 +65,7 @@ public class ConfigurationPermissionsResolver implements PermissionsResolver {
         if (groupKeys != null) {
             for (String key : groupKeys) {
                 List<String> permissions =
-                        config.getStringList("permissions.groups." + key + ".permissions", null);
+                    config.getStringList("permissions.groups." + key + ".permissions", null);
 
                 if (!permissions.isEmpty()) {
                     Set<String> groupPerms = new HashSet<>(permissions);
@@ -85,14 +85,14 @@ public class ConfigurationPermissionsResolver implements PermissionsResolver {
                 Set<String> permsCache = new HashSet<>();
 
                 List<String> permissions =
-                        config.getStringList("permissions.users." + key + ".permissions", null);
+                    config.getStringList("permissions.users." + key + ".permissions", null);
 
                 if (!permissions.isEmpty()) {
                     permsCache.addAll(permissions);
                 }
 
                 List<String> groups =
-                        config.getStringList("permissions.users." + key + ".groups", null);
+                    config.getStringList("permissions.users." + key + ".groups", null);
                 groups.add("default");
 
                 if (!groups.isEmpty()) {
@@ -122,7 +122,7 @@ public class ConfigurationPermissionsResolver implements PermissionsResolver {
         Set<String> perms = userPermissionsCache.get(player.toLowerCase(Locale.ROOT));
         if (perms == null) {
             return defaultPermissionsCache.contains(permission)
-                    || defaultPermissionsCache.contains("*");
+                || defaultPermissionsCache.contains("*");
         }
 
         return perms.contains("*") || perms.contains(permission);
@@ -131,7 +131,7 @@ public class ConfigurationPermissionsResolver implements PermissionsResolver {
     @Override
     public boolean hasPermission(String worldName, String player, String permission) {
         return hasPermission(player, "worlds." + worldName + "." + permission)
-                || hasPermission(player, permission);
+            || hasPermission(player, permission);
     }
 
     @Override

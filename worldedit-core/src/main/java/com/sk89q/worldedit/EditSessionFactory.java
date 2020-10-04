@@ -35,7 +35,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * the creation of {@link EditSession}s.</p>
  *
  * @deprecated Using the ever-extending factory methods is deprecated. Replace with {@link EditSessionBuilder},
- *     which in most cases will be as simple as calling {@code builder.world(world).build()}.
+ * which in most cases will be as simple as calling {@code builder.world(world).build()}.
  */
 @Deprecated
 public class EditSessionFactory {
@@ -43,7 +43,7 @@ public class EditSessionFactory {
     /**
      * Construct an edit session with a maximum number of blocks.
      *
-     * @param world the world
+     * @param world     the world
      * @param maxBlocks the maximum number of blocks that can be changed, or -1 to use no limit
      * @return an instance
      */
@@ -66,9 +66,9 @@ public class EditSessionFactory {
     /**
      * Construct an edit session with a maximum number of blocks.
      *
-     * @param world the world
+     * @param world     the world
      * @param maxBlocks the maximum number of blocks that can be changed, or -1 to use no limit
-     * @param actor the actor that the {@link EditSession} is for
+     * @param actor     the actor that the {@link EditSession} is for
      * @return an instance
      */
     public EditSession getEditSession(World world, int maxBlocks, Actor actor) {
@@ -90,9 +90,9 @@ public class EditSessionFactory {
     /**
      * Construct an edit session with a maximum number of blocks and a block bag.
      *
-     * @param world the world
+     * @param world     the world
      * @param maxBlocks the maximum number of blocks that can be changed, or -1 to use no limit
-     * @param blockBag an optional {@link BlockBag} to use, otherwise null
+     * @param blockBag  an optional {@link BlockBag} to use, otherwise null
      * @return an instance
      */
     public EditSession getEditSession(World world, int maxBlocks, BlockBag blockBag) {
@@ -114,10 +114,10 @@ public class EditSessionFactory {
     /**
      * Construct an edit session with a maximum number of blocks and a block bag.
      *
-     * @param world the world
+     * @param world     the world
      * @param maxBlocks the maximum number of blocks that can be changed, or -1 to use no limit
-     * @param blockBag an optional {@link BlockBag} to use, otherwise null
-     * @param actor the actor that the {@link EditSession} is for
+     * @param blockBag  an optional {@link BlockBag} to use, otherwise null
+     * @param actor     the actor that the {@link EditSession} is for
      * @return an instance
      */
     public EditSession getEditSession(World world, int maxBlocks, BlockBag blockBag, Actor actor) {

@@ -33,8 +33,8 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
-* An implementation of a dynamically registered {@link org.bukkit.command.Command} attached to a plugin.
-*/
+ * An implementation of a dynamically registered {@link org.bukkit.command.Command} attached to a plugin.
+ */
 @SuppressWarnings("deprecation")
 public class DynamicPluginCommand extends org.bukkit.command.Command implements PluginIdentifiableCommand {
 

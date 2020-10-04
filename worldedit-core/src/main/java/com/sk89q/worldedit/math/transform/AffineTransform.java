@@ -97,7 +97,7 @@ public class AffineTransform implements Transform {
             m23 = coefs[11];
         } else {
             throw new IllegalArgumentException(
-                    "Input array must have 9 or 12 elements");
+                "Input array must have 9 or 12 elements");
         }
     }
 
@@ -134,7 +134,7 @@ public class AffineTransform implements Transform {
      * 12 double.
      */
     public double[] coefficients() {
-        return new double[]{m00, m01, m02, m03, m10, m11, m12, m13, m20, m21, m22, m23};
+        return new double[] {m00, m01, m02, m03, m10, m11, m12, m13, m20, m21, m22, m23};
     }
 
     /**
@@ -144,7 +144,7 @@ public class AffineTransform implements Transform {
      */
     private double determinant() {
         return m00 * (m11 * m22 - m12 * m21) - m01 * (m10 * m22 - m20 * m12)
-                + m02 * (m10 * m21 - m20 * m11);
+            + m02 * (m10 * m21 - m20 * m11);
     }
 
     /**
@@ -154,21 +154,21 @@ public class AffineTransform implements Transform {
     public AffineTransform inverse() {
         double det = this.determinant();
         return new AffineTransform(
-                (m11 * m22 - m21 * m12) / det,
-                (m21 * m02 - m01 * m22) / det,
-                (m01 * m12 - m11 * m02) / det,
-                (m01 * (m22 * m13 - m12 * m23) + m02 * (m11 * m23 - m21 * m13)
-                        - m03 * (m11 * m22 - m21 * m12)) / det,
-                (m20 * m12 - m10 * m22) / det,
-                (m00 * m22 - m20 * m02) / det,
-                (m10 * m02 - m00 * m12) / det,
-                (m00 * (m12 * m23 - m22 * m13) - m02 * (m10 * m23 - m20 * m13)
-                        + m03 * (m10 * m22 - m20 * m12)) / det,
-                (m10 * m21 - m20 * m11) / det,
-                (m20 * m01 - m00 * m21) / det,
-                (m00 * m11 - m10 * m01) / det,
-                (m00 * (m21 * m13 - m11 * m23) + m01 * (m10 * m23 - m20 * m13)
-                        - m03 * (m10 * m21 - m20 * m11)) / det);
+            (m11 * m22 - m21 * m12) / det,
+            (m21 * m02 - m01 * m22) / det,
+            (m01 * m12 - m11 * m02) / det,
+            (m01 * (m22 * m13 - m12 * m23) + m02 * (m11 * m23 - m21 * m13)
+                - m03 * (m11 * m22 - m21 * m12)) / det,
+            (m20 * m12 - m10 * m22) / det,
+            (m00 * m22 - m20 * m02) / det,
+            (m10 * m02 - m00 * m12) / det,
+            (m00 * (m12 * m23 - m22 * m13) - m02 * (m10 * m23 - m20 * m13)
+                + m03 * (m10 * m22 - m20 * m12)) / det,
+            (m10 * m21 - m20 * m11) / det,
+            (m20 * m01 - m00 * m21) / det,
+            (m00 * m11 - m10 * m01) / det,
+            (m00 * (m21 * m13 - m11 * m23) + m01 * (m10 * m23 - m20 * m13)
+                - m03 * (m10 * m21 - m20 * m11)) / det);
     }
 
     // ===================================================================
@@ -195,9 +195,9 @@ public class AffineTransform implements Transform {
         double n22 = m20 * that.m02 + m21 * that.m12 + m22 * that.m22;
         double n23 = m20 * that.m03 + m21 * that.m13 + m22 * that.m23 + m23;
         return new AffineTransform(
-                n00, n01, n02, n03,
-                n10, n11, n12, n13,
-                n20, n21, n22, n23);
+            n00, n01, n02, n03,
+            n10, n11, n12, n13,
+            n20, n21, n22, n23);
     }
 
     /**
@@ -221,9 +221,9 @@ public class AffineTransform implements Transform {
         double n22 = that.m20 * m02 + that.m21 * m12 + that.m22 * m22;
         double n23 = that.m20 * m03 + that.m21 * m13 + that.m22 * m23 + that.m23;
         return new AffineTransform(
-                n00, n01, n02, n03,
-                n10, n11, n12, n13,
-                n20, n21, n22, n23);
+            n00, n01, n02, n03,
+            n10, n11, n12, n13,
+            n20, n21, n22, n23);
     }
 
     public AffineTransform translate(Vector3 vec) {
@@ -242,30 +242,30 @@ public class AffineTransform implements Transform {
         double cot = MathUtils.dCos(theta);
         double sit = MathUtils.dSin(theta);
         return concatenate(
-                new AffineTransform(
-                        1, 0, 0, 0,
-                        0, cot, -sit, 0,
-                        0, sit, cot, 0));
+            new AffineTransform(
+                1, 0, 0, 0,
+                0, cot, -sit, 0,
+                0, sit, cot, 0));
     }
 
     public AffineTransform rotateY(double theta) {
         double cot = MathUtils.dCos(theta);
         double sit = MathUtils.dSin(theta);
         return concatenate(
-                new AffineTransform(
-                        cot, 0, sit, 0,
-                        0, 1, 0, 0,
-                        -sit, 0, cot, 0));
+            new AffineTransform(
+                cot, 0, sit, 0,
+                0, 1, 0, 0,
+                -sit, 0, cot, 0));
     }
 
     public AffineTransform rotateZ(double theta) {
         double cot = MathUtils.dCos(theta);
         double sit = MathUtils.dSin(theta);
         return concatenate(
-                new AffineTransform(
-                        cot, -sit, 0, 0,
-                        sit, cot, 0, 0,
-                        0, 0, 1, 0));
+            new AffineTransform(
+                cot, -sit, 0, 0,
+                sit, cot, 0, 0,
+                0, 0, 1, 0));
     }
 
     public AffineTransform scale(double s) {
@@ -283,9 +283,9 @@ public class AffineTransform implements Transform {
     @Override
     public Vector3 apply(Vector3 vector) {
         return Vector3.at(
-                vector.getX() * m00 + vector.getY() * m01 + vector.getZ() * m02 + m03,
-                vector.getX() * m10 + vector.getY() * m11 + vector.getZ() * m12 + m13,
-                vector.getX() * m20 + vector.getY() * m21 + vector.getZ() * m22 + m23);
+            vector.getX() * m00 + vector.getY() * m01 + vector.getZ() * m02 + m03,
+            vector.getX() * m10 + vector.getY() * m11 + vector.getZ() * m12 + m13,
+            vector.getX() * m20 + vector.getY() * m21 + vector.getZ() * m22 + m23);
     }
 
     public AffineTransform combine(AffineTransform other) {

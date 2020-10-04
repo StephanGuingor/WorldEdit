@@ -194,7 +194,7 @@ public class WorldEditPlugin extends JavaPlugin implements TabCompleter {
         WorldEdit.getInstance().getEventBus().post(new PlatformReadyEvent());
     }
 
-    @SuppressWarnings({ "deprecation", "unchecked" })
+    @SuppressWarnings({"deprecation", "unchecked"})
     private void initializeRegistries() {
         // Biome
         for (Biome biome : Biome.values()) {
@@ -212,7 +212,7 @@ public class WorldEditPlugin extends JavaPlugin implements TabCompleter {
                     context.setRestricted(false);
                     try {
                         FuzzyBlockState state = (FuzzyBlockState) WorldEdit.getInstance().getBlockFactory().parseFromInput(
-                                BukkitAdapter.adapt(blockState.getBlockType()).createBlockData().getAsString(), context
+                            BukkitAdapter.adapt(blockState.getBlockType()).createBlockData().getAsString(), context
                         ).toImmutableState();
                         BlockState defaultState = blockState.getBlockType().getAllStates().get(0);
                         for (Map.Entry<Property<?>, Object> propertyObjectEntry : state.getStates().entrySet()) {
@@ -419,7 +419,7 @@ public class WorldEditPlugin extends JavaPlugin implements TabCompleter {
     /**
      * Remember an edit session.
      *
-     * @param player a player
+     * @param player      a player
      * @param editSession an edit session
      */
     public void remember(Player player, EditSession editSession) {
@@ -543,7 +543,7 @@ public class WorldEditPlugin extends JavaPlugin implements TabCompleter {
                 buffer = "/" + buffer.substring(plSep + 2);
             }
             final Optional<org.enginehub.piston.Command> command
-                    = WorldEdit.getInstance().getPlatformManager().getPlatformCommandManager().getCommandManager().getCommand(label);
+                = WorldEdit.getInstance().getPlatformManager().getPlatformCommandManager().getCommandManager().getCommand(label);
             if (!command.isPresent()) {
                 return;
             }

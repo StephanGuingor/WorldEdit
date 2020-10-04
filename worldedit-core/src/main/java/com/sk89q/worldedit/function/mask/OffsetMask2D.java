@@ -38,7 +38,7 @@ public class OffsetMask2D extends AbstractMask2D {
     /**
      * Create a new instance.
      *
-     * @param mask the mask
+     * @param mask   the mask
      * @param offset the offset
      */
     public OffsetMask2D(Mask2D mask, BlockVector2 offset) {

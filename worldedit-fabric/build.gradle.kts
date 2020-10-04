@@ -61,33 +61,33 @@ dependencies {
         groovy.json.JsonSlurper().parse(it) as Map<String, Map<String, *>>
     }
     val wantedDependencies = (fabricModJson["depends"] ?: error("no depends in fabric.mod.json")).keys
-        .filter { it == "fabric-api-base" || it.contains(Regex("v\\d$")) }
-        .map { "net.fabricmc.fabric-api:$it" }
+            .filter { it == "fabric-api-base" || it.contains(Regex("v\\d$")) }
+            .map { "net.fabricmc.fabric-api:$it" }
     logger.lifecycle("Looking for these dependencies:")
     for (wantedDependency in wantedDependencies) {
         logger.lifecycle(wantedDependency)
     }
     // [3] and now we resolve it to pick out what we want :D
     val fabricApiDependencies = fabricApiConfiguration.incoming.resolutionResult.allDependencies
-        .onEach {
-            if (it is UnresolvedDependencyResult) {
-                throw kotlin.IllegalStateException("Failed to resolve Fabric API", it.failure)
+            .onEach {
+                if (it is UnresolvedDependencyResult) {
+                    throw kotlin.IllegalStateException("Failed to resolve Fabric API", it.failure)
+                }
             }
-        }
-        .filterIsInstance<ResolvedDependencyResult>()
-        // pick out transitive dependencies
-        .flatMap {
-            it.selected.dependencies
-        }
-        // grab the requested versions
-        .map { it.requested }
-        .filterIsInstance<ModuleComponentSelector>()
-        // map to standard notation
-        .associateByTo(
-            mutableMapOf(),
-            keySelector = { "${it.group}:${it.module}" },
-            valueTransform = { "${it.group}:${it.module}:${it.version}" }
-        )
+            .filterIsInstance<ResolvedDependencyResult>()
+            // pick out transitive dependencies
+            .flatMap {
+                it.selected.dependencies
+            }
+            // grab the requested versions
+            .map { it.requested }
+            .filterIsInstance<ModuleComponentSelector>()
+            // map to standard notation
+            .associateByTo(
+                    mutableMapOf(),
+                    keySelector = { "${it.group}:${it.module}" },
+                    valueTransform = { "${it.group}:${it.module}:${it.version}" }
+            )
     fabricApiDependencies.keys.retainAll(wantedDependencies)
     // sanity check
     for (wantedDep in wantedDependencies) {

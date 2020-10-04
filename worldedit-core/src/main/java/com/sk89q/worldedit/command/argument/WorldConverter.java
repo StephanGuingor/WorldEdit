@@ -40,7 +40,7 @@ public class WorldConverter implements ArgumentConverter<World> {
 
     public static void register(CommandManager commandManager) {
         commandManager.registerConverter(Key.of(World.class),
-                new WorldConverter()
+            new WorldConverter()
         );
     }
 
@@ -57,25 +57,25 @@ public class WorldConverter implements ArgumentConverter<World> {
 
     private Stream<? extends World> getWorlds() {
         return WorldEdit.getInstance().getPlatformManager()
-                .queryCapability(Capability.GAME_HOOKS).getWorlds().stream();
+            .queryCapability(Capability.GAME_HOOKS).getWorlds().stream();
     }
 
     @Override
     public List<String> getSuggestions(String input, InjectedValueAccess context) {
         return getWorlds()
-                .map(World::getId)
-                .filter(world -> world.startsWith(input))
-                .collect(Collectors.toList());
+            .map(World::getId)
+            .filter(world -> world.startsWith(input))
+            .collect(Collectors.toList());
     }
 
     @Override
     public ConversionResult<World> convert(String s, InjectedValueAccess injectedValueAccess) {
         World result = getWorlds()
-                .filter(world -> world.getId().equals(s))
-                .findAny().orElse(null);
+            .filter(world -> world.getId().equals(s))
+            .findAny().orElse(null);
         return result == null
-                ? FailedConversion.from(new IllegalArgumentException(
-                "Not a valid world: " + s))
-                : SuccessfulConversion.fromSingle(result);
+            ? FailedConversion.from(new IllegalArgumentException(
+            "Not a valid world: " + s))
+            : SuccessfulConversion.fromSingle(result);
     }
 }

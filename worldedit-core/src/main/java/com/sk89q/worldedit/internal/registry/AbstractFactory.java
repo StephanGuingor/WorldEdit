@@ -47,7 +47,7 @@ public abstract class AbstractFactory<E> {
     /**
      * Create a new factory.
      *
-     * @param worldEdit the WorldEdit instance
+     * @param worldEdit     the WorldEdit instance
      * @param defaultParser the parser to fall back to
      */
     protected AbstractFactory(WorldEdit worldEdit, InputParser<E> defaultParser) {

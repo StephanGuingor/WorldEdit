@@ -262,7 +262,7 @@ public class BukkitWorld extends AbstractWorld {
      * An EnumMap that stores which WorldEdit TreeTypes apply to which Bukkit TreeTypes.
      */
     private static final EnumMap<TreeGenerator.TreeType, TreeType> treeTypeMapping =
-            new EnumMap<>(TreeGenerator.TreeType.class);
+        new EnumMap<>(TreeGenerator.TreeType.class);
 
     static {
         for (TreeGenerator.TreeType type : TreeGenerator.TreeType.values()) {
@@ -300,7 +300,7 @@ public class BukkitWorld extends AbstractWorld {
             pt = pt.add(0, 1, 0); // bukkit skips the feature gen which does this offset normally, so we have to add it back
         }
         return type != null && world.generateTree(BukkitAdapter.adapt(world, pt), bukkitType,
-                new EditSessionBlockChangeDelegate(editSession));
+            new EditSessionBlockChangeDelegate(editSession));
     }
 
     @Override
@@ -472,12 +472,12 @@ public class BukkitWorld extends AbstractWorld {
 
     @Override
     public Set<SideEffect> applySideEffects(BlockVector3 position, com.sk89q.worldedit.world.block.BlockState previousType,
-            SideEffectSet sideEffectSet) {
+                                            SideEffectSet sideEffectSet) {
         if (worldNativeAccess != null) {
             worldNativeAccess.applySideEffects(position, previousType, sideEffectSet);
             return Sets.intersection(
-                    WorldEditPlugin.getInstance().getInternalPlatform().getSupportedSideEffects(),
-                    sideEffectSet.getSideEffectsToApply()
+                WorldEditPlugin.getInstance().getInternalPlatform().getSupportedSideEffects(),
+                sideEffectSet.getSideEffectsToApply()
             );
         }
 

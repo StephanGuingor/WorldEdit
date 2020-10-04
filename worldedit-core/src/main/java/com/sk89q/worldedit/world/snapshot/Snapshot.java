@@ -52,7 +52,7 @@ public class Snapshot implements Comparable<Snapshot> {
     /**
      * Construct a snapshot restoration operation.
      *
-     * @param repo a repository
+     * @param repo     a repository
      * @param snapshot a snapshot name
      */
     public Snapshot(SnapshotRepository repo, String snapshot) {
@@ -64,14 +64,14 @@ public class Snapshot implements Comparable<Snapshot> {
      * Get a chunk store.
      *
      * @return a chunk store
-     * @throws IOException if there is an error loading the chunk store
-     * @throws DataException  if there is an error loading the chunk store
+     * @throws IOException   if there is an error loading the chunk store
+     * @throws DataException if there is an error loading the chunk store
      */
     public ChunkStore getChunkStore() throws IOException, DataException {
         ChunkStore chunkStore = internalGetChunkStore();
 
         logger.info("WorldEdit: Using " + chunkStore.getClass().getCanonicalName()
-                + " for loading snapshot '" + file.getAbsolutePath() + "'");
+            + " for loading snapshot '" + file.getAbsolutePath() + "'");
 
         return chunkStore;
     }
@@ -80,7 +80,7 @@ public class Snapshot implements Comparable<Snapshot> {
      * Get a chunk store.
      *
      * @return a chunk store
-     * @throws IOException if there is an error loading the chunk store
+     * @throws IOException   if there is an error loading the chunk store
      * @throws DataException if there is an error loading the chunk store
      */
     private ChunkStore internalGetChunkStore() throws IOException, DataException {
@@ -104,8 +104,8 @@ public class Snapshot implements Comparable<Snapshot> {
                 return chunkStore;
             }
         } else if (lowerCaseFileName.endsWith(".tar.bz2")
-                || lowerCaseFileName.endsWith(".tar.gz")
-                || lowerCaseFileName.endsWith(".tar")) {
+            || lowerCaseFileName.endsWith(".tar.gz")
+            || lowerCaseFileName.endsWith(".tar")) {
             try {
                 ChunkStore chunkStore = new TrueZipMcRegionChunkStore(file);
 
@@ -139,11 +139,11 @@ public class Snapshot implements Comparable<Snapshot> {
             if (lowerCaseFileName.endsWith(".zip")) {
                 try (ZipFile entry = new ZipFile(file)) {
                     return (entry.getEntry(worldname) != null
-                            || entry.getEntry(worldname + "/level.dat") != null);
+                        || entry.getEntry(worldname + "/level.dat") != null);
                 }
             } else if (lowerCaseFileName.endsWith(".tar.bz2")
-                    || lowerCaseFileName.endsWith(".tar.gz")
-                    || lowerCaseFileName.endsWith(".tar")) {
+                || lowerCaseFileName.endsWith(".tar.gz")
+                || lowerCaseFileName.endsWith(".tar")) {
                 try {
                     de.schlichtherle.util.zip.ZipFile entry = new de.schlichtherle.util.zip.ZipFile(file);
 
@@ -157,7 +157,7 @@ public class Snapshot implements Comparable<Snapshot> {
         } catch (IOException ex) {
             // Skip the file, but print an error
             logger.info("Could not load snapshot: "
-                    + file.getPath());
+                + file.getPath());
         } catch (DataException ex) {
             // No truezip, so tar file not supported.
             // Dont print, just skip the file.

@@ -126,9 +126,9 @@ public class DataReport implements Report {
                 }
 
                 builder
-                        .append(key)
-                        .append(": ")
-                        .append(getStringValue(entry.getValue(), Sets.newHashSet(seen)));
+                    .append(key)
+                    .append(": ")
+                    .append(getStringValue(entry.getValue(), Sets.newHashSet(seen)));
             }
             return builder.toString();
         } else {

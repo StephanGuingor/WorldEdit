@@ -102,10 +102,10 @@ public class Polygonal2DRegionSelector implements RegionSelector, CUIRegion {
     /**
      * Create a new selector.
      *
-     * @param world the world
+     * @param world  the world
      * @param points a list of points
-     * @param minY the minimum Y
-     * @param maxY the maximum Y
+     * @param minY   the minimum Y
+     * @param maxY   the maximum Y
      */
     public Polygonal2DRegionSelector(@Nullable World world, List<BlockVector2> points, int minY, int maxY) {
         checkNotNull(points);
@@ -175,9 +175,9 @@ public class Polygonal2DRegionSelector implements RegionSelector, CUIRegion {
     @Override
     public void explainSecondarySelection(Actor player, LocalSession session, BlockVector3 pos) {
         player.printInfo(TranslatableComponent.of(
-                "worldedit.selection.polygon2d.explain.secondary",
-                TextComponent.of(region.size()),
-                TextComponent.of(pos.toString())
+            "worldedit.selection.polygon2d.explain.secondary",
+            TextComponent.of(region.size()),
+            TextComponent.of(pos.toString())
         ));
 
         session.dispatchCUIEvent(player, new SelectionPoint2DEvent(region.size() - 1, pos, getVolume()));

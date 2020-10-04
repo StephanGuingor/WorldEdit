@@ -59,11 +59,11 @@ public class FloatingTreeRemover implements BlockTool {
 
     private boolean isTreeBlock(BlockType type) {
         return BlockCategories.LEAVES.contains(type)
-                || BlockCategories.LOGS.contains(type)
-                || type == BlockTypes.RED_MUSHROOM_BLOCK
-                || type == BlockTypes.BROWN_MUSHROOM_BLOCK
-                || type == BlockTypes.MUSHROOM_STEM
-                || type == BlockTypes.VINE;
+            || BlockCategories.LOGS.contains(type)
+            || type == BlockTypes.RED_MUSHROOM_BLOCK
+            || type == BlockTypes.BROWN_MUSHROOM_BLOCK
+            || type == BlockTypes.MUSHROOM_STEM
+            || type == BlockTypes.VINE;
     }
 
     @Override
@@ -104,18 +104,18 @@ public class FloatingTreeRemover implements BlockTool {
     }
 
     private final BlockVector3[] recurseDirections = {
-            Direction.NORTH.toBlockVector(),
-            Direction.EAST.toBlockVector(),
-            Direction.SOUTH.toBlockVector(),
-            Direction.WEST.toBlockVector(),
-            Direction.UP.toBlockVector(),
-            Direction.DOWN.toBlockVector(),
+        Direction.NORTH.toBlockVector(),
+        Direction.EAST.toBlockVector(),
+        Direction.SOUTH.toBlockVector(),
+        Direction.WEST.toBlockVector(),
+        Direction.UP.toBlockVector(),
+        Direction.DOWN.toBlockVector(),
     };
 
     /**
      * Helper method.
      *
-     * @param world the world that contains the tree
+     * @param world  the world that contains the tree
      * @param origin any point contained in the floating tree
      * @return a set containing all blocks in the tree/shroom or null if this is not a floating tree/shroom.
      */

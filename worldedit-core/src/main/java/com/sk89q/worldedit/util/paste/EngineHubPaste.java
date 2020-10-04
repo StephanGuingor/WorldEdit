@@ -63,9 +63,9 @@ public class EngineHubPaste implements Paster {
             URL url = HttpRequest.url(response.uploadUrl);
             // If this succeeds, it will not return any data aside from a 204 status.
             HttpRequest.post(url)
-                    .bodyMultipartForm(form)
-                    .execute()
-                    .expectResponseCode(200, 204);
+                .bodyMultipartForm(form)
+                .execute()
+                .expectResponseCode(200, 204);
 
             return new URL(response.viewUrl);
         }

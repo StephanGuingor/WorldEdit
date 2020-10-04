@@ -98,7 +98,8 @@ public final class BundledBlockData {
         }
         log.debug("Using {} for bundled block data.", url);
         String data = Resources.toString(url, Charset.defaultCharset());
-        List<BlockEntry> entries = gson.fromJson(data, new TypeToken<List<BlockEntry>>() {}.getType());
+        List<BlockEntry> entries = gson.fromJson(data, new TypeToken<List<BlockEntry>>() {
+        }.getType());
 
         for (BlockEntry entry : entries) {
             idMap.put(entry.id, entry);

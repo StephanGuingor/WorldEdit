@@ -47,7 +47,7 @@ public class BaseItemStack extends BaseItem {
      * Construct the object.
      *
      * @param itemType The item type
-     * @param amount amount in the stack
+     * @param amount   amount in the stack
      */
     public BaseItemStack(ItemType itemType, int amount) {
         super(itemType);
@@ -57,8 +57,8 @@ public class BaseItemStack extends BaseItem {
     /**
      * Construct the object.
      *
-     * @param id The item type
-     * @param tag Tag value
+     * @param id     The item type
+     * @param tag    Tag value
      * @param amount amount in the stack
      */
     public BaseItemStack(ItemType id, CompoundTag tag, int amount) {

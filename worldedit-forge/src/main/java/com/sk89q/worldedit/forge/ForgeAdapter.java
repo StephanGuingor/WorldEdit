@@ -104,11 +104,16 @@ public final class ForgeAdapter {
 
     public static net.minecraft.util.Direction adapt(Direction face) {
         switch (face) {
-            case NORTH: return net.minecraft.util.Direction.NORTH;
-            case SOUTH: return net.minecraft.util.Direction.SOUTH;
-            case WEST: return net.minecraft.util.Direction.WEST;
-            case EAST: return net.minecraft.util.Direction.EAST;
-            case DOWN: return net.minecraft.util.Direction.DOWN;
+            case NORTH:
+                return net.minecraft.util.Direction.NORTH;
+            case SOUTH:
+                return net.minecraft.util.Direction.SOUTH;
+            case WEST:
+                return net.minecraft.util.Direction.WEST;
+            case EAST:
+                return net.minecraft.util.Direction.EAST;
+            case DOWN:
+                return net.minecraft.util.Direction.DOWN;
             case UP:
             default:
                 return net.minecraft.util.Direction.UP;
@@ -120,11 +125,16 @@ public final class ForgeAdapter {
             return null;
         }
         switch (face) {
-            case NORTH: return Direction.NORTH;
-            case SOUTH: return Direction.SOUTH;
-            case WEST: return Direction.WEST;
-            case EAST: return Direction.EAST;
-            case DOWN: return Direction.DOWN;
+            case NORTH:
+                return Direction.NORTH;
+            case SOUTH:
+                return Direction.SOUTH;
+            case WEST:
+                return Direction.WEST;
+            case EAST:
+                return Direction.EAST;
+            case DOWN:
+                return Direction.DOWN;
             case UP:
             default:
                 return Direction.UP;
@@ -144,8 +154,8 @@ public final class ForgeAdapter {
         }
         if (property instanceof DirectionProperty) {
             return new DirectionalProperty(property.getName(), ((DirectionProperty) property).getAllowedValues().stream()
-                    .map(ForgeAdapter::adaptEnumFacing)
-                    .collect(Collectors.toList()));
+                .map(ForgeAdapter::adaptEnumFacing)
+                .collect(Collectors.toList()));
         }
         if (property instanceof net.minecraft.state.EnumProperty) {
             // Note: do not make x.getName a method reference.
@@ -153,8 +163,8 @@ public final class ForgeAdapter {
             // Temporary: func_176610_l == getName
             //noinspection Convert2MethodRef
             return new EnumProperty(property.getName(), ((net.minecraft.state.EnumProperty<?>) property).getAllowedValues().stream()
-                    .map(x -> x.func_176610_l())
-                    .collect(Collectors.toList()));
+                .map(x -> x.func_176610_l())
+                .collect(Collectors.toList()));
         }
         return new IPropertyAdapter<>(property);
     }
@@ -173,7 +183,7 @@ public final class ForgeAdapter {
         return props;
     }
 
-    @SuppressWarnings({ "rawtypes", "unchecked" })
+    @SuppressWarnings({"rawtypes", "unchecked"})
     private static net.minecraft.block.BlockState applyProperties(StateContainer<Block, net.minecraft.block.BlockState> stateContainer, net.minecraft.block.BlockState newState, Map<Property<?>, Object> states) {
         for (Map.Entry<Property<?>, Object> state : states.entrySet()) {
             net.minecraft.state.Property property = stateContainer.getProperty(state.getKey().getName());

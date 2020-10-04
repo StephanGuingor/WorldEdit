@@ -81,7 +81,7 @@ public class GardenPatchGenerator implements RegionFunction {
      * Make a patch vine.
      *
      * @param basePos the base position
-     * @param pos the vine position
+     * @param pos     the vine position
      */
     private void placeVine(BlockVector3 basePos, BlockVector3 pos) throws MaxChangedBlocksException {
         if (pos.distance(basePos) > 4) {
@@ -196,7 +196,7 @@ public class GardenPatchGenerator implements RegionFunction {
      * Set a block only if there's no block already there.
      *
      * @param position the position
-     * @param pattern the pattern to set
+     * @param pattern  the pattern to set
      * @return if block was changed
      * @throws MaxChangedBlocksException thrown if too many blocks are changed
      */

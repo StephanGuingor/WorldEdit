@@ -333,7 +333,7 @@ public final class Vector2 {
      */
     public boolean containedWithin(Vector2 min, Vector2 max) {
         return x >= min.x && x <= max.x
-                && z >= min.z && z <= max.z;
+            && z >= min.z && z <= max.z;
     }
 
     /**
@@ -378,9 +378,9 @@ public final class Vector2 {
     /**
      * Perform a 2D transformation on this vector and return a new one.
      *
-     * @param angle in degrees
-     * @param aboutX about which x coordinate to rotate
-     * @param aboutZ about which z coordinate to rotate
+     * @param angle      in degrees
+     * @param aboutX     about which x coordinate to rotate
+     * @param aboutZ     about which z coordinate to rotate
      * @param translateX what to add after rotation
      * @param translateZ what to add after rotation
      * @return a new vector
@@ -395,8 +395,8 @@ public final class Vector2 {
         double x2 = x * cos - z * sin;
         double z2 = x * sin + z * cos;
         return new Vector2(
-                x2 + aboutX + translateX,
-                z2 + aboutZ + translateZ);
+            x2 + aboutX + translateX,
+            z2 + aboutZ + translateZ);
     }
 
     /**

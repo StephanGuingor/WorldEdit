@@ -84,10 +84,10 @@ public class ForwardExtentCopy implements Operation {
      * Create a new copy using the region's lowest minimum point as the
      * "from" position.
      *
-     * @param source the source extent
-     * @param region the region to copy
+     * @param source      the source extent
+     * @param region      the region to copy
      * @param destination the destination extent
-     * @param to the destination position
+     * @param to          the destination position
      * @see #ForwardExtentCopy(Extent, Region, BlockVector3, Extent, BlockVector3) the main constructor
      */
     public ForwardExtentCopy(Extent source, Region region, Extent destination, BlockVector3 to) {
@@ -97,11 +97,11 @@ public class ForwardExtentCopy implements Operation {
     /**
      * Create a new copy.
      *
-     * @param source the source extent
-     * @param region the region to copy
-     * @param from the source position
+     * @param source      the source extent
+     * @param region      the region to copy
+     * @param from        the source position
      * @param destination the destination extent
-     * @param to the destination position
+     * @param to          the destination position
      */
     public ForwardExtentCopy(Extent source, Region region, BlockVector3 from, Extent destination, BlockVector3 to) {
         checkNotNull(source);
@@ -288,7 +288,7 @@ public class ForwardExtentCopy implements Operation {
 
             ExtentBlockCopy blockCopy = new ExtentBlockCopy(source, from, destination, to, currentTransform);
             RegionMaskingFilter filteredFunction = new RegionMaskingFilter(sourceMask,
-                    sourceFunction == null ? blockCopy : new CombinedRegionFunction(blockCopy, sourceFunction));
+                sourceFunction == null ? blockCopy : new CombinedRegionFunction(blockCopy, sourceFunction));
             RegionVisitor blockVisitor = new RegionVisitor(region, filteredFunction);
 
             lastVisitor = blockVisitor;
@@ -301,9 +301,9 @@ public class ForwardExtentCopy implements Operation {
 
             if (copyingBiomes) {
                 ExtentBiomeCopy biomeCopy = new ExtentBiomeCopy(source, from,
-                        destination, to, currentTransform);
+                    destination, to, currentTransform);
                 RegionFunction biomeFunction = sourceFunction == null ? biomeCopy
-                        : new RegionMaskingFilter(sourceMask, biomeCopy);
+                    : new RegionMaskingFilter(sourceMask, biomeCopy);
                 RegionVisitor biomeVisitor = new RegionVisitor(region, biomeFunction);
                 ops.add(biomeVisitor);
                 lastBiomeVisitor = biomeVisitor;
@@ -336,11 +336,11 @@ public class ForwardExtentCopy implements Operation {
     public Iterable<Component> getStatusMessages() {
         return ImmutableList.of(
             TranslatableComponent.of("worldedit.operation.affected.block",
-                    TextComponent.of(affectedBlocks)).color(TextColor.LIGHT_PURPLE),
+                TextComponent.of(affectedBlocks)).color(TextColor.LIGHT_PURPLE),
             TranslatableComponent.of("worldedit.operation.affected.biome",
-                    TextComponent.of(affectedBiomeCols)).color(TextColor.LIGHT_PURPLE),
+                TextComponent.of(affectedBiomeCols)).color(TextColor.LIGHT_PURPLE),
             TranslatableComponent.of("worldedit.operation.affected.entity",
-                    TextComponent.of(affectedEntities)).color(TextColor.LIGHT_PURPLE)
+                TextComponent.of(affectedEntities)).color(TextColor.LIGHT_PURPLE)
         );
     }
 

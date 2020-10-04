@@ -42,8 +42,8 @@ public class BlockCategory extends Category<BlockType> implements Keyed {
     @Override
     protected Set<BlockType> load() {
         return WorldEdit.getInstance().getPlatformManager()
-                .queryCapability(Capability.GAME_HOOKS).getRegistries()
-                .getBlockCategoryRegistry().getAll(this);
+            .queryCapability(Capability.GAME_HOOKS).getRegistries()
+            .getBlockCategoryRegistry().getAll(this);
     }
 
     /**

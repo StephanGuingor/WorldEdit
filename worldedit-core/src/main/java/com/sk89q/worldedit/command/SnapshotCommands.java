@@ -100,8 +100,8 @@ public class SnapshotCommands {
     )
     @CommandPermissions("worldedit.snapshots.list")
     void list(Actor actor, World world,
-                     @ArgFlag(name = 'p', desc = "Page of results to return", def = "1")
-                         int page) throws WorldEditException, IOException {
+              @ArgFlag(name = 'p', desc = "Page of results to return", def = "1")
+                  int page) throws WorldEditException, IOException {
         LocalConfiguration config = we.getConfiguration();
         checkSnapshotsConfigured(config);
 
@@ -145,8 +145,8 @@ public class SnapshotCommands {
     )
     @CommandPermissions("worldedit.snapshots.restore")
     void use(Actor actor, World world, LocalSession session,
-                    @Arg(desc = "Snapshot to use")
-                        String name) throws IOException {
+             @Arg(desc = "Snapshot to use")
+                 String name) throws IOException {
         LocalConfiguration config = we.getConfiguration();
         checkSnapshotsConfigured(config);
 
@@ -196,8 +196,8 @@ public class SnapshotCommands {
     )
     @CommandPermissions("worldedit.snapshots.restore")
     void sel(Actor actor, World world, LocalSession session,
-                    @Arg(desc = "The list ID to select")
-                        int index) throws IOException {
+             @Arg(desc = "The list ID to select")
+                 int index) throws IOException {
         LocalConfiguration config = we.getConfiguration();
         checkSnapshotsConfigured(config);
 
@@ -245,8 +245,8 @@ public class SnapshotCommands {
     )
     @CommandPermissions("worldedit.snapshots.restore")
     void before(Actor actor, World world, LocalSession session,
-                       @Arg(desc = "The soonest date that may be used")
-                           ZonedDateTime date) throws IOException {
+                @Arg(desc = "The soonest date that may be used")
+                    ZonedDateTime date) throws IOException {
         LocalConfiguration config = we.getConfiguration();
         checkSnapshotsConfigured(config);
 
@@ -285,8 +285,8 @@ public class SnapshotCommands {
     )
     @CommandPermissions("worldedit.snapshots.restore")
     void after(Actor actor, World world, LocalSession session,
-                      @Arg(desc = "The soonest date that may be used")
-                          ZonedDateTime date) throws IOException {
+               @Arg(desc = "The soonest date that may be used")
+                   ZonedDateTime date) throws IOException {
         LocalConfiguration config = we.getConfiguration();
         checkSnapshotsConfigured(config);
 

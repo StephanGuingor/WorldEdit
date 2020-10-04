@@ -43,8 +43,8 @@ public class ItemCategory extends Category<ItemType> implements Keyed {
     @Override
     protected Set<ItemType> load() {
         return WorldEdit.getInstance().getPlatformManager()
-                .queryCapability(Capability.GAME_HOOKS).getRegistries()
-                .getItemCategoryRegistry().getAll(this);
+            .queryCapability(Capability.GAME_HOOKS).getRegistries()
+            .getItemCategoryRegistry().getAll(this);
     }
 
     /**

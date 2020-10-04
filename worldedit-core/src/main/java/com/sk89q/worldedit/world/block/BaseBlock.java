@@ -59,7 +59,7 @@ public class BaseBlock implements BlockStateHolder<BaseBlock>, TileEntityBlock {
     /**
      * Construct a block with the given ID, data value and NBT data structure.
      *
-     * @param state The block state
+     * @param state   The block state
      * @param nbtData NBT data, which must be provided
      */
     protected BaseBlock(BlockState state, CompoundTag nbtData) {

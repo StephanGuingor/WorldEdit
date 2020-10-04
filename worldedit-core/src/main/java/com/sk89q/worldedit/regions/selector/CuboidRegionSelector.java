@@ -98,7 +98,7 @@ public class CuboidRegionSelector implements RegionSelector, CUIRegion {
     /**
      * Create a new region selector with the given two positions.
      *
-     * @param world the world
+     * @param world     the world
      * @param position1 position 1
      * @param position2 position 2
      */
@@ -157,9 +157,9 @@ public class CuboidRegionSelector implements RegionSelector, CUIRegion {
 
         if (position1 != null && position2 != null) {
             player.printInfo(TranslatableComponent.of(
-                    "worldedit.selection.cuboid.explain.primary-area",
-                    TextComponent.of(position1.toString()),
-                    TextComponent.of(region.getVolume())
+                "worldedit.selection.cuboid.explain.primary-area",
+                TextComponent.of(position1.toString()),
+                TextComponent.of(region.getVolume())
             ));
         } else if (position1 != null) {
             player.printInfo(TranslatableComponent.of("worldedit.selection.cuboid.explain.primary", TextComponent.of(position1.toString())));
@@ -176,9 +176,9 @@ public class CuboidRegionSelector implements RegionSelector, CUIRegion {
 
         if (position1 != null && position2 != null) {
             player.printInfo(TranslatableComponent.of(
-                    "worldedit.selection.cuboid.explain.secondary-area",
-                    TextComponent.of(position2.toString()),
-                    TextComponent.of(region.getVolume())
+                "worldedit.selection.cuboid.explain.secondary-area",
+                TextComponent.of(position2.toString()),
+                TextComponent.of(region.getVolume())
             ));
         } else if (position2 != null) {
             player.printInfo(TranslatableComponent.of("worldedit.selection.cuboid.explain.secondary", TextComponent.of(position2.toString())));

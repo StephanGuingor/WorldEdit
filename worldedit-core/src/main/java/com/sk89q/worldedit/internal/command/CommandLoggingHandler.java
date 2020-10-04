@@ -53,7 +53,7 @@ public class CommandLoggingHandler implements CommandCallListener, AutoCloseable
      * Create a new instance.
      *
      * @param worldEdit an instance of WorldEdit
-     * @param logger the logger to send messages to
+     * @param logger    the logger to send messages to
      */
     public CommandLoggingHandler(WorldEdit worldEdit, Logger logger) {
         checkNotNull(worldEdit);

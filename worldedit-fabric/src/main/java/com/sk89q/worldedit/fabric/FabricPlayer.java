@@ -99,10 +99,10 @@ public class FabricPlayer extends AbstractPlayerActor {
     public Location getLocation() {
         Vector3 position = Vector3.at(this.player.getX(), this.player.getY(), this.player.getZ());
         return new Location(
-                FabricWorldEdit.inst.getWorld(this.player.world),
-                position,
-                this.player.yaw,
-                this.player.pitch);
+            FabricWorldEdit.inst.getWorld(this.player.world),
+            position,
+            this.player.yaw,
+            this.player.pitch);
     }
 
     @Override
@@ -185,7 +185,7 @@ public class FabricPlayer extends AbstractPlayerActor {
 
     @Override
     public String[] getGroups() {
-        return new String[]{}; // WorldEditMod.inst.getPermissionsResolver().getGroups(this.player.username);
+        return new String[] {}; // WorldEditMod.inst.getPermissionsResolver().getGroups(this.player.username);
     }
 
     @Override
@@ -243,9 +243,9 @@ public class FabricPlayer extends AbstractPlayerActor {
                 final CompoundTag nbtData = baseBlock.getNbtData();
                 if (nbtData != null) {
                     player.networkHandler.sendPacket(new BlockEntityUpdateS2CPacket(
-                            new BlockPos(pos.getBlockX(), pos.getBlockY(), pos.getBlockZ()),
-                            STRUCTURE_BLOCK_PACKET_ID,
-                            NBTConverter.toNative(nbtData))
+                        new BlockPos(pos.getBlockX(), pos.getBlockY(), pos.getBlockZ()),
+                        STRUCTURE_BLOCK_PACKET_ID,
+                        NBTConverter.toNative(nbtData))
                     );
                 }
             }

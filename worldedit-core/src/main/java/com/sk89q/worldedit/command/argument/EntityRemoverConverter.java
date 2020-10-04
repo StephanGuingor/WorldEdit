@@ -42,7 +42,7 @@ public class EntityRemoverConverter implements ArgumentConverter<EntityRemover> 
     }
 
     private final List<String> suggestions
-            = ImmutableList.of("projectiles", "items", "paintings", "itemframes", "boats", "minecarts", "tnt", "xp", "all");
+        = ImmutableList.of("projectiles", "items", "paintings", "itemframes", "boats", "minecarts", "tnt", "xp", "all");
 
     private EntityRemoverConverter() {
     }

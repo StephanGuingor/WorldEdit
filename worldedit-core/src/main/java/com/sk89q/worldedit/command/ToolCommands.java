@@ -206,7 +206,7 @@ public class ToolCommands {
     @CommandPermissions("worldedit.tool.tree")
     public void tree(Player player, LocalSession session,
                      @Arg(desc = "Type of tree to generate", def = "tree")
-                     TreeGenerator.TreeType type) throws WorldEditException {
+                         TreeGenerator.TreeType type) throws WorldEditException {
         setTool(player, session, new TreePlanter(type), "worldedit.tool.tree.equip");
     }
 
@@ -245,7 +245,7 @@ public class ToolCommands {
 
     @Command(
         name = "floodfill",
-        aliases = { "flood" },
+        aliases = {"flood"},
         desc = "Flood fill tool"
     )
     @CommandPermissions("worldedit.tool.flood-fill")
@@ -284,7 +284,7 @@ public class ToolCommands {
 
     @Command(
         name = "lrbuild",
-        aliases = { "/lrbuild" },
+        aliases = {"/lrbuild"},
         desc = "Long-range building tool"
     )
     @CommandPermissions("worldedit.tool.lrbuild")

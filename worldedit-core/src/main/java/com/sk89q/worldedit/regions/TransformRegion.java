@@ -47,7 +47,7 @@ public class TransformRegion extends AbstractRegion {
     /**
      * Create a new instance.
      *
-     * @param region the region
+     * @param region    the region
      * @param transform the transform
      */
     public TransformRegion(Region region, Transform transform) {
@@ -57,8 +57,8 @@ public class TransformRegion extends AbstractRegion {
     /**
      * Create a new instance.
      *
-     * @param world the world, which may be null
-     * @param region the region
+     * @param world     the world, which may be null
+     * @param region    the region
      * @param transform the transform
      */
     public TransformRegion(@Nullable World world, Region region, Transform transform) {

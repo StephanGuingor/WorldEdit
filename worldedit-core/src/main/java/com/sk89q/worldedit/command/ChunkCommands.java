@@ -96,7 +96,7 @@ public class ChunkCommands {
     )
     @CommandPermissions("worldedit.listchunks")
     public void listChunks(Actor actor, World world, LocalSession session,
-                            @ArgFlag(name = 'p', desc = "Page number.", def = "1") int page) throws WorldEditException {
+                           @ArgFlag(name = 'p', desc = "Page number.", def = "1") int page) throws WorldEditException {
         final Region region = session.getSelection(world);
 
         WorldEditAsyncCommandBuilder.createAndSendMessage(actor,
@@ -114,8 +114,8 @@ public class ChunkCommands {
     @CommandPermissions("worldedit.delchunks")
     @Logging(REGION)
     public void deleteChunks(Actor actor, World world, LocalSession session,
-                                @ArgFlag(name = 'o', desc = "Only delete chunks older than the specified time.")
-                                    ZonedDateTime beforeTime) throws WorldEditException {
+                             @ArgFlag(name = 'o', desc = "Only delete chunks older than the specified time.")
+                                 ZonedDateTime beforeTime) throws WorldEditException {
         Path worldDir = world.getStoragePath();
         if (worldDir == null) {
             throw new StopExecutionException(TextComponent.of("Couldn't find world folder for this world."));
@@ -174,8 +174,8 @@ public class ChunkCommands {
             ));
         }
         actor.print(TextComponent.of("You can mark more chunks for deletion, or to stop now, run: ", TextColor.LIGHT_PURPLE)
-                .append(TextComponent.of("/stop", TextColor.AQUA)
-                        .clickEvent(ClickEvent.of(ClickEvent.Action.SUGGEST_COMMAND, "/stop"))));
+            .append(TextComponent.of("/stop", TextColor.AQUA)
+                .clickEvent(ClickEvent.of(ClickEvent.Action.SUGGEST_COMMAND, "/stop"))));
     }
 
     private static class ChunkListPaginationBox extends PaginationBox {

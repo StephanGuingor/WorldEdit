@@ -41,7 +41,7 @@ public interface BlockStateHolder<B extends BlockStateHolder<B>> extends Pattern
      * Returns a BlockState with the given state and value applied.
      *
      * @param property The state
-     * @param value The value
+     * @param value    The value
      * @return The modified state, or same if could not be applied
      */
     <V> B with(final Property<V> property, final V value);

@@ -75,10 +75,10 @@ public class EditSessionEvent extends Event {
     /**
      * Create a new event.
      *
-     * @param world the world
-     * @param actor the actor, or null if there is no actor specified
+     * @param world     the world
+     * @param actor     the actor, or null if there is no actor specified
      * @param maxBlocks the maximum number of block changes
-     * @param stage the stage
+     * @param stage     the stage
      */
     public EditSessionEvent(@Nullable World world, Actor actor, int maxBlocks, Stage stage) {
         this.world = world;
@@ -92,7 +92,8 @@ public class EditSessionEvent extends Event {
      *
      * @return the actor, which may be null if unavailable
      */
-    public @Nullable Actor getActor() {
+    public @Nullable
+    Actor getActor() {
         return actor;
     }
 
@@ -101,7 +102,8 @@ public class EditSessionEvent extends Event {
      *
      * @return the world
      */
-    public @Nullable World getWorld() {
+    public @Nullable
+    World getWorld() {
         return world;
     }
 
@@ -152,6 +154,7 @@ public class EditSessionEvent extends Event {
      * Set tracing enabled, with the current extent as the "base".
      *
      * <em>Internal use only.</em>
+     *
      * @param tracing if tracing is enabled
      */
     public void setTracing(boolean tracing) {

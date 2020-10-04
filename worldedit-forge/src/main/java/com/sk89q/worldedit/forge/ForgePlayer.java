@@ -99,10 +99,10 @@ public class ForgePlayer extends AbstractPlayerActor {
     public Location getLocation() {
         Vector3 position = Vector3.at(this.player.getPosX(), this.player.getPosY(), this.player.getPosZ());
         return new Location(
-                ForgeWorldEdit.inst.getWorld(this.player.world),
-                position,
-                this.player.rotationYaw,
-                this.player.rotationPitch);
+            ForgeWorldEdit.inst.getWorld(this.player.world),
+            position,
+            this.player.rotationYaw,
+            this.player.rotationPitch);
     }
 
     @Override
@@ -184,7 +184,7 @@ public class ForgePlayer extends AbstractPlayerActor {
 
     @Override
     public String[] getGroups() {
-        return new String[]{}; // WorldEditMod.inst.getPermissionsResolver().getGroups(this.player.username);
+        return new String[] {}; // WorldEditMod.inst.getPermissionsResolver().getGroups(this.player.username);
     }
 
     @Override
@@ -247,9 +247,9 @@ public class ForgePlayer extends AbstractPlayerActor {
                 final CompoundTag nbtData = baseBlock.getNbtData();
                 if (nbtData != null) {
                     player.connection.sendPacket(new SUpdateTileEntityPacket(
-                            new BlockPos(pos.getBlockX(), pos.getBlockY(), pos.getBlockZ()),
-                            STRUCTURE_BLOCK_PACKET_ID,
-                            NBTConverter.toNative(nbtData))
+                        new BlockPos(pos.getBlockX(), pos.getBlockY(), pos.getBlockZ()),
+                        STRUCTURE_BLOCK_PACKET_ID,
+                        NBTConverter.toNative(nbtData))
                     );
                 }
             }

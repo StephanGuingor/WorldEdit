@@ -83,8 +83,8 @@ public class EntityVisitor implements Operation {
     @Override
     public Iterable<Component> getStatusMessages() {
         return ImmutableList.of(TranslatableComponent.of(
-                "worldedit.operation.affected.entity",
-                TextComponent.of(getAffected())
+            "worldedit.operation.affected.entity",
+            TextComponent.of(getAffected())
         ).color(TextColor.LIGHT_PURPLE));
     }
 

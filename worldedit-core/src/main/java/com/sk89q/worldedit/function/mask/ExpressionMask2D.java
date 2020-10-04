@@ -65,7 +65,7 @@ public class ExpressionMask2D extends AbstractMask2D {
             if (timeout != null) {
                 return expression.evaluate(vector.getX(), 0, vector.getZ()) > 0;
             } else {
-                return expression.evaluate(new double[]{vector.getX(), 0, vector.getZ()}, timeout.getAsInt()) > 0;
+                return expression.evaluate(new double[] {vector.getX(), 0, vector.getZ()}, timeout.getAsInt()) > 0;
             }
         } catch (EvaluationException e) {
             return false;

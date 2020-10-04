@@ -76,7 +76,7 @@ public class NullWorld extends AbstractWorld {
 
     @Override
     public Set<SideEffect> applySideEffects(BlockVector3 position, BlockState previousType, SideEffectSet sideEffectSet)
-            throws WorldEditException {
+        throws WorldEditException {
         return ImmutableSet.of();
     }
 

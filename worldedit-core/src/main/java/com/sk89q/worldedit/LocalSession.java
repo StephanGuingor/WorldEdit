@@ -238,7 +238,7 @@ public class LocalSession {
      * Performs an undo.
      *
      * @param newBlockBag a new block bag
-     * @param actor the actor
+     * @param actor       the actor
      * @return whether anything was undone
      */
     public EditSession undo(@Nullable BlockBag newBlockBag, Actor actor) {
@@ -264,7 +264,7 @@ public class LocalSession {
      * Performs a redo.
      *
      * @param newBlockBag a new block bag
-     * @param actor the actor
+     * @param actor       the actor
      * @return whether anything was redone
      */
     public EditSession redo(@Nullable BlockBag newBlockBag, Actor actor) {
@@ -356,7 +356,7 @@ public class LocalSession {
     /**
      * Set the region selector.
      *
-     * @param world the world
+     * @param world    the world
      * @param selector the selector
      */
     public void setRegionSelector(World world, RegionSelector selector) {
@@ -602,7 +602,8 @@ public class LocalSession {
      *
      * @return the snapshot
      */
-    public @Nullable Snapshot getSnapshotExperimental() {
+    public @Nullable
+    Snapshot getSnapshotExperimental() {
         return snapshotExperimental;
     }
 
@@ -795,9 +796,9 @@ public class LocalSession {
             // If it's null, we don't need to do anything. The old was already removed.
             Map<String, Tag> tags = block.getNbtData().getValue();
             BlockVector3 tempCuiTemporaryBlock = BlockVector3.at(
-                    ((IntTag) tags.get("x")).getValue(),
-                    ((IntTag) tags.get("y")).getValue(),
-                    ((IntTag) tags.get("z")).getValue()
+                ((IntTag) tags.get("x")).getValue(),
+                ((IntTag) tags.get("y")).getValue(),
+                ((IntTag) tags.get("z")).getValue()
             );
             if (cuiTemporaryBlock != null && !tempCuiTemporaryBlock.equals(cuiTemporaryBlock)) {
                 // Update the existing block if it's the same location
@@ -1100,6 +1101,7 @@ public class LocalSession {
 
     /**
      * Get the preferred wand item for this user, or {@code null} to use the default.
+     *
      * @return item id of wand item, or {@code null}
      */
     public String getWandItem() {
@@ -1108,6 +1110,7 @@ public class LocalSession {
 
     /**
      * Get the preferred navigation wand item for this user, or {@code null} to use the default.
+     *
      * @return item id of nav wand item, or {@code null}
      */
     public String getNavWandItem() {

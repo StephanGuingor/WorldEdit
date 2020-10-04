@@ -25,7 +25,7 @@ import com.sk89q.worldedit.util.io.WorldEditResourceLoader;
 import java.io.IOException;
 import java.net.URL;
 
-public class ForgeResourceLoader extends WorldEditResourceLoader  {
+public class ForgeResourceLoader extends WorldEditResourceLoader {
 
     public ForgeResourceLoader(WorldEdit worldEdit) {
         super(worldEdit);

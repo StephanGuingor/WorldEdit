@@ -34,7 +34,7 @@ public class ForgeItemCategoryRegistry implements ItemCategoryRegistry {
     @Override
     public Set<ItemType> getCategorisedByName(String category) {
         return Optional.ofNullable(ItemTags.getCollection().get(new ResourceLocation(category)))
-                .map(ITag::func_230236_b_).orElse(Collections.emptyList())
-                .stream().map(ForgeAdapter::adapt).collect(Collectors.toSet());
+            .map(ITag::func_230236_b_).orElse(Collections.emptyList())
+            .stream().map(ForgeAdapter::adapt).collect(Collectors.toSet());
     }
 }

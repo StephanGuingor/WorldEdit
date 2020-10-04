@@ -68,11 +68,11 @@ public class CylinderRegion extends AbstractRegion implements FlatRegion {
     /**
      * Construct the region.
      *
-     * @param world the world
+     * @param world  the world
      * @param center the center position
      * @param radius the radius along the X and Z axes
-     * @param minY the minimum Y, inclusive
-     * @param maxY the maximum Y, inclusive
+     * @param minY   the minimum Y, inclusive
+     * @param maxY   the maximum Y, inclusive
      */
     public CylinderRegion(World world, BlockVector3 center, Vector2 radius, int minY, int maxY) {
         super(world);
@@ -88,8 +88,8 @@ public class CylinderRegion extends AbstractRegion implements FlatRegion {
      *
      * @param center the center position
      * @param radius the radius along the X and Z axes
-     * @param minY the minimum Y, inclusive
-     * @param maxY the maximum Y, inclusive
+     * @param minY   the minimum Y, inclusive
+     * @param maxY   the maximum Y, inclusive
      */
     public CylinderRegion(BlockVector3 center, Vector2 radius, int minY, int maxY) {
         super(null);
@@ -191,11 +191,11 @@ public class CylinderRegion extends AbstractRegion implements FlatRegion {
     @Override
     public long getVolume() {
         return BigDecimal.valueOf(radius.getX())
-                .multiply(BigDecimal.valueOf(radius.getZ()))
-                .multiply(PI)
-                .multiply(BigDecimal.valueOf(getHeight()))
-                .setScale(0, RoundingMode.FLOOR)
-                .longValue();
+            .multiply(BigDecimal.valueOf(radius.getZ()))
+            .multiply(PI)
+            .multiply(BigDecimal.valueOf(getHeight()))
+            .setScale(0, RoundingMode.FLOOR)
+            .longValue();
     }
 
     @Override

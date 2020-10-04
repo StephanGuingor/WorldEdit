@@ -69,7 +69,8 @@ public class PlatformManager {
     private final PlatformCommandManager platformCommandManager;
     private final List<Platform> platforms = new ArrayList<>();
     private final Map<Capability, Platform> preferences = new EnumMap<>(Capability.class);
-    private @Nullable String firstSeenVersion;
+    private @Nullable
+    String firstSeenVersion;
     private final AtomicBoolean initialized = new AtomicBoolean();
     private final AtomicBoolean configured = new AtomicBoolean();
 
@@ -201,7 +202,8 @@ public class PlatformManager {
      * @param capability the capability
      * @return the most preferred platform, or null if no platform was found
      */
-    private synchronized @Nullable Platform findMostPreferred(Capability capability) {
+    private synchronized @Nullable
+    Platform findMostPreferred(Capability capability) {
         Platform preferred = null;
         Preference highest = null;
 
@@ -330,7 +332,7 @@ public class PlatformManager {
                     final BlockTool superPickaxe = session.getSuperPickaxe();
                     if (superPickaxe != null && superPickaxe.canUse(player)) {
                         if (superPickaxe.actPrimary(queryCapability(Capability.WORLD_EDITING),
-                                getConfiguration(), player, session, location, event.getFace())) {
+                            getConfiguration(), player, session, location, event.getFace())) {
                             event.setCancelled(true);
                         }
                         return;
@@ -340,7 +342,7 @@ public class PlatformManager {
                 Tool tool = session.getTool(player.getItemInHand(HandSide.MAIN_HAND).getType());
                 if (tool instanceof DoubleActionBlockTool && tool.canUse(player)) {
                     if (((DoubleActionBlockTool) tool).actSecondary(queryCapability(Capability.WORLD_EDITING),
-                            getConfiguration(), player, session, location, event.getFace())) {
+                        getConfiguration(), player, session, location, event.getFace())) {
                         event.setCancelled(true);
                     }
                 }
@@ -349,7 +351,7 @@ public class PlatformManager {
                 Tool tool = session.getTool(player.getItemInHand(HandSide.MAIN_HAND).getType());
                 if (tool instanceof BlockTool && tool.canUse(player)) {
                     if (((BlockTool) tool).actPrimary(queryCapability(Capability.WORLD_EDITING),
-                            getConfiguration(), player, session, location, event.getFace())) {
+                        getConfiguration(), player, session, location, event.getFace())) {
                         event.setCancelled(true);
                     }
                 }
@@ -375,7 +377,7 @@ public class PlatformManager {
                     Tool tool = session.getTool(player.getItemInHand(HandSide.MAIN_HAND).getType());
                     if (tool instanceof DoubleActionTraceTool && tool.canUse(player)) {
                         if (((DoubleActionTraceTool) tool).actSecondary(queryCapability(Capability.WORLD_EDITING),
-                                getConfiguration(), player, session)) {
+                            getConfiguration(), player, session)) {
                             event.setCancelled(true);
                         }
                         return;
@@ -388,7 +390,7 @@ public class PlatformManager {
                     Tool tool = session.getTool(player.getItemInHand(HandSide.MAIN_HAND).getType());
                     if (tool instanceof TraceTool && tool.canUse(player)) {
                         if (((TraceTool) tool).actPrimary(queryCapability(Capability.WORLD_EDITING),
-                                getConfiguration(), player, session)) {
+                            getConfiguration(), player, session)) {
                             event.setCancelled(true);
                         }
                         return;

@@ -223,9 +223,9 @@ public class FabricWorldEdit implements ModInitializer {
         FabricPlayer player = adaptPlayer((ServerPlayerEntity) playerEntity);
         FabricWorld localWorld = getWorld(world);
         Location pos = new Location(localWorld,
-                blockPos.getX(),
-                blockPos.getY(),
-                blockPos.getZ()
+            blockPos.getX(),
+            blockPos.getY(),
+            blockPos.getZ()
         );
         com.sk89q.worldedit.util.Direction weDirection = FabricAdapter.adaptEnumFacing(direction);
 
@@ -249,9 +249,9 @@ public class FabricWorldEdit implements ModInitializer {
         FabricPlayer player = adaptPlayer((ServerPlayerEntity) playerEntity);
         FabricWorld localWorld = getWorld(world);
         Location pos = new Location(localWorld,
-                blockHitResult.getBlockPos().getX(),
-                blockHitResult.getBlockPos().getY(),
-                blockHitResult.getBlockPos().getZ()
+            blockHitResult.getBlockPos().getX(),
+            blockHitResult.getBlockPos().getY(),
+            blockHitResult.getBlockPos().getZ()
         );
         com.sk89q.worldedit.util.Direction direction = FabricAdapter.adaptEnumFacing(blockHitResult.getSide());
 

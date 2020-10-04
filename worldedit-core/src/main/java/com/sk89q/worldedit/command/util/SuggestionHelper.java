@@ -54,7 +54,7 @@ public final class SuggestionHelper {
         if (tag.startsWith("##")) {
             if (tag.equals("##")) {
                 return Stream.concat(allowRandom ? Stream.of("##*") : Stream.empty(),
-                        getNamespacedRegistrySuggestions(BlockCategory.REGISTRY, tag.substring(2)).map(s -> "##" + s));
+                    getNamespacedRegistrySuggestions(BlockCategory.REGISTRY, tag.substring(2)).map(s -> "##" + s));
             } else if (tag.equals("##*") && allowRandom) {
                 return getNamespacedRegistrySuggestions(BlockCategory.REGISTRY, tag.substring(3)).map(s -> "##*" + s);
             } else {
@@ -79,21 +79,21 @@ public final class SuggestionHelper {
             if (i == propParts.length - 1) {
                 // suggest for next property
                 String previous = Arrays.stream(propParts, 0, propParts.length - 1).collect(Collectors.joining(","))
-                        + (propParts.length == 1 ? "" : ",");
+                    + (propParts.length == 1 ? "" : ",");
                 String lastValidInput = (blockType + "[" + previous).toLowerCase(Locale.ROOT);
                 if (propVal.length == 1) {
                     // only property, no value yet
                     final List<? extends Property<?>> matchingProps = propertyMap.entrySet().stream()
-                            .filter(p -> !matchedProperties.contains(p.getKey()) && p.getKey().startsWith(matchProp))
-                            .map(Map.Entry::getValue).collect(Collectors.toList());
+                        .filter(p -> !matchedProperties.contains(p.getKey()) && p.getKey().startsWith(matchProp))
+                        .map(Map.Entry::getValue).collect(Collectors.toList());
                     switch (matchingProps.size()) {
                         case 0:
                             return propertyMap.keySet().stream().filter(p -> !matchedProperties.contains(p)).map(prop ->
-                                    lastValidInput + prop + "=");
+                                lastValidInput + prop + "=");
                         case 1:
                             return matchingProps.get(0).getValues().stream().map(val ->
-                                    lastValidInput +  matchingProps.get(0).getName() + "="
-                                            + val.toString().toLowerCase(Locale.ROOT));
+                                lastValidInput + matchingProps.get(0).getName() + "="
+                                    + val.toString().toLowerCase(Locale.ROOT));
                         default:
                             return matchingProps.stream().map(p -> lastValidInput + p.getName() + "=");
                     }
@@ -167,7 +167,7 @@ public final class SuggestionHelper {
             String defKey = registry.getDefaultNamespace() + ":" + lowerSearch;
             int defLength = registry.getDefaultNamespace().length() + 1;
             return Stream.concat(registry.keySet().stream().filter(s -> s.startsWith(defKey)).map(s -> s.substring(defLength)),
-                    registry.getKnownNamespaces().stream().filter(n -> n.startsWith(lowerSearch)).map(n -> n + ":"));
+                registry.getKnownNamespaces().stream().filter(n -> n.startsWith(lowerSearch)).map(n -> n + ":"));
         }
         // have a namespace - search that
         Predicate<String> search = byPrefix(input.toLowerCase(Locale.ROOT));

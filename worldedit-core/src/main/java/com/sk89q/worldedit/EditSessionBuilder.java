@@ -35,17 +35,21 @@ import javax.annotation.Nullable;
 public final class EditSessionBuilder {
 
     private final EventBus eventBus;
-    private @Nullable World world;
+    private @Nullable
+    World world;
     private int maxBlocks = -1;
-    private @Nullable Actor actor;
-    private @Nullable BlockBag blockBag;
+    private @Nullable
+    Actor actor;
+    private @Nullable
+    BlockBag blockBag;
     private boolean tracing;
 
     EditSessionBuilder(EventBus eventBus) {
         this.eventBus = eventBus;
     }
 
-    public @Nullable World getWorld() {
+    public @Nullable
+    World getWorld() {
         return world;
     }
 
@@ -75,7 +79,8 @@ public final class EditSessionBuilder {
         return this;
     }
 
-    public @Nullable Actor getActor() {
+    public @Nullable
+    Actor getActor() {
         return actor;
     }
 
@@ -90,7 +95,8 @@ public final class EditSessionBuilder {
         return this;
     }
 
-    public @Nullable BlockBag getBlockBag() {
+    public @Nullable
+    BlockBag getBlockBag() {
         return blockBag;
     }
 

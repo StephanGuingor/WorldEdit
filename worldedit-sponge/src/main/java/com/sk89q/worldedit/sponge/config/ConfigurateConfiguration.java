@@ -36,10 +36,13 @@ import java.util.HashSet;
 
 public class ConfigurateConfiguration extends LocalConfiguration {
 
-    @Unreported protected final ConfigurationLoader<CommentedConfigurationNode> config;
-    @Unreported protected final Logger logger;
+    @Unreported
+    protected final ConfigurationLoader<CommentedConfigurationNode> config;
+    @Unreported
+    protected final Logger logger;
 
-    @Unreported protected CommentedConfigurationNode node;
+    @Unreported
+    protected CommentedConfigurationNode node;
 
     public ConfigurateConfiguration(ConfigurationLoader<CommentedConfigurationNode> config, Logger logger) {
         this.config = config;

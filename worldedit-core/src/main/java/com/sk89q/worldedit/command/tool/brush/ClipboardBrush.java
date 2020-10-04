@@ -65,13 +65,13 @@ public class ClipboardBrush implements Brush {
         BlockVector3 centerOffset = region.getCenter().toBlockPoint().subtract(clipboard.getOrigin());
 
         Operation operation = holder
-                .createPaste(editSession)
-                .to(usingOrigin ? position : position.subtract(centerOffset))
-                .ignoreAirBlocks(ignoreAirBlocks)
-                .copyEntities(pasteEntities)
-                .copyBiomes(pasteBiomes)
-                .maskSource(sourceMask)
-                .build();
+            .createPaste(editSession)
+            .to(usingOrigin ? position : position.subtract(centerOffset))
+            .ignoreAirBlocks(ignoreAirBlocks)
+            .copyEntities(pasteEntities)
+            .copyBiomes(pasteBiomes)
+            .maskSource(sourceMask)
+            .build();
 
         Operations.completeLegacy(operation);
     }

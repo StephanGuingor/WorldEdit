@@ -70,7 +70,7 @@ public class ClipboardCommands {
     /**
      * Throws if the region would allocate a clipboard larger than the block change limit.
      *
-     * @param region The region to check
+     * @param region  The region to check
      * @param session The session
      * @throws MaxChangedBlocksException if the volume exceeds the limit
      */
@@ -173,13 +173,13 @@ public class ClipboardCommands {
         BlockVector3 to = atOrigin ? clipboard.getOrigin() : session.getPlacementPosition(actor);
         if (!onlySelect) {
             Operation operation = holder
-                    .createPaste(editSession)
-                    .to(to)
-                    .ignoreAirBlocks(ignoreAirBlocks)
-                    .copyBiomes(pasteBiomes)
-                    .copyEntities(pasteEntities)
-                    .maskSource(sourceMask)
-                    .build();
+                .createPaste(editSession)
+                .to(to)
+                .ignoreAirBlocks(ignoreAirBlocks)
+                .copyBiomes(pasteBiomes)
+                .copyEntities(pasteEntities)
+                .maskSource(sourceMask)
+                .build();
             Operations.completeLegacy(operation);
             messages.addAll(Lists.newArrayList(operation.getStatusMessages()));
         }

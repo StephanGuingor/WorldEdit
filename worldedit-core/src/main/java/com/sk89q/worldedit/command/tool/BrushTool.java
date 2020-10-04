@@ -92,7 +92,8 @@ public class BrushTool implements TraceTool {
      *
      * @return the mask used to stop block traces
      */
-    public @Nullable Mask getTraceMask() {
+    public @Nullable
+    Mask getTraceMask() {
         return this.traceMask;
     }
 
@@ -108,7 +109,7 @@ public class BrushTool implements TraceTool {
     /**
      * Set the brush.
      *
-     * @param brush tbe brush
+     * @param brush      tbe brush
      * @param permission the permission
      */
     public void setBrush(Brush brush, String permission) {
@@ -139,7 +140,8 @@ public class BrushTool implements TraceTool {
      *
      * @return the material
      */
-    @Nullable public Pattern getMaterial() {
+    @Nullable
+    public Pattern getMaterial() {
         return material;
     }
 

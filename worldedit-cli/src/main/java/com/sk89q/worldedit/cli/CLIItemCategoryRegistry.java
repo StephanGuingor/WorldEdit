@@ -30,7 +30,7 @@ public class CLIItemCategoryRegistry implements ItemCategoryRegistry {
     @Override
     public Set<ItemType> getCategorisedByName(String category) {
         return CLIWorldEdit.inst.getFileRegistries().getDataFile().itemtags.get(category).stream()
-                .map(ItemType.REGISTRY::get)
-                .collect(Collectors.toSet());
+            .map(ItemType.REGISTRY::get)
+            .collect(Collectors.toSet());
     }
 }

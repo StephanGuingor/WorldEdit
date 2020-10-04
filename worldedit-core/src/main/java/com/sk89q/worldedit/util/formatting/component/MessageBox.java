@@ -78,12 +78,12 @@ public class MessageBox extends TextComponentProducer {
 
     private static int getLength(TextComponent text) {
         return text.content().length() + text.children().stream().filter(c -> c instanceof TextComponent)
-                .mapToInt(c -> getLength((TextComponent) c)).sum();
+            .mapToInt(c -> getLength((TextComponent) c)).sum();
     }
 
     private TextComponent createBorder(int count) {
         return TextComponent.of(Strings.repeat("-", count),
-                borderColor, Sets.newHashSet(TextDecoration.STRIKETHROUGH));
+            borderColor, Sets.newHashSet(TextDecoration.STRIKETHROUGH));
     }
 
     /**

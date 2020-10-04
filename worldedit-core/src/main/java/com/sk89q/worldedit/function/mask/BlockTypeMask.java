@@ -58,7 +58,7 @@ public class BlockTypeMask extends AbstractExtentMask {
      * Create a new block mask.
      *
      * @param extent the extent
-     * @param block an array of blocks to match
+     * @param block  an array of blocks to match
      */
     public BlockTypeMask(Extent extent, BlockType... block) {
         this(extent, Arrays.asList(checkNotNull(block)));

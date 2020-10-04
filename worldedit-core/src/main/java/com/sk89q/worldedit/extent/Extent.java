@@ -83,10 +83,11 @@ public interface Extent extends InputExtent, OutputExtent {
     /**
      * Create an entity at the given location.
      *
-     * @param entity the entity
+     * @param entity   the entity
      * @param location the location
      * @return a reference to the created entity, or null if the entity could not be created
      */
-    @Nullable Entity createEntity(Location location, BaseEntity entity);
+    @Nullable
+    Entity createEntity(Location location, BaseEntity entity);
 
 }

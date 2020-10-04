@@ -153,7 +153,7 @@ public class Deform implements Contextual<Operation> {
 
         LocalSession session = context.getSession();
         return new DeformOperation(context.getDestination(), region, zero, unit, expression,
-                session == null ? WorldEdit.getInstance().getConfiguration().calculationTimeout : session.getTimeout());
+            session == null ? WorldEdit.getInstance().getConfiguration().calculationTimeout : session.getTimeout());
     }
 
     private static final class DeformOperation implements Operation {
@@ -193,7 +193,7 @@ public class Deform implements Contextual<Operation> {
         @Override
         public Iterable<Component> getStatusMessages() {
             return ImmutableList.of(TranslatableComponent.of("worldedit.operation.deform.expression",
-                    TextComponent.of(expression.getSource()).color(TextColor.LIGHT_PURPLE)));
+                TextComponent.of(expression.getSource()).color(TextColor.LIGHT_PURPLE)));
         }
 
     }

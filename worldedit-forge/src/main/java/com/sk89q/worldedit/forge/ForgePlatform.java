@@ -62,7 +62,8 @@ class ForgePlatform extends AbstractPlatform implements MultiUserPlatform {
     private final ForgeWorldEdit mod;
     private final MinecraftServer server;
     private final ForgeDataFixer dataFixer;
-    private final @Nullable ForgeWatchdog watchdog;
+    private final @Nullable
+    ForgeWatchdog watchdog;
     private boolean hookingEvents = false;
     private final ResourceLoader resourceLoader = new ForgeResourceLoader(WorldEdit.getInstance());
 
@@ -213,11 +214,11 @@ class ForgePlatform extends AbstractPlatform implements MultiUserPlatform {
     }
 
     private static final Set<SideEffect> SUPPORTED_SIDE_EFFECTS = Sets.immutableEnumSet(
-            SideEffect.VALIDATION,
-            SideEffect.ENTITY_AI,
-            SideEffect.LIGHTING,
-            SideEffect.NEIGHBORS,
-            SideEffect.EVENTS
+        SideEffect.VALIDATION,
+        SideEffect.ENTITY_AI,
+        SideEffect.LIGHTING,
+        SideEffect.NEIGHBORS,
+        SideEffect.EVENTS
     );
 
     @Override

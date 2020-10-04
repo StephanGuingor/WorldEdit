@@ -33,7 +33,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  */
 public class ChangeSetExecutor implements Operation {
 
-    public enum Type { UNDO, REDO }
+    public enum Type {UNDO, REDO}
 
     private final Iterator<Change> iterator;
     private final Type type;
@@ -43,8 +43,8 @@ public class ChangeSetExecutor implements Operation {
      * Create a new instance.
      *
      * @param changeSet the change set
-     * @param type type of change
-     * @param context the undo context
+     * @param type      type of change
+     * @param context   the undo context
      */
     private ChangeSetExecutor(ChangeSet changeSet, Type type, UndoContext context) {
         checkNotNull(changeSet);
@@ -83,7 +83,7 @@ public class ChangeSetExecutor implements Operation {
      * Create a new undo operation.
      *
      * @param changeSet the change set
-     * @param context an undo context
+     * @param context   an undo context
      * @return an operation
      */
     public static ChangeSetExecutor createUndo(ChangeSet changeSet, UndoContext context) {
@@ -94,7 +94,7 @@ public class ChangeSetExecutor implements Operation {
      * Create a new redo operation.
      *
      * @param changeSet the change set
-     * @param context an undo context
+     * @param context   an undo context
      * @return an operation
      */
     public static ChangeSetExecutor createRedo(ChangeSet changeSet, UndoContext context) {

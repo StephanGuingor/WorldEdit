@@ -61,8 +61,8 @@ public final class SubCommandPermissionCondition extends PermissionCondition {
             // otherwise, this command requires any one subcommand to be available
             final Set<String> perms = permConds.stream().map(Optional::get).flatMap(cond -> cond.getPermissions().stream()).collect(Collectors.toSet());
             final Command.Condition aggregate = permConds.stream().map(Optional::get)
-                    .map(c -> (Command.Condition) c)
-                    .reduce(Command.Condition::or).orElse(TRUE);
+                .map(c -> (Command.Condition) c)
+                .reduce(Command.Condition::or).orElse(TRUE);
             return new SubCommandPermissionCondition(perms, aggregate);
         }
     }

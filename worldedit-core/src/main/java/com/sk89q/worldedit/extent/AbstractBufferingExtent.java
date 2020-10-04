@@ -74,7 +74,7 @@ public abstract class AbstractBufferingExtent extends AbstractDelegateExtent {
      * Gets a block from the buffer.
      *
      * @deprecated New subclasses should override {@link #getBufferedFullBlock(BlockVector3)}
-     *     instead
+     * instead
      */
     @Deprecated
     protected Optional<BaseBlock> getBufferedBlock(BlockVector3 position) {
@@ -87,11 +87,11 @@ public abstract class AbstractBufferingExtent extends AbstractDelegateExtent {
      * @param position The position
      * @return The buffered block, or null
      * @apiNote This must be overridden by new subclasses. See {@link NonAbstractForCompatibility}
-     *          for details
+     * for details
      */
     @NonAbstractForCompatibility(
         delegateName = "getBufferedBlock",
-        delegateParams = { BlockVector3.class }
+        delegateParams = {BlockVector3.class}
     )
     @Nullable
     protected BaseBlock getBufferedFullBlock(BlockVector3 position) {

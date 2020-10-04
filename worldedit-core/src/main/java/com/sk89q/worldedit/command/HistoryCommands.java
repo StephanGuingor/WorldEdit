@@ -56,7 +56,7 @@ public class HistoryCommands {
 
     @Command(
         name = "undo",
-        aliases = { "/undo" },
+        aliases = {"/undo"},
         desc = "Undoes the last action (from history)"
     )
     @CommandPermissions({"worldedit.history.undo", "worldedit.history.undo.self"})
@@ -95,7 +95,7 @@ public class HistoryCommands {
 
     @Command(
         name = "redo",
-        aliases = { "/redo" },
+        aliases = {"/redo"},
         desc = "Redoes the last action (from history)"
     )
     @CommandPermissions({"worldedit.history.redo", "worldedit.history.redo.self"})
@@ -134,7 +134,7 @@ public class HistoryCommands {
 
     @Command(
         name = "clearhistory",
-        aliases = { "/clearhistory" },
+        aliases = {"/clearhistory"},
         desc = "Clear your history"
     )
     @CommandPermissions("worldedit.history.clear")

@@ -84,7 +84,7 @@ public class PermissionsResolverManager implements PermissionsResolver {
     private final Logger logger = LoggerFactory.getLogger(getClass());
     private final List<Class<? extends PermissionsResolver>> enabledResolvers = new ArrayList<>();
 
-    @SuppressWarnings({ "unchecked", "rawtypes" })
+    @SuppressWarnings({"unchecked", "rawtypes"})
     protected Class<? extends PermissionsResolver>[] availableResolvers = new Class[] {
         PluginPermissionsResolver.class,
         PermissionsExResolver.class,
@@ -220,7 +220,7 @@ public class PermissionsResolverManager implements PermissionsResolver {
         } else {
             List<String> disabledResolvers = config.getStringList("resolvers.disabled", new ArrayList<>());
             List<String> stagedEnabled = config.getStringList("resolvers.enabled", null);
-            for (Iterator<String> i = stagedEnabled.iterator(); i.hasNext();) {
+            for (Iterator<String> i = stagedEnabled.iterator(); i.hasNext(); ) {
                 String nextName = i.next();
                 Class<?> next = null;
                 try {
@@ -230,7 +230,7 @@ public class PermissionsResolverManager implements PermissionsResolver {
 
                 if (next == null || !PermissionsResolver.class.isAssignableFrom(next)) {
                     logger.warn("WEPIF: Invalid or unknown class found in enabled resolvers: "
-                            + nextName + ". Moving to disabled resolvers list.");
+                        + nextName + ". Moving to disabled resolvers list.");
                     i.remove();
                     disabledResolvers.add(nextName);
                     isUpdated = true;
@@ -260,7 +260,7 @@ public class PermissionsResolverManager implements PermissionsResolver {
         }
         if (!keys.contains("permissions")) {
             ConfigurationPermissionsResolver.generateDefaultPerms(
-                    config.addNode("permissions"));
+                config.addNode("permissions"));
             isUpdated = true;
         }
         if (isUpdated) {
@@ -281,8 +281,8 @@ public class PermissionsResolverManager implements PermissionsResolver {
             if (plugin instanceof PermissionsProvider) {
                 setPluginPermissionsResolver(plugin);
             } else if ("permissions".equalsIgnoreCase(name) || "permissionsex".equalsIgnoreCase(name)
-                    || "bpermissions".equalsIgnoreCase(name) || "groupmanager".equalsIgnoreCase(name)
-                    || "vault".equalsIgnoreCase(name)) {
+                || "bpermissions".equalsIgnoreCase(name) || "groupmanager".equalsIgnoreCase(name)
+                || "vault".equalsIgnoreCase(name)) {
                 load();
             }
         }
@@ -292,9 +292,9 @@ public class PermissionsResolverManager implements PermissionsResolver {
             String name = event.getPlugin().getDescription().getName();
 
             if (event.getPlugin() instanceof PermissionsProvider
-                    || "permissions".equalsIgnoreCase(name) || "permissionsex".equalsIgnoreCase(name)
-                    || "bpermissions".equalsIgnoreCase(name) || "groupmanager".equalsIgnoreCase(name)
-                    || "vault".equalsIgnoreCase(name)) {
+                || "permissions".equalsIgnoreCase(name) || "permissionsex".equalsIgnoreCase(name)
+                || "bpermissions".equalsIgnoreCase(name) || "groupmanager".equalsIgnoreCase(name)
+                || "vault".equalsIgnoreCase(name)) {
                 load();
             }
         }

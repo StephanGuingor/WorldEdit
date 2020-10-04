@@ -155,7 +155,7 @@ public class DinnerPermsResolver implements PermissionsResolver {
      * @param perms      Permissible to check for
      * @param permission The permission to check
      * @return -1 if the permission is explicitly denied, 1 if the permission is allowed,
-     *         0 if the permission is denied by a default.
+     * 0 if the permission is denied by a default.
      */
     public int internalHasPermission(Permissible perms, String permission) {
         if (perms.isPermissionSet(permission)) {

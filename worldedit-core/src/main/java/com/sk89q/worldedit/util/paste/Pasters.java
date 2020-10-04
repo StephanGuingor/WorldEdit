@@ -29,10 +29,10 @@ import java.util.concurrent.TimeUnit;
 final class Pasters {
 
     private static final ListeningExecutorService executor =
-            MoreExecutors.listeningDecorator(
-                    new ThreadPoolExecutor(0, Integer.MAX_VALUE,
-                            2L, TimeUnit.SECONDS,
-                            new SynchronousQueue<>()));
+        MoreExecutors.listeningDecorator(
+            new ThreadPoolExecutor(0, Integer.MAX_VALUE,
+                2L, TimeUnit.SECONDS,
+                new SynchronousQueue<>()));
 
     private Pasters() {
     }

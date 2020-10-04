@@ -52,7 +52,7 @@ public class PasteBuilder {
     /**
      * Create a new instance.
      *
-     * @param holder the clipboard holder
+     * @param holder       the clipboard holder
      * @param targetExtent an extent
      */
     PasteBuilder(ClipboardHolder holder, Extent targetExtent) {
@@ -135,7 +135,7 @@ public class PasteBuilder {
         copy.setTransform(transform);
         if (ignoreAirBlocks) {
             copy.setSourceMask(sourceMask == Masks.alwaysTrue() ? new ExistingBlockMask(clipboard)
-                    : new MaskIntersection(sourceMask, new ExistingBlockMask(clipboard)));
+                : new MaskIntersection(sourceMask, new ExistingBlockMask(clipboard)));
         } else {
             copy.setSourceMask(sourceMask);
         }

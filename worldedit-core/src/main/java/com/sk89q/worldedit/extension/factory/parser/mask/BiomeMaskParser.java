@@ -59,7 +59,7 @@ public class BiomeMaskParser extends InputParser<Mask> {
             Set<String> prevBiomes = Arrays.stream(prev.split(",", 0)).collect(Collectors.toSet());
             String search = input.substring(lastTermIdx + 1);
             return SuggestionHelper.getNamespacedRegistrySuggestions(BiomeType.REGISTRY, search)
-                    .filter(s -> !prevBiomes.contains(s)).map(s -> "$" + prev + s);
+                .filter(s -> !prevBiomes.contains(s)).map(s -> "$" + prev + s);
         }
         return Stream.empty();
     }

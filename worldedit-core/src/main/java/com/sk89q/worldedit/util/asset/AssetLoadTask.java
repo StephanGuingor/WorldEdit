@@ -40,7 +40,7 @@ public class AssetLoadTask<T> implements Callable<T> {
     /**
      * Creates an asset load task with the given loader and asset name.
      *
-     * @param loader The asset loader
+     * @param loader    The asset loader
      * @param assetName The asset name
      */
     public AssetLoadTask(AssetLoader<T> loader, String assetName) {

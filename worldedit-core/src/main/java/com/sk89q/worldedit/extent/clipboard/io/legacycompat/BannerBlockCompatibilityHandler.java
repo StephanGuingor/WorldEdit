@@ -57,7 +57,7 @@ public class BannerBlockCompatibilityHandler implements NBTCompatibilityHandler 
     @Override
     public <B extends BlockStateHolder<B>> boolean isAffectedBlock(B block) {
         return block.getBlockType() == BlockTypes.WHITE_BANNER
-                || block.getBlockType() == BlockTypes.WHITE_WALL_BANNER;
+            || block.getBlockType() == BlockTypes.WHITE_WALL_BANNER;
     }
 
     @Override

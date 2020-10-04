@@ -52,7 +52,7 @@ public class ServerCUIHandler {
      * Creates a structure block that shows the region.
      *
      * <p>
-     *     Null symbolises removal of the CUI.
+     * Null symbolises removal of the CUI.
      * </p>
      *
      * @param player The player to create the structure block for.

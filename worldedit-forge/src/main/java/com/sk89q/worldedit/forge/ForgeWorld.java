@@ -249,7 +249,7 @@ public class ForgeWorld extends AbstractWorld {
     }
 
     private static final LoadingCache<ServerWorld, WorldEditFakePlayer> fakePlayers
-            = CacheBuilder.newBuilder().weakKeys().softValues().build(CacheLoader.from(WorldEditFakePlayer::new));
+        = CacheBuilder.newBuilder().weakKeys().softValues().build(CacheLoader.from(WorldEditFakePlayer::new));
 
     @Override
     public boolean useItem(BlockVector3 position, BaseItem item, Direction face) {
@@ -263,10 +263,10 @@ public class ForgeWorld extends AbstractWorld {
         }
         fakePlayer.setHeldItem(Hand.MAIN_HAND, stack);
         fakePlayer.setLocationAndAngles(position.getBlockX(), position.getBlockY(), position.getBlockZ(),
-                (float) face.toVector().toYaw(), (float) face.toVector().toPitch());
+            (float) face.toVector().toYaw(), (float) face.toVector().toPitch());
         final BlockPos blockPos = ForgeAdapter.toBlockPos(position);
         final BlockRayTraceResult rayTraceResult = new BlockRayTraceResult(ForgeAdapter.toVec3(position),
-                ForgeAdapter.adapt(face), blockPos, false);
+            ForgeAdapter.adapt(face), blockPos, false);
         ItemUseContext itemUseContext = new ItemUseContext(fakePlayer, Hand.MAIN_HAND, rayTraceResult);
         ActionResultType used = stack.onItemUse(itemUseContext);
         if (used != ActionResultType.SUCCESS) {
@@ -458,26 +458,46 @@ public class ForgeWorld extends AbstractWorld {
     @Nullable
     private static ConfiguredFeature<?, ?> createTreeFeatureGenerator(TreeType type) {
         switch (type) {
-            case TREE: return Features.field_243862_bH;
-            case BIG_TREE: return Features.field_243869_bO;
-            case REDWOOD: return Features.field_243866_bL;
-            case TALL_REDWOOD: return Features.field_243872_bR;
-            case MEGA_REDWOOD: return Features.field_243873_bS;
-            case BIRCH: return Features.field_243864_bJ;
-            case JUNGLE: return Features.field_243871_bQ;
-            case SMALL_JUNGLE: return Features.field_243868_bN;
-            case SHORT_JUNGLE: return Features.field_243870_bP;
-            case JUNGLE_BUSH: return Features.field_243876_bV;
-            case SWAMP: return Features.field_243875_bU;
-            case ACACIA: return Features.field_243865_bK;
-            case DARK_OAK: return Features.field_243863_bI;
-            case TALL_BIRCH: return Features.field_243940_cw;
-            case RED_MUSHROOM: return Features.field_243860_bF;
-            case BROWN_MUSHROOM: return Features.field_243861_bG;
-            case WARPED_FUNGUS: return Features.field_243858_bD;
-            case CRIMSON_FUNGUS: return Features.field_243856_bB;
-            case CHORUS_PLANT: return Features.field_243944_d;
-            case RANDOM: return createTreeFeatureGenerator(TreeType.values()[ThreadLocalRandom.current().nextInt(TreeType.values().length)]);
+            case TREE:
+                return Features.field_243862_bH;
+            case BIG_TREE:
+                return Features.field_243869_bO;
+            case REDWOOD:
+                return Features.field_243866_bL;
+            case TALL_REDWOOD:
+                return Features.field_243872_bR;
+            case MEGA_REDWOOD:
+                return Features.field_243873_bS;
+            case BIRCH:
+                return Features.field_243864_bJ;
+            case JUNGLE:
+                return Features.field_243871_bQ;
+            case SMALL_JUNGLE:
+                return Features.field_243868_bN;
+            case SHORT_JUNGLE:
+                return Features.field_243870_bP;
+            case JUNGLE_BUSH:
+                return Features.field_243876_bV;
+            case SWAMP:
+                return Features.field_243875_bU;
+            case ACACIA:
+                return Features.field_243865_bK;
+            case DARK_OAK:
+                return Features.field_243863_bI;
+            case TALL_BIRCH:
+                return Features.field_243940_cw;
+            case RED_MUSHROOM:
+                return Features.field_243860_bF;
+            case BROWN_MUSHROOM:
+                return Features.field_243861_bG;
+            case WARPED_FUNGUS:
+                return Features.field_243858_bD;
+            case CRIMSON_FUNGUS:
+                return Features.field_243856_bB;
+            case CHORUS_PLANT:
+                return Features.field_243944_d;
+            case RANDOM:
+                return createTreeFeatureGenerator(TreeType.values()[ThreadLocalRandom.current().nextInt(TreeType.values().length)]);
             default:
                 return null;
         }
@@ -588,8 +608,8 @@ public class ForgeWorld extends AbstractWorld {
     @Override
     public BlockState getBlock(BlockVector3 position) {
         net.minecraft.block.BlockState mcState = getWorld()
-                .getChunk(position.getBlockX() >> 4, position.getBlockZ() >> 4)
-                .getBlockState(ForgeAdapter.toBlockPos(position));
+            .getChunk(position.getBlockX() >> 4, position.getBlockZ() >> 4)
+            .getBlockState(ForgeAdapter.toBlockPos(position));
 
         BlockState matchingBlock = BlockStateIdAccess.getBlockStateById(Block.getStateId(mcState));
         if (matchingBlock != null) {

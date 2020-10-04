@@ -44,7 +44,7 @@ public class OffsetsMask extends AbstractMask {
     /**
      * Create an offsets mask for a single offset.
      *
-     * @param mask the mask to use
+     * @param mask   the mask to use
      * @param offset the offset
      * @return the new offsets mask
      */
@@ -54,6 +54,7 @@ public class OffsetsMask extends AbstractMask {
 
     /**
      * Create a new builder, using the given mask.
+     *
      * @param mask the mask to use
      * @return the builder
      */
@@ -76,6 +77,7 @@ public class OffsetsMask extends AbstractMask {
 
         /**
          * Set the mask to test.
+         *
          * @param mask the mask to test
          * @return this builder, for chaining
          */

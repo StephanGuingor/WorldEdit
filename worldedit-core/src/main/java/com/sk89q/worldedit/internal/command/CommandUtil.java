@@ -266,7 +266,7 @@ public class CommandUtil {
      * with the given message.
      *
      * @param condition the condition to check
-     * @param message the message for failure
+     * @param message   the message for failure
      */
     public static void checkCommandArgument(boolean condition, String message) {
         checkCommandArgument(condition, TextComponent.of(message));
@@ -277,7 +277,7 @@ public class CommandUtil {
      * with the given message.
      *
      * @param condition the condition to check
-     * @param message the message for failure
+     * @param message   the message for failure
      */
     public static void checkCommandArgument(boolean condition, Component message) {
         if (!condition) {

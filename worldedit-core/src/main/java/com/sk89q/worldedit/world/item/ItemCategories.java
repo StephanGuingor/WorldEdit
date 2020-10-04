@@ -44,7 +44,8 @@ public final class ItemCategories {
     public static final ItemCategory FENCES = get("minecraft:fences");
     public static final ItemCategory FISHES = get("minecraft:fishes");
     public static final ItemCategory FLOWERS = get("minecraft:flowers");
-    @Deprecated public static final ItemCategory FURNACE_MATERIALS = get("minecraft:furnace_materials");
+    @Deprecated
+    public static final ItemCategory FURNACE_MATERIALS = get("minecraft:furnace_materials");
     public static final ItemCategory GOLD_ORES = get("minecraft:gold_ores");
     public static final ItemCategory JUNGLE_LOGS = get("minecraft:jungle_logs");
     public static final ItemCategory LEAVES = get("minecraft:leaves");

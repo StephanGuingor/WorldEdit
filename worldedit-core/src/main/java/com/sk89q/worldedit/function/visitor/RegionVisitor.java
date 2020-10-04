@@ -72,8 +72,8 @@ public class RegionVisitor implements Operation {
     @Override
     public Iterable<Component> getStatusMessages() {
         return ImmutableList.of(TranslatableComponent.of(
-                "worldedit.operation.affected.block",
-                TextComponent.of(getAffected())
+            "worldedit.operation.affected.block",
+            TextComponent.of(getAffected())
         ).color(TextColor.LIGHT_PURPLE));
     }
 

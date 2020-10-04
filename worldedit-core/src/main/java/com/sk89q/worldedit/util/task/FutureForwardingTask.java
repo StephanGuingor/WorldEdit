@@ -109,9 +109,9 @@ public class FutureForwardingTask<V> extends AbstractTask<V> {
      * Create a new instance.
      *
      * @param future the future
-     * @param name the name of the task
-     * @param owner the owner of the task, or {@code null}
-     * @param <V> the type returned by the future
+     * @param name   the name of the task
+     * @param owner  the owner of the task, or {@code null}
+     * @param <V>    the type returned by the future
      * @return a new instance
      */
     public static <V> FutureForwardingTask<V> create(ListenableFuture<V> future, String name, @Nullable Object owner) {

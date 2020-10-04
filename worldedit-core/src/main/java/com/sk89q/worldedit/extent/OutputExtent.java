@@ -48,7 +48,7 @@ public interface OutputExtent {
      * example, the approximate number of changes.</p>
      *
      * @param position position of the block
-     * @param block block to set
+     * @param block    block to set
      * @return true if the block was successfully set (return value may not be accurate)
      * @throws WorldEditException thrown on an error
      */
@@ -74,7 +74,7 @@ public interface OutputExtent {
      * Set the biome.
      *
      * @param position the (x, z) location to set the biome at
-     * @param biome the biome to set to
+     * @param biome    the biome to set to
      * @return true if the biome was successfully set (return value may not be accurate)
      * @deprecated Biomes in Minecraft are 3D now, use {@link OutputExtent#setBiome(BlockVector3, BiomeType)}
      */
@@ -87,20 +87,20 @@ public interface OutputExtent {
      * Set the biome.
      *
      * <p>
-     *     As implementation varies per Minecraft version, this may set more than
-     *     this position's biome. On versions prior to 1.15, this will set the entire
-     *     column. On later versions it will set the 4x4x4 cube.
+     * As implementation varies per Minecraft version, this may set more than
+     * this position's biome. On versions prior to 1.15, this will set the entire
+     * column. On later versions it will set the 4x4x4 cube.
      * </p>
      *
      * @param position the (x, y, z) location to set the biome at
-     * @param biome the biome to set to
+     * @param biome    the biome to set to
      * @return true if the biome was successfully set (return value may not be accurate)
      * @apiNote This must be overridden by new subclasses. See {@link NonAbstractForCompatibility}
-     *          for details
+     * for details
      */
     @NonAbstractForCompatibility(
         delegateName = "setBiome",
-        delegateParams = { BlockVector3.class, BiomeType.class }
+        delegateParams = {BlockVector3.class, BiomeType.class}
     )
     default boolean setBiome(BlockVector3 position, BiomeType biome) {
         DeprecationUtil.checkDelegatingOverride(getClass());
@@ -114,6 +114,7 @@ public interface OutputExtent {
      *
      * @return an operation or null if there is none to execute
      */
-    @Nullable Operation commit();
+    @Nullable
+    Operation commit();
 
 }

@@ -36,7 +36,7 @@ public final class DirectionConverter extends AbstractDirectionConverter<Directi
     }
 
     public static void register(WorldEdit worldEdit, CommandManager commandManager) {
-        for (boolean includeDiagonals : new boolean[] { false, true }) {
+        for (boolean includeDiagonals : new boolean[] {false, true}) {
             DirectionConverter directionConverter = new DirectionConverter(worldEdit, includeDiagonals);
             register(commandManager, directionConverter, Direction.class, includeDiagonals);
         }
@@ -45,10 +45,10 @@ public final class DirectionConverter extends AbstractDirectionConverter<Directi
     @Override
     protected Direction convertDirection(String argument, @Nullable Player player, boolean includeDiagonals) throws UnknownDirectionException {
         final BlockVector3 vec = includeDiagonals
-                ? getWorldEdit().getDiagonalDirection(player, argument)
-                : getWorldEdit().getDirection(player, argument);
+            ? getWorldEdit().getDiagonalDirection(player, argument)
+            : getWorldEdit().getDirection(player, argument);
         return Optional.ofNullable(Direction.findClosest(vec.toVector3(), Direction.Flag.ALL))
-                .orElseThrow(() -> new UnknownDirectionException(argument));
+            .orElseThrow(() -> new UnknownDirectionException(argument));
     }
 
 }

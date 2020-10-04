@@ -184,7 +184,7 @@ public class RegionCommands {
 
     @Command(
         name = "/replace",
-        aliases = { "/re", "/rep" },
+        aliases = {"/re", "/rep"},
         desc = "Replace all blocks in the selection with another"
     )
     @CommandPermissions("worldedit.region.replace")
@@ -218,7 +218,7 @@ public class RegionCommands {
 
     @Command(
         name = "/center",
-        aliases = { "/middle" },
+        aliases = {"/middle"},
         desc = "Set the center block(s)"
     )
     @Logging(REGION)
@@ -259,7 +259,7 @@ public class RegionCommands {
 
     @Command(
         name = "/faces",
-        aliases = { "/outline" },
+        aliases = {"/outline"},
         desc = "Build the walls, ceiling, and floor of a selection"
     )
     @CommandPermissions("worldedit.region.faces")
@@ -368,7 +368,7 @@ public class RegionCommands {
                      @Switch(name = 'b', desc = "Also copy biomes")
                          boolean copyBiomes,
                      @Switch(name = 'r', desc = "Use block units")
-                        boolean blockUnits,
+                         boolean blockUnits,
                      @ArgFlag(name = 'm', desc = "Set the include mask, non-matching blocks become air")
                          Mask mask) throws WorldEditException {
         Mask combinedMask;

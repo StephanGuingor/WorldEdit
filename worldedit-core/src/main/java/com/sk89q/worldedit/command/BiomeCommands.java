@@ -76,7 +76,7 @@ public class BiomeCommands {
 
     @Command(
         name = "biomelist",
-        aliases = { "biomels" },
+        aliases = {"biomels"},
         desc = "Gets all biomes available."
     )
     @CommandPermissions("worldedit.biome.list")
@@ -112,7 +112,7 @@ public class BiomeCommands {
                           @Switch(name = 'p', desc = "Use the block you are currently in.")
                               boolean usePosition) throws WorldEditException {
         BiomeRegistry biomeRegistry = WorldEdit.getInstance().getPlatformManager()
-                .queryCapability(Capability.GAME_HOOKS).getRegistries().getBiomeRegistry();
+            .queryCapability(Capability.GAME_HOOKS).getRegistries().getBiomeRegistry();
         Set<BiomeType> biomes = new HashSet<>();
         String messageKey;
 

@@ -75,7 +75,7 @@ public class CommandRegistration {
         }
         for (CommandInfo command : registered) {
             DynamicPluginCommand cmd = new DynamicPluginCommand(command.getAliases(),
-                    command.getDesc(), "/" + command.getAliases()[0] + " " + command.getUsage(), executor, command.getRegisteredWith(), plugin);
+                command.getDesc(), "/" + command.getAliases()[0] + " " + command.getUsage(), executor, command.getRegisteredWith(), plugin);
             cmd.setPermissions(command.getPermissions());
             commandMap.register(plugin.getDescription().getName(), cmd);
         }
@@ -110,7 +110,7 @@ public class CommandRegistration {
         if (knownCommands == null || aliases == null) {
             return false;
         }
-        for (Iterator<org.bukkit.command.Command> i = knownCommands.values().iterator(); i.hasNext();) {
+        for (Iterator<org.bukkit.command.Command> i = knownCommands.values().iterator(); i.hasNext(); ) {
             org.bukkit.command.Command cmd = i.next();
             if (cmd instanceof DynamicPluginCommand && ((DynamicPluginCommand) cmd).getOwner().equals(executor)) {
                 i.remove();

@@ -45,7 +45,6 @@ public enum BuiltInClipboardFormat implements ClipboardFormat {
      * The Schematic format used by MCEdit.
      */
     MCEDIT_SCHEMATIC("mcedit", "mce", "schematic") {
-
         @Override
         public String getPrimaryFileExtension() {
             return "schematic";
@@ -83,7 +82,6 @@ public enum BuiltInClipboardFormat implements ClipboardFormat {
         }
     },
     SPONGE_SCHEMATIC("sponge", "schem") {
-
         @Override
         public String getPrimaryFileExtension() {
             return "schem";

@@ -75,17 +75,17 @@ public class MCEditSchematicReader extends NBTSchematicReader {
     private final NBTInputStream inputStream;
     private final DataFixer fixer;
     private static final ImmutableList<NBTCompatibilityHandler> COMPATIBILITY_HANDLERS
-            = ImmutableList.of(
-                new SignCompatibilityHandler(),
-                new FlowerPotCompatibilityHandler(),
-                new NoteBlockCompatibilityHandler(),
-                new SkullBlockCompatibilityHandler(),
-                new BannerBlockCompatibilityHandler(),
-                new BedBlockCompatibilityHandler()
+        = ImmutableList.of(
+        new SignCompatibilityHandler(),
+        new FlowerPotCompatibilityHandler(),
+        new NoteBlockCompatibilityHandler(),
+        new SkullBlockCompatibilityHandler(),
+        new BannerBlockCompatibilityHandler(),
+        new BedBlockCompatibilityHandler()
     );
     private static final ImmutableList<EntityNBTCompatibilityHandler> ENTITY_COMPATIBILITY_HANDLERS
-            = ImmutableList.of(
-                    new Pre13HangingCompatibilityHandler()
+        = ImmutableList.of(
+        new Pre13HangingCompatibilityHandler()
     );
 
     /**
@@ -254,7 +254,7 @@ public class MCEditSchematicReader extends NBTSchematicReader {
                             int combined = block << 8 | data;
                             if (unknownBlocks.add(combined)) {
                                 log.warn("Unknown block when loading schematic: "
-                                        + block + ":" + data + ". This is most likely a bad schematic.");
+                                    + block + ":" + data + ". This is most likely a bad schematic.");
                             }
                         }
                     } catch (WorldEditException ignored) { // BlockArrayClipboard won't throw this
@@ -301,38 +301,70 @@ public class MCEditSchematicReader extends NBTSchematicReader {
 
     private String convertEntityId(String id) {
         switch (id) {
-            case "AreaEffectCloud": return "area_effect_cloud";
-            case "ArmorStand": return "armor_stand";
-            case "CaveSpider": return "cave_spider";
-            case "MinecartChest": return "chest_minecart";
-            case "DragonFireball": return "dragon_fireball";
-            case "ThrownEgg": return "egg";
-            case "EnderDragon": return "ender_dragon";
-            case "ThrownEnderpearl": return "ender_pearl";
-            case "FallingSand": return "falling_block";
-            case "FireworksRocketEntity": return "fireworks_rocket";
-            case "MinecartFurnace": return "furnace_minecart";
-            case "MinecartHopper": return "hopper_minecart";
-            case "EntityHorse": return "horse";
-            case "ItemFrame": return "item_frame";
-            case "LeashKnot": return "leash_knot";
-            case "LightningBolt": return "lightning_bolt";
-            case "LavaSlime": return "magma_cube";
-            case "MinecartRideable": return "minecart";
-            case "MushroomCow": return "mooshroom";
-            case "Ozelot": return "ocelot";
-            case "PolarBear": return "polar_bear";
-            case "ThrownPotion": return "potion";
-            case "ShulkerBullet": return "shulker_bullet";
-            case "SmallFireball": return "small_fireball";
-            case "MinecartSpawner": return "spawner_minecart";
-            case "SpectralArrow": return "spectral_arrow";
-            case "PrimedTnt": return "tnt";
-            case "MinecartTNT": return "tnt_minecart";
-            case "VillagerGolem": return "villager_golem";
-            case "WitherBoss": return "wither";
-            case "WitherSkull": return "wither_skull";
-            case "PigZombie": return "zombie_pigman";
+            case "AreaEffectCloud":
+                return "area_effect_cloud";
+            case "ArmorStand":
+                return "armor_stand";
+            case "CaveSpider":
+                return "cave_spider";
+            case "MinecartChest":
+                return "chest_minecart";
+            case "DragonFireball":
+                return "dragon_fireball";
+            case "ThrownEgg":
+                return "egg";
+            case "EnderDragon":
+                return "ender_dragon";
+            case "ThrownEnderpearl":
+                return "ender_pearl";
+            case "FallingSand":
+                return "falling_block";
+            case "FireworksRocketEntity":
+                return "fireworks_rocket";
+            case "MinecartFurnace":
+                return "furnace_minecart";
+            case "MinecartHopper":
+                return "hopper_minecart";
+            case "EntityHorse":
+                return "horse";
+            case "ItemFrame":
+                return "item_frame";
+            case "LeashKnot":
+                return "leash_knot";
+            case "LightningBolt":
+                return "lightning_bolt";
+            case "LavaSlime":
+                return "magma_cube";
+            case "MinecartRideable":
+                return "minecart";
+            case "MushroomCow":
+                return "mooshroom";
+            case "Ozelot":
+                return "ocelot";
+            case "PolarBear":
+                return "polar_bear";
+            case "ThrownPotion":
+                return "potion";
+            case "ShulkerBullet":
+                return "shulker_bullet";
+            case "SmallFireball":
+                return "small_fireball";
+            case "MinecartSpawner":
+                return "spawner_minecart";
+            case "SpectralArrow":
+                return "spectral_arrow";
+            case "PrimedTnt":
+                return "tnt";
+            case "MinecartTNT":
+                return "tnt_minecart";
+            case "VillagerGolem":
+                return "villager_golem";
+            case "WitherBoss":
+                return "wither";
+            case "WitherSkull":
+                return "wither_skull";
+            case "PigZombie":
+                return "zombie_pigman";
             case "XPOrb":
             case "xp_orb":
                 return "experience_orb";
@@ -345,17 +377,25 @@ public class MCEditSchematicReader extends NBTSchematicReader {
             case "EnderCrystal":
             case "ender_crystal":
                 return "end_crystal";
-            case "fireworks_rocket": return "firework_rocket";
+            case "fireworks_rocket":
+                return "firework_rocket";
             case "MinecartCommandBlock":
             case "commandblock_minecart":
                 return "command_block_minecart";
-            case "snowman": return "snow_golem";
-            case "villager_golem": return "iron_golem";
-            case "evocation_fangs": return "evoker_fangs";
-            case "evocation_illager": return "evoker";
-            case "vindication_illager": return "vindicator";
-            case "illusion_illager": return "illusioner";
-            default: return id;
+            case "snowman":
+                return "snow_golem";
+            case "villager_golem":
+                return "iron_golem";
+            case "evocation_fangs":
+                return "evoker_fangs";
+            case "evocation_illager":
+                return "evoker";
+            case "vindication_illager":
+                return "vindicator";
+            case "illusion_illager":
+                return "illusioner";
+            default:
+                return id;
         }
     }
 

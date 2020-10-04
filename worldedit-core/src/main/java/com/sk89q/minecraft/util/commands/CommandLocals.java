@@ -23,7 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CommandLocals {
-    
+
     private final Map<Object, Object> locals = new HashMap<>();
 
     public boolean containsKey(Object key) {

@@ -111,8 +111,8 @@ public class FuzzyBlockState extends BlockState {
          * Adds a property to the fuzzy BlockState.
          *
          * @param property The property
-         * @param value The value
-         * @param <V> The property type
+         * @param value    The value
+         * @param <V>      The property type
          * @return The builder, for chaining
          */
         public <V> Builder withProperty(Property<V> property, V value) {

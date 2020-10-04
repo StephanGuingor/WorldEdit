@@ -73,8 +73,8 @@ import static com.sk89q.worldedit.internal.anvil.ChunkDeleter.DELCHUNKS_FILE_NAM
  * The Sponge implementation of WorldEdit.
  */
 @Plugin(id = SpongeWorldEdit.MOD_ID, name = "WorldEdit",
-        description = "WorldEdit is an easy-to-use in-game world editor for Minecraft",
-        url = "https://enginehub.org/worldedit/")
+    description = "WorldEdit is an easy-to-use in-game world editor for Minecraft",
+    url = "https://enginehub.org/worldedit/")
 public class SpongeWorldEdit {
 
     @Inject
@@ -106,7 +106,8 @@ public class SpongeWorldEdit {
     @Inject
     private SpongeConfiguration config;
 
-    @Inject @ConfigDir(sharedRoot = false)
+    @Inject
+    @ConfigDir(sharedRoot = false)
     private File workingDir;
 
     @Inject
@@ -261,7 +262,7 @@ public class SpongeWorldEdit {
 
                 Location<World> loc = optLoc.get();
                 com.sk89q.worldedit.util.Location pos = new com.sk89q.worldedit.util.Location(
-                        world, loc.getX(), loc.getY(), loc.getZ());
+                    world, loc.getX(), loc.getY(), loc.getZ());
 
                 if (we.handleBlockLeftClick(player, pos)) {
                     event.setCancelled(true);
@@ -282,7 +283,7 @@ public class SpongeWorldEdit {
 
             Location<World> loc = optLoc.get();
             com.sk89q.worldedit.util.Location pos = new com.sk89q.worldedit.util.Location(
-                    world, loc.getX(), loc.getY(), loc.getZ());
+                world, loc.getX(), loc.getY(), loc.getZ());
 
             if (we.handleBlockRightClick(player, pos)) {
                 event.setCancelled(true);

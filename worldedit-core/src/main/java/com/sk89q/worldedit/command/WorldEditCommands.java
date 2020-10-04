@@ -70,7 +70,7 @@ public class WorldEditCommands {
 
     @Command(
         name = "version",
-        aliases = { "ver" },
+        aliases = {"ver"},
         desc = "Get WorldEdit version"
     )
     public void version(Actor actor) {
@@ -82,7 +82,7 @@ public class WorldEditCommands {
         TextComponentProducer producer = new TextComponentProducer();
         for (Platform platform : pm.getPlatforms()) {
             producer.append(
-                    TextComponent.of("* ", TextColor.GRAY)
+                TextComponent.of("* ", TextColor.GRAY)
                     .append(TextComponent.of(platform.getPlatformName()))
                     .append(TextComponent.of("(" + platform.getPlatformVersion() + ")"))
             ).newline();
@@ -93,9 +93,9 @@ public class WorldEditCommands {
         for (Capability capability : Capability.values()) {
             Platform platform = pm.queryCapability(capability);
             producer.append(
-                    TextComponent.of(capability.name(), TextColor.GRAY)
+                TextComponent.of(capability.name(), TextColor.GRAY)
                     .append(TextComponent.of(": ")
-                    .append(TextComponent.of(platform != null ? platform.getPlatformName() : "NONE")))
+                        .append(TextComponent.of(platform != null ? platform.getPlatformName() : "NONE")))
             ).newline();
         }
         actor.print(new MessageBox("Capabilities", producer, TextColor.GRAY).create());
@@ -181,10 +181,10 @@ public class WorldEditCommands {
             ZoneId tz = ZoneId.of(timezone);
             session.setTimezone(tz);
             actor.printInfo(TranslatableComponent.of("worldedit.timezone.set", TextComponent.of(tz.getDisplayName(
-                    TextStyle.FULL, actor.getLocale()
+                TextStyle.FULL, actor.getLocale()
             ))));
             actor.printInfo(TranslatableComponent.of("worldedit.timezone.current",
-                    TextComponent.of(dateFormat.withLocale(actor.getLocale()).format(ZonedDateTime.now(tz)))));
+                TextComponent.of(dateFormat.withLocale(actor.getLocale()).format(ZonedDateTime.now(tz)))));
         } catch (ZoneRulesException e) {
             actor.printError(TranslatableComponent.of("worldedit.timezone.invalid"));
         }
@@ -203,6 +203,6 @@ public class WorldEditCommands {
                      @Arg(desc = "The command to retrieve help for", def = "", variable = true)
                          List<String> command) throws WorldEditException {
         PrintCommandHelp.help(command, page, listSubCommands,
-                we.getPlatformManager().getPlatformCommandManager().getCommandManager(), actor, "/worldedit help");
+            we.getPlatformManager().getPlatformCommandManager().getCommandManager(), actor, "/worldedit help");
     }
 }

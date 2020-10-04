@@ -67,15 +67,15 @@ public class BlockOptimizedHistory extends ArrayListHistory {
     @Override
     public Iterator<Change> forwardIterator() {
         return Iterators.concat(
-                super.forwardIterator(),
-                Iterators.transform(current.iterator(), BlockOptimizedHistory::createChange));
+            super.forwardIterator(),
+            Iterators.transform(current.iterator(), BlockOptimizedHistory::createChange));
     }
 
     @Override
     public Iterator<Change> backwardIterator() {
         return Iterators.concat(
-                super.backwardIterator(),
-                Iterators.transform(previous.reverseIterator(), BlockOptimizedHistory::createChange));
+            super.backwardIterator(),
+            Iterators.transform(previous.reverseIterator(), BlockOptimizedHistory::createChange));
     }
 
     @Override

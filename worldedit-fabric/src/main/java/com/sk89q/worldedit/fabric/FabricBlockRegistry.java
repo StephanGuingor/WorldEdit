@@ -57,8 +57,8 @@ public class FabricBlockRegistry extends BundledBlockRegistry {
         Block block = FabricAdapter.adapt(blockType);
         Map<String, Property<?>> map = new TreeMap<>();
         Collection<net.minecraft.state.property.Property<?>> propertyKeys = block
-                .getDefaultState()
-                .getProperties();
+            .getDefaultState()
+            .getProperties();
         for (net.minecraft.state.property.Property<?> key : propertyKeys) {
             map.put(key.getName(), FabricAdapter.adaptProperty(key));
         }

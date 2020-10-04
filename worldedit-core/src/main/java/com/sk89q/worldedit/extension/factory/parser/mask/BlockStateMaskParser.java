@@ -55,8 +55,8 @@ public class BlockStateMaskParser extends InputParser<Mask> {
         String states = input.substring(2 + (strict ? 1 : 0), input.length() - 1);
         try {
             return new BlockStateMask(context.requireExtent(),
-                    Splitter.on(',').omitEmptyStrings().trimResults().withKeyValueSeparator('=').split(states),
-                    strict);
+                Splitter.on(',').omitEmptyStrings().trimResults().withKeyValueSeparator('=').split(states),
+                strict);
         } catch (Exception e) {
             throw new InputParseException(TranslatableComponent.of("worldedit.error.parser.bad-state-format", TextComponent.of(states)), e);
         }

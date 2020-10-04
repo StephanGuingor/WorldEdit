@@ -47,11 +47,11 @@ public interface Pattern {
      * @param position the position
      * @return a block
      * @apiNote This must be overridden by new subclasses. See {@link NonAbstractForCompatibility}
-     *          for details
+     * for details
      */
     @NonAbstractForCompatibility(
         delegateName = "apply",
-        delegateParams = { BlockVector3.class }
+        delegateParams = {BlockVector3.class}
     )
     default BaseBlock applyBlock(BlockVector3 position) {
         DeprecationUtil.checkDelegatingOverride(getClass());

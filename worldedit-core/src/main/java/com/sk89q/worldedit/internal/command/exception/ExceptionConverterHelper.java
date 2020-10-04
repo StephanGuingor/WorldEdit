@@ -55,7 +55,7 @@ public abstract class ExceptionConverterHelper implements ExceptionConverter {
                 Class<?> cls = parameters[0];
                 if (Throwable.class.isAssignableFrom(cls)) {
                     handlers.add(new ExceptionHandler(
-                            (Class<? extends Throwable>) cls, method));
+                        (Class<? extends Throwable>) cls, method));
                 }
             }
         }

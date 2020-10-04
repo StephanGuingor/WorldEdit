@@ -68,12 +68,12 @@ public class OldChunk implements Chunk {
         int size = 16 * 16 * 128;
         if (blocks.length != size) {
             throw new InvalidFormatException("Chunk blocks byte array expected "
-                    + "to be " + size + " bytes; found " + blocks.length);
+                + "to be " + size + " bytes; found " + blocks.length);
         }
 
         if (data.length != (size / 2)) {
             throw new InvalidFormatException("Chunk block data byte array "
-                    + "expected to be " + size + " bytes; found " + data.length);
+                + "expected to be " + size + " bytes; found " + data.length);
         }
     }
 
@@ -84,8 +84,8 @@ public class OldChunk implements Chunk {
      */
     private void populateTileEntities() throws DataException {
         List<Tag> tags = NBTUtils.getChildTag(
-                rootTag.getValue(), "TileEntities", ListTag.class)
-                .getValue();
+            rootTag.getValue(), "TileEntities", ListTag.class)
+            .getValue();
 
         tileEntities = new HashMap<>();
 

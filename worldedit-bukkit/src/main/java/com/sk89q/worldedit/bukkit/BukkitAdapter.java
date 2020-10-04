@@ -83,7 +83,7 @@ public class BukkitAdapter {
      * Checks equality between a WorldEdit BlockType and a Bukkit Material.
      *
      * @param blockType The WorldEdit BlockType
-     * @param type The Bukkit Material
+     * @param type      The Bukkit Material
      * @return If they are equal
      */
     public static boolean equals(BlockType blockType, Material type) {
@@ -178,11 +178,16 @@ public class BukkitAdapter {
             return null;
         }
         switch (face) {
-            case NORTH: return Direction.NORTH;
-            case SOUTH: return Direction.SOUTH;
-            case WEST: return Direction.WEST;
-            case EAST: return Direction.EAST;
-            case DOWN: return Direction.DOWN;
+            case NORTH:
+                return Direction.NORTH;
+            case SOUTH:
+                return Direction.SOUTH;
+            case WEST:
+                return Direction.WEST;
+            case EAST:
+                return Direction.EAST;
+            case DOWN:
+                return Direction.DOWN;
             case UP:
             default:
                 return Direction.UP;
@@ -219,10 +224,10 @@ public class BukkitAdapter {
         checkNotNull(location);
         Vector3 position = asVector(location);
         return new com.sk89q.worldedit.util.Location(
-                adapt(location.getWorld()),
-                position,
-                location.getYaw(),
-                location.getPitch());
+            adapt(location.getWorld()),
+            position,
+            location.getYaw(),
+            location.getPitch());
     }
 
     /**
@@ -235,16 +240,16 @@ public class BukkitAdapter {
         checkNotNull(location);
         Vector3 position = location.toVector();
         return new org.bukkit.Location(
-                adapt((World) location.getExtent()),
-                position.getX(), position.getY(), position.getZ(),
-                location.getYaw(),
-                location.getPitch());
+            adapt((World) location.getExtent()),
+            position.getX(), position.getY(), position.getZ(),
+            location.getYaw(),
+            location.getPitch());
     }
 
     /**
      * Create a Bukkit location from a WorldEdit position with a Bukkit world.
      *
-     * @param world the Bukkit world
+     * @param world    the Bukkit world
      * @param position the WorldEdit position
      * @return a Bukkit location
      */
@@ -252,14 +257,14 @@ public class BukkitAdapter {
         checkNotNull(world);
         checkNotNull(position);
         return new org.bukkit.Location(
-                world,
-                position.getX(), position.getY(), position.getZ());
+            world,
+            position.getX(), position.getY(), position.getZ());
     }
 
     /**
      * Create a Bukkit location from a WorldEdit position with a Bukkit world.
      *
-     * @param world the Bukkit world
+     * @param world    the Bukkit world
      * @param position the WorldEdit position
      * @return a Bukkit location
      */
@@ -267,14 +272,14 @@ public class BukkitAdapter {
         checkNotNull(world);
         checkNotNull(position);
         return new org.bukkit.Location(
-                world,
-                position.getX(), position.getY(), position.getZ());
+            world,
+            position.getX(), position.getY(), position.getZ());
     }
 
     /**
      * Create a Bukkit location from a WorldEdit location with a Bukkit world.
      *
-     * @param world the Bukkit world
+     * @param world    the Bukkit world
      * @param location the WorldEdit location
      * @return a Bukkit location
      */
@@ -282,10 +287,10 @@ public class BukkitAdapter {
         checkNotNull(world);
         checkNotNull(location);
         return new org.bukkit.Location(
-                world,
-                location.getX(), location.getY(), location.getZ(),
-                location.getYaw(),
-                location.getPitch());
+            world,
+            location.getX(), location.getY(), location.getZ(),
+            location.getYaw(),
+            location.getPitch());
     }
 
     /**
@@ -388,8 +393,7 @@ public class BukkitAdapter {
      * @return WorldEdit EntityType
      */
     public static EntityType adapt(org.bukkit.entity.EntityType entityType) {
-        @SuppressWarnings("deprecation")
-        final String name = entityType.getName();
+        @SuppressWarnings("deprecation") final String name = entityType.getName();
         if (name == null) {
             return null;
         }

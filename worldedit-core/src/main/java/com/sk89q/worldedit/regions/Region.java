@@ -83,7 +83,7 @@ public interface Region extends Iterable<BlockVector3>, Cloneable {
      *
      * @return number of blocks
      * @apiNote This must be overridden by new subclasses. See {@link NonAbstractForCompatibility}
-     *          for details
+     * for details
      */
     @NonAbstractForCompatibility(
         delegateName = "getArea",
@@ -167,7 +167,8 @@ public interface Region extends Iterable<BlockVector3>, Cloneable {
      *
      * @return the world, or null
      */
-    @Nullable World getWorld();
+    @Nullable
+    World getWorld();
 
     /**
      * Sets the world that the selection is in.

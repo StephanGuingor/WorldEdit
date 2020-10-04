@@ -51,7 +51,7 @@ public class BlockFactory extends AbstractFactory<BaseBlock> {
     /**
      * Return a set of blocks from a comma-delimited list of blocks.
      *
-     * @param input the input
+     * @param input   the input
      * @param context the context
      * @return a set of blocks
      * @throws InputParseException thrown in error with the input

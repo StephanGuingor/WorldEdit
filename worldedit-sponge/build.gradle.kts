@@ -29,7 +29,7 @@ addJarManifest(includeClasspath = true)
 
 tasks.named<ShadowJar>("shadowJar") {
     dependencies {
-        relocate ("org.bstats", "com.sk89q.worldedit.sponge.bstats") {
+        relocate("org.bstats", "com.sk89q.worldedit.sponge.bstats") {
             include(dependency("org.bstats:bstats-sponge:1.7"))
         }
     }

@@ -129,7 +129,7 @@ public enum Direction {
      * Find the closest direction to the given direction vector.
      *
      * @param vector the vector
-     * @param flags the only flags that are permitted (use bitwise math)
+     * @param flags  the only flags that are permitted (use bitwise math)
      * @return the closest direction, or null if no direction can be returned
      */
     @Nullable
@@ -177,7 +177,7 @@ public enum Direction {
      * Converts a rotation index into a Direction.
      *
      * <p>
-     *     Rotation indexes are used in BlockStates, such as sign posts.
+     * Rotation indexes are used in BlockStates, such as sign posts.
      * </p>
      *
      * @param rotation The rotation index

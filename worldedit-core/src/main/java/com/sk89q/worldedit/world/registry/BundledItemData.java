@@ -98,7 +98,8 @@ public final class BundledItemData {
         }
         log.debug("Using {} for bundled item data.", url);
         String data = Resources.toString(url, Charset.defaultCharset());
-        List<ItemEntry> entries = gson.fromJson(data, new TypeToken<List<ItemEntry>>() {}.getType());
+        List<ItemEntry> entries = gson.fromJson(data, new TypeToken<List<ItemEntry>>() {
+        }.getType());
 
         for (ItemEntry entry : entries) {
             idMap.put(entry.id, entry);

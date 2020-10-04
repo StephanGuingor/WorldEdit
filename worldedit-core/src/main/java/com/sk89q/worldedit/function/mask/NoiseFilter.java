@@ -40,7 +40,7 @@ public class NoiseFilter extends AbstractMask {
      * Create a new noise filter.
      *
      * @param noiseGenerator the noise generator
-     * @param density the density
+     * @param density        the density
      */
     public NoiseFilter(NoiseGenerator noiseGenerator, double density) {
         setNoiseGenerator(noiseGenerator);

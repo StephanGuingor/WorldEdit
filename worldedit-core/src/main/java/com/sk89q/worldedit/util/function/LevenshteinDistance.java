@@ -42,7 +42,7 @@ public class LevenshteinDistance implements Function<String, Integer> {
     /**
      * Create a new instance.
      *
-     * @param baseString the string to compare to
+     * @param baseString    the string to compare to
      * @param caseSensitive true to make case sensitive comparisons
      */
     public LevenshteinDistance(String baseString, boolean caseSensitive) {
@@ -52,8 +52,8 @@ public class LevenshteinDistance implements Function<String, Integer> {
     /**
      * Create a new instance.
      *
-     * @param baseString the string to compare to
-     * @param caseSensitive true to make case sensitive comparisons
+     * @param baseString     the string to compare to
+     * @param caseSensitive  true to make case sensitive comparisons
      * @param replacePattern pattern to match characters to be removed in both the input and test strings (may be null)
      */
     public LevenshteinDistance(String baseString, boolean caseSensitive, @Nullable Pattern replacePattern) {
@@ -112,8 +112,8 @@ public class LevenshteinDistance implements Function<String, Integer> {
      * distance("hello", "hallo")    = 1
      * </pre>
      *
-     * @param s  the first String, must not be null
-     * @param t  the second String, must not be null
+     * @param s the first String, must not be null
+     * @param t the second String, must not be null
      * @return result distance
      * @throws IllegalArgumentException if either String input {@code null}
      */
@@ -176,7 +176,7 @@ public class LevenshteinDistance implements Function<String, Integer> {
                 // minimum of cell to the left+1, to the top+1, diagonally left
                 // and up +cost
                 d[i] = Math.min(Math.min(d[i - 1] + 1, p[i] + 1), p[i - 1]
-                        + cost);
+                    + cost);
             }
 
             // copy current distance counts to 'previous row' distance counts

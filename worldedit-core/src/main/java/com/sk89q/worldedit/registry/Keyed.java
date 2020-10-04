@@ -25,6 +25,7 @@ package com.sk89q.worldedit.registry;
 public interface Keyed {
     /**
      * The id of this object in the registry. Must be unique, and lowercase. Certain registries (e.g Namespaced ones) may have additional restrictions.
+     *
      * @return an id
      */
     String getId();

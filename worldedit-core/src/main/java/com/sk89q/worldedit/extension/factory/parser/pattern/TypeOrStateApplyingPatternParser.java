@@ -81,7 +81,7 @@ public class TypeOrStateApplyingPatternParser extends InputParser<Pattern> {
 
         if (parts.length == 1) {
             return new TypeApplyingPattern(extent,
-                    worldEdit.getBlockFactory().parseFromInput(type, context).getBlockType().getDefaultState());
+                worldEdit.getBlockFactory().parseFromInput(type, context).getBlockType().getDefaultState());
         } else {
             // states given
             if (!parts[1].endsWith("]")) {
@@ -114,7 +114,7 @@ public class TypeOrStateApplyingPatternParser extends InputParser<Pattern> {
             } else {
                 Extent buffer = new ExtentBuffer(extent);
                 Pattern typeApplier = new TypeApplyingPattern(buffer,
-                        worldEdit.getBlockFactory().parseFromInput(type, context).getBlockType().getDefaultState());
+                    worldEdit.getBlockFactory().parseFromInput(type, context).getBlockType().getDefaultState());
                 Pattern stateApplier = new StateApplyingPattern(buffer, statesToSet);
                 return new ExtentBufferedCompositePattern(buffer, typeApplier, stateApplier);
             }

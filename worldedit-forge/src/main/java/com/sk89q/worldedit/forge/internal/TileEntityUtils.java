@@ -36,9 +36,9 @@ public final class TileEntityUtils {
      * Set a tile entity at the given location using the tile entity ID from
      * the tag.
      *
-     * @param world the world
+     * @param world    the world
      * @param position the position
-     * @param tag the tag for the tile entity
+     * @param tag      the tag for the tile entity
      */
     static boolean setTileEntity(World world, BlockPos position, CompoundNBT tag) {
         TileEntity tileEntity = TileEntity.func_235657_b_(world.getBlockState(position), tag);

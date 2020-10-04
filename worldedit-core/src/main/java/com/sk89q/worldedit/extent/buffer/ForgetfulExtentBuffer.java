@@ -73,7 +73,7 @@ public class ForgetfulExtentBuffer extends AbstractDelegateExtent implements Pat
      * of the given mask.
      *
      * @param delegate the delegate extent for {@link Extent#getBlock(BlockVector3)}, etc. calls
-     * @param mask the mask
+     * @param mask     the mask
      */
     public ForgetfulExtentBuffer(Extent delegate, Mask mask) {
         super(delegate);
@@ -181,9 +181,9 @@ public class ForgetfulExtentBuffer extends AbstractDelegateExtent implements Pat
             @Override
             public Iterable<BlockVector2> asFlatRegion() {
                 return biomeBuffer.keySet()
-                        .stream()
-                        .map(BlockVector3::toBlockVector2)
-                        .collect(Collectors.toSet());
+                    .stream()
+                    .map(BlockVector3::toBlockVector2)
+                    .collect(Collectors.toSet());
             }
         };
     }

@@ -84,9 +84,9 @@ public class VectorConverter<C, T> implements ArgumentConverter<T> {
 
 
     private VectorConverter(ArgumentConverter<C> componentConverter,
-                           int componentCount,
-                           Function<List<C>, T> vectorConstructor,
-                           String acceptableArguments) {
+                            int componentCount,
+                            Function<List<C>, T> vectorConstructor,
+                            String acceptableArguments) {
         this.componentConverter = componentConverter;
         this.componentCount = componentCount;
         this.vectorConstructor = vectorConstructor;

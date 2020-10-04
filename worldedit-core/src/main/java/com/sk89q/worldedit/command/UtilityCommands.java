@@ -152,7 +152,7 @@ public class UtilityCommands {
 
     @Command(
         name = "fixlava",
-        aliases = { "/fixlava" },
+        aliases = {"/fixlava"},
         desc = "Fix lava to be stationary"
     )
     @CommandPermissions("worldedit.fixlava")
@@ -169,7 +169,7 @@ public class UtilityCommands {
 
     @Command(
         name = "fixwater",
-        aliases = { "/fixwater" },
+        aliases = {"/fixwater"},
         desc = "Fix water to be stationary"
     )
     @CommandPermissions("worldedit.fixwater")
@@ -186,7 +186,7 @@ public class UtilityCommands {
 
     @Command(
         name = "removeabove",
-        aliases = { "/removeabove" },
+        aliases = {"/removeabove"},
         desc = "Remove blocks above your head."
     )
     @CommandPermissions("worldedit.removeabove")
@@ -210,7 +210,7 @@ public class UtilityCommands {
 
     @Command(
         name = "removebelow",
-        aliases = { "/removebelow" },
+        aliases = {"/removebelow"},
         desc = "Remove blocks below you."
     )
     @CommandPermissions("worldedit.removebelow")
@@ -234,7 +234,7 @@ public class UtilityCommands {
 
     @Command(
         name = "removenear",
-        aliases = { "/removenear" },
+        aliases = {"/removenear"},
         desc = "Remove blocks near you."
     )
     @CommandPermissions("worldedit.removenear")
@@ -254,7 +254,7 @@ public class UtilityCommands {
 
     @Command(
         name = "replacenear",
-        aliases = { "/replacenear" },
+        aliases = {"/replacenear"},
         desc = "Replace nearby blocks"
     )
     @CommandPermissions("worldedit.replacenear")
@@ -285,7 +285,7 @@ public class UtilityCommands {
 
     @Command(
         name = "snow",
-        aliases = { "/snow" },
+        aliases = {"/snow"},
         desc = "Simulates snow"
     )
     @CommandPermissions("worldedit.snow")
@@ -317,7 +317,7 @@ public class UtilityCommands {
 
     @Command(
         name = "thaw",
-        aliases = { "/thaw" },
+        aliases = {"/thaw"},
         desc = "Thaws the area"
     )
     @CommandPermissions("worldedit.thaw")
@@ -344,7 +344,7 @@ public class UtilityCommands {
 
     @Command(
         name = "green",
-        aliases = { "/green" },
+        aliases = {"/green"},
         desc = "Converts dirt to grass blocks in the area"
     )
     @CommandPermissions("worldedit.green")
@@ -376,14 +376,14 @@ public class UtilityCommands {
 
     @Command(
         name = "extinguish",
-        aliases = { "/ex", "/ext", "/extinguish", "ex", "ext" },
+        aliases = {"/ex", "/ext", "/extinguish", "ex", "ext"},
         desc = "Extinguish nearby fire"
     )
     @CommandPermissions("worldedit.extinguish")
     @Logging(PLACEMENT)
     public int extinguish(Actor actor, LocalSession session, EditSession editSession,
-                           @Arg(desc = "The radius of the square to remove in", def = "")
-                               Integer radius) throws WorldEditException {
+                          @Arg(desc = "The radius of the square to remove in", def = "")
+                              Integer radius) throws WorldEditException {
 
         LocalConfiguration config = we.getConfiguration();
 
@@ -451,9 +451,9 @@ public class UtilityCommands {
         int killed = killMatchingEntities(radius, actor, flags::createFunction);
 
         actor.printInfo(TranslatableComponent.of(
-                "worldedit.butcher.killed",
-                TextComponent.of(killed),
-                TextComponent.of(radius)
+            "worldedit.butcher.killed",
+            TextComponent.of(killed),
+            TextComponent.of(radius)
         ));
 
         return killed;
@@ -461,7 +461,7 @@ public class UtilityCommands {
 
     @Command(
         name = "remove",
-        aliases = { "rem", "rement" },
+        aliases = {"rem", "rement"},
         desc = "Remove all entities of a type"
     )
     @CommandPermissions("worldedit.remove")
@@ -482,7 +482,7 @@ public class UtilityCommands {
     }
 
     private int killMatchingEntities(Integer radius, Actor actor, Supplier<EntityFunction> func) throws IncompleteRegionException,
-            MaxChangedBlocksException {
+        MaxChangedBlocksException {
         List<EntityVisitor> visitors = new ArrayList<>();
 
         LocalSession session = we.getSessionManager().get(actor);
@@ -516,7 +516,7 @@ public class UtilityCommands {
 
     @Command(
         name = "/calculate",
-        aliases = { "/calc", "/eval", "/evaluate", "/solve" },
+        aliases = {"/calc", "/eval", "/evaluate", "/solve"},
         desc = "Evaluate a mathematical expression"
     )
     @CommandPermissions("worldedit.calc")
@@ -536,7 +536,7 @@ public class UtilityCommands {
         }
         WorldEditAsyncCommandBuilder.createAndSendMessage(actor, () -> {
             double result = expression.evaluate(
-                    new double[]{}, WorldEdit.getInstance().getSessionManager().get(actor).getTimeout());
+                new double[] {}, WorldEdit.getInstance().getSessionManager().get(actor).getTimeout());
             String formatted = Double.isNaN(result) ? "NaN" : formatForLocale(actor.getLocale()).format(result);
             return SubtleFormat.wrap(input + " = ").append(TextComponent.of(formatted, TextColor.LIGHT_PURPLE));
         }, (Component) null);
@@ -555,7 +555,7 @@ public class UtilityCommands {
                      @Arg(desc = "The command to retrieve help for", def = "", variable = true)
                          List<String> command) throws WorldEditException {
         PrintCommandHelp.help(command, page, listSubCommands,
-                we.getPlatformManager().getPlatformCommandManager().getCommandManager(), actor, "//help");
+            we.getPlatformManager().getPlatformCommandManager().getCommandManager(), actor, "//help");
     }
 
 }

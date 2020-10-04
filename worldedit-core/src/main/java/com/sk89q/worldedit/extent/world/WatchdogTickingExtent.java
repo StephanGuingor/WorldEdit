@@ -51,7 +51,7 @@ public class WatchdogTickingExtent extends AbstractDelegateExtent {
     /**
      * Create a new instance.
      *
-     * @param extent the extent
+     * @param extent   the extent
      * @param watchdog the watchdog to reset
      */
     public WatchdogTickingExtent(Extent extent, Watchdog watchdog) {

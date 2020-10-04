@@ -1,4 +1,5 @@
 import org.ajoberstar.grgit.Grgit
+import org.apache.tools.ant.taskdefs.condition.Os
 
 plugins {
     id("org.enginehub.codecov")
@@ -47,6 +48,7 @@ afterEvaluate {
                 exclude("**/*Registration.*")
             }
         })
+
     }
 }
 
@@ -62,5 +64,23 @@ if (!project.hasProperty("gitCommitHash")) {
         logger.warn("Error getting commit hash", e)
 
         "no.git.id"
+    }
+}
+
+val updateMinecraft = tasks.register("updateMinecraft") {
+    group = "My Tasks"
+    description = "Moves jar into minecraft directory (fabric)"
+
+    doLast {
+        if (Os.isFamily(Os.FAMILY_WINDOWS)) {
+            project.exec {
+                commandLine("cmd","/c","updateMinecraft.bat")
+            }
+        }
+        else if (Os.isFamily(Os.FAMILY_MAC) || Os.isFamily(Os.FAMILY_UNIX)) {
+            project.exec {
+                commandLine("./updateMinecraft.sh")
+            }
+        }
     }
 }

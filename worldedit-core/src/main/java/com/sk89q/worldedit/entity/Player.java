@@ -59,8 +59,8 @@ public interface Player extends Entity, Actor {
 
     /**
      * Get the player's cardinal direction (N, W, NW, etc.) with an offset. May return null.
-     * @param yawOffset offset that is added to the player's yaw before determining the cardinal direction
      *
+     * @param yawOffset offset that is added to the player's yaw before determining the cardinal direction
      * @return the direction
      */
     Direction getCardinalDirection(int yawOffset);
@@ -157,7 +157,7 @@ public interface Player extends Entity, Actor {
     /**
      * Ascend to the ceiling above.
      *
-     * @param clearance How many blocks to leave above the player's head
+     * @param clearance   How many blocks to leave above the player's head
      * @param alwaysGlass Always put glass under the player
      * @return whether the player was moved
      */
@@ -174,7 +174,7 @@ public interface Player extends Entity, Actor {
     /**
      * Just go up.
      *
-     * @param distance How far up to teleport
+     * @param distance    How far up to teleport
      * @param alwaysGlass Always put glass under the player
      * @return whether the player was moved
      */
@@ -211,7 +211,7 @@ public interface Player extends Entity, Actor {
      * Get the point of the block being looked at. May return null.
      * Will return the farthest away air block if useLastBlock is true and no other block is found.
      *
-     * @param range how far to checks for blocks
+     * @param range        how far to checks for blocks
      * @param useLastBlock try to return the last valid air block found
      * @return point
      */
@@ -221,9 +221,9 @@ public interface Player extends Entity, Actor {
      * Get the point of the block being looked at. May return null.
      * Will return the farthest away block before matching the stop mask if useLastBlock is true and no other block is found.
      *
-     * @param range how far to checks for blocks
+     * @param range        how far to checks for blocks
      * @param useLastBlock try to return the last valid block not matching the stop mask found
-     * @param stopMask the mask used to determine when to stop tracing
+     * @param stopMask     the mask used to determine when to stop tracing
      * @return point
      */
     Location getBlockTrace(int range, boolean useLastBlock, @Nullable Mask stopMask);
@@ -231,7 +231,7 @@ public interface Player extends Entity, Actor {
     /**
      * Get the face that the player is looking at.
      *
-     * @param range the range
+     * @param range        the range
      * @param useLastBlock try to return the last valid air block found
      * @return a face
      */
@@ -240,9 +240,9 @@ public interface Player extends Entity, Actor {
     /**
      * Get the face that the player is looking at.
      *
-     * @param range the range
+     * @param range        the range
      * @param useLastBlock try to return the last valid block not matching the stop mask found
-     * @param stopMask the mask used to determine when to stop tracing
+     * @param stopMask     the mask used to determine when to stop tracing
      * @return a face
      */
     Location getBlockTraceFace(int range, boolean useLastBlock, @Nullable Mask stopMask);
@@ -281,9 +281,9 @@ public interface Player extends Entity, Actor {
     /**
      * Move the player.
      *
-     * @param pos where to move them
+     * @param pos   where to move them
      * @param pitch the pitch (up/down) of the player's view in degrees
-     * @param yaw the yaw (left/right) of the player's view in degrees
+     * @param yaw   the yaw (left/right) of the player's view in degrees
      * @deprecated This method may fail without indication. Use
      * {@link #trySetPosition(Vector3, float, float)} instead
      */
@@ -300,16 +300,16 @@ public interface Player extends Entity, Actor {
      * If so, this method will return {@code false}.
      * </p>
      *
-     * @param pos where to move them
+     * @param pos   where to move them
      * @param pitch the pitch (up/down) of the player's view in degrees
-     * @param yaw the yaw (left/right) of the player's view in degrees
+     * @param yaw   the yaw (left/right) of the player's view in degrees
      * @return if the move was able to occur
      * @apiNote This must be overridden by new subclasses. See {@link NonAbstractForCompatibility}
-     *          for details
+     * for details
      */
     @NonAbstractForCompatibility(
         delegateName = "setPosition",
-        delegateParams = { Vector3.class, float.class, float.class }
+        delegateParams = {Vector3.class, float.class, float.class}
     )
     default boolean trySetPosition(Vector3 pos, float pitch, float yaw) {
         DeprecationUtil.checkDelegatingOverride(getClass());
@@ -323,10 +323,10 @@ public interface Player extends Entity, Actor {
      * Sends a fake block to the client.
      *
      * <p>
-     *     This block isn't real.
+     * This block isn't real.
      * </p>
      *
-     * @param pos The position of the block
+     * @param pos   The position of the block
      * @param block The block to send, null to reset
      */
     <B extends BlockStateHolder<B>> void sendFakeBlock(BlockVector3 pos, @Nullable B block);

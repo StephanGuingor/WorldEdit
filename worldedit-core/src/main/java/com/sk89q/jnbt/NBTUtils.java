@@ -28,7 +28,6 @@ import static com.google.common.base.Preconditions.checkNotNull;
 
 /**
  * A class which contains NBT-related utility methods.
- *
  */
 public final class NBTUtils {
 
@@ -73,7 +72,7 @@ public final class NBTUtils {
             return "TAG_Long_Array";
         } else {
             throw new IllegalArgumentException("Invalid tag classs ("
-                    + clazz.getName() + ").");
+                + clazz.getName() + ").");
         }
     }
 
@@ -113,7 +112,7 @@ public final class NBTUtils {
             return NBTConstants.TYPE_LONG_ARRAY;
         } else {
             throw new IllegalArgumentException("Invalid tag classs ("
-                    + clazz.getName() + ").");
+                + clazz.getName() + ").");
         }
     }
 
@@ -175,8 +174,8 @@ public final class NBTUtils {
     /**
      * Get child tag of a NBT structure.
      *
-     * @param items the map to read from
-     * @param key the key to look for
+     * @param items    the map to read from
+     * @param key      the key to look for
      * @param expected the expected NBT class type
      * @return child tag
      * @throws InvalidFormatException if the format of the items is invalid

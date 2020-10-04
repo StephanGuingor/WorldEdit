@@ -38,7 +38,7 @@ public interface BlockTool extends Tool {
      * @return true to cancel the original event which triggered this action (if possible)
      * @deprecated New subclasses should override
      * {@link #actPrimary(Platform, LocalConfiguration, Player, LocalSession, Location, Direction)}
-     *      instead
+     * instead
      */
     @Deprecated
     default boolean actPrimary(Platform server, LocalConfiguration config, Player player, LocalSession session, Location clicked) {
@@ -48,19 +48,19 @@ public interface BlockTool extends Tool {
     /**
      * Perform the primary action of this tool.
      *
-     * @param server The platform
-     * @param config The config instance
-     * @param player The player
+     * @param server  The platform
+     * @param config  The config instance
+     * @param player  The player
      * @param session The local session
      * @param clicked The location that was clicked
-     * @param face The face that was clicked
+     * @param face    The face that was clicked
      * @return true to cancel the original event which triggered this action (if possible)
      * @apiNote This must be overridden by new subclasses. See {@link NonAbstractForCompatibility}
-     *          for details
+     * for details
      */
     @NonAbstractForCompatibility(
         delegateName = "actPrimary",
-        delegateParams = { Platform.class, LocalConfiguration.class, Player.class, LocalSession.class, Location.class }
+        delegateParams = {Platform.class, LocalConfiguration.class, Player.class, LocalSession.class, Location.class}
     )
     default boolean actPrimary(Platform server, LocalConfiguration config, Player player, LocalSession session, Location clicked, @Nullable Direction face) {
         DeprecationUtil.checkDelegatingOverride(getClass());

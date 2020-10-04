@@ -65,10 +65,10 @@ public class Polygonal2DRegion extends AbstractRegion implements FlatRegion {
     /**
      * Construct the region.
      *
-     * @param world the world
+     * @param world  the world
      * @param points list of points
-     * @param minY minimum Y
-     * @param maxY maximum Y
+     * @param minY   minimum Y
+     * @param maxY   maximum Y
      */
     public Polygonal2DRegion(World world, List<BlockVector2> points, int minY, int maxY) {
         super(world);
@@ -221,10 +221,10 @@ public class Polygonal2DRegion extends AbstractRegion implements FlatRegion {
         }
 
         return BigDecimal.valueOf(area)
-                .multiply(BigDecimal.valueOf(0.5))
-                .abs()
-                .setScale(0, RoundingMode.FLOOR)
-                .longValue() * (maxY - minY + 1);
+            .multiply(BigDecimal.valueOf(0.5))
+            .abs()
+            .setScale(0, RoundingMode.FLOOR)
+            .longValue() * (maxY - minY + 1);
     }
 
     @Override
@@ -300,9 +300,9 @@ public class Polygonal2DRegion extends AbstractRegion implements FlatRegion {
      * Checks to see if a point is inside a region.
      *
      * @param points a list of points
-     * @param minY the min Y
-     * @param maxY the max Y
-     * @param pt the position to check
+     * @param minY   the min Y
+     * @param maxY   the max Y
+     * @param pt     the position to check
      * @return true if the given polygon contains the given point
      */
     public static boolean contains(List<BlockVector2> points, int minY, int maxY, BlockVector3 pt) {
@@ -351,7 +351,7 @@ public class Polygonal2DRegion extends AbstractRegion implements FlatRegion {
             }
             if (x1 <= targetX && targetX <= x2) {
                 crossproduct = ((long) targetZ - (long) z1) * (long) (x2 - x1)
-                        - ((long) z2 - (long) z1) * (long) (targetX - x1);
+                    - ((long) z2 - (long) z1) * (long) (targetX - x1);
                 if (crossproduct == 0) {
                     if ((z1 <= targetZ) == (targetZ <= z2)) {
                         return true; //on edge

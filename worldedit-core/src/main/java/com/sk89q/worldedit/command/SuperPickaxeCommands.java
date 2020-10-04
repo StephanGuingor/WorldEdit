@@ -77,7 +77,7 @@ public class SuperPickaxeCommands {
 
     @Command(
         name = "recursive",
-        aliases = { "recur" },
+        aliases = {"recur"},
         desc = "Enable the recursive super pickaxe pickaxe mode"
     )
     @CommandPermissions("worldedit.superpickaxe.recursive")

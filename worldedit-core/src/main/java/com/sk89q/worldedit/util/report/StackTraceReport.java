@@ -47,13 +47,13 @@ public class StackTraceReport implements Report {
                     builder.append("\n");
                 }
                 builder.append(element.getClassName())
-                        .append(".")
-                        .append(element.getMethodName())
-                        .append("() (")
-                        .append(element.getFileName())
-                        .append(":")
-                        .append(element.getLineNumber())
-                        .append(")");
+                    .append(".")
+                    .append(element.getMethodName())
+                    .append("() (")
+                    .append(element.getFileName())
+                    .append(":")
+                    .append(element.getLineNumber())
+                    .append(")");
             }
             return builder.toString();
         } else {

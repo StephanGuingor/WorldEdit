@@ -102,15 +102,15 @@ public class KochanekBartelsInterpolation implements Interpolation {
      * Returns the linear combination of the given coefficients with the nodes adjacent to baseIndex.
      *
      * @param baseIndex node index
-     * @param f1 coefficient for baseIndex-1
-     * @param f2 coefficient for baseIndex
-     * @param f3 coefficient for baseIndex+1
-     * @param f4 coefficient for baseIndex+2
+     * @param f1        coefficient for baseIndex-1
+     * @param f2        coefficient for baseIndex
+     * @param f3        coefficient for baseIndex+1
+     * @param f4        coefficient for baseIndex+2
      * @return linear combination of nodes[n-1..n+2] with f1..4
      */
     private Vector3 linearCombination(int baseIndex, double f1, double f2, double f3, double f4) {
         final Vector3 r1 = retrieve(baseIndex - 1).multiply(f1);
-        final Vector3 r2 = retrieve(baseIndex    ).multiply(f2);
+        final Vector3 r2 = retrieve(baseIndex).multiply(f2);
         final Vector3 r3 = retrieve(baseIndex + 1).multiply(f3);
         final Vector3 r4 = retrieve(baseIndex + 2).multiply(f4);
 
@@ -121,7 +121,7 @@ public class KochanekBartelsInterpolation implements Interpolation {
      * Retrieves a node. Indexes are clamped to the valid range.
      *
      * @param index node index to retrieve
-     * @return nodes[clamp(0, nodes.length-1)]
+     * @return nodes[clamp(0, nodes.length - 1)]
      */
     private Vector3 retrieve(int index) {
         if (index < 0) {

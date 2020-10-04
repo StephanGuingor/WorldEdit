@@ -51,7 +51,7 @@ public final class TreeGenerator {
         RANDOM_REDWOOD("Random spruce tree", "randspruce", "randredwood", "randomredwood", "anyredwood") {
             @Override
             public boolean generate(EditSession editSession, BlockVector3 pos) throws MaxChangedBlocksException {
-                TreeType[] choices = { REDWOOD, TALL_REDWOOD, MEGA_REDWOOD };
+                TreeType[] choices = {REDWOOD, TALL_REDWOOD, MEGA_REDWOOD};
                 return choices[TreeGenerator.RANDOM.nextInt(choices.length)].generate(editSession, pos);
             }
         },
@@ -60,7 +60,7 @@ public final class TreeGenerator {
         RANDOM_BIRCH("Random birch tree", "randbirch", "randombirch") {
             @Override
             public boolean generate(EditSession editSession, BlockVector3 pos) throws MaxChangedBlocksException {
-                TreeType[] choices = { BIRCH, TALL_BIRCH };
+                TreeType[] choices = {BIRCH, TALL_BIRCH};
                 return choices[TreeGenerator.RANDOM.nextInt(choices.length)].generate(editSession, pos);
             }
         },
@@ -75,7 +75,7 @@ public final class TreeGenerator {
         RANDOM_JUNGLE("Random jungle tree", "randjungle", "randomjungle") {
             @Override
             public boolean generate(EditSession editSession, BlockVector3 pos) throws MaxChangedBlocksException {
-                TreeType[] choices = { JUNGLE, SMALL_JUNGLE };
+                TreeType[] choices = {JUNGLE, SMALL_JUNGLE};
                 return choices[TreeGenerator.RANDOM.nextInt(choices.length)].generate(editSession, pos);
             }
         },
@@ -87,7 +87,7 @@ public final class TreeGenerator {
         RANDOM_MUSHROOM("Random mushroom", "randmushroom", "randommushroom") {
             @Override
             public boolean generate(EditSession editSession, BlockVector3 pos) throws MaxChangedBlocksException {
-                TreeType[] choices = { RED_MUSHROOM, BROWN_MUSHROOM, CRIMSON_FUNGUS, WARPED_FUNGUS };
+                TreeType[] choices = {RED_MUSHROOM, BROWN_MUSHROOM, CRIMSON_FUNGUS, WARPED_FUNGUS};
                 return choices[TreeGenerator.RANDOM.nextInt(choices.length)].generate(editSession, pos);
             }
         },
@@ -185,7 +185,7 @@ public final class TreeGenerator {
      * @param basePosition the base position
      */
     private static void makePineTree(EditSession editSession, BlockVector3 basePosition)
-            throws MaxChangedBlocksException {
+        throws MaxChangedBlocksException {
         int trunkHeight = (int) Math.floor(Math.random() * 2) + 3;
         int height = (int) Math.floor(Math.random() * 5) + 8;
 
@@ -254,14 +254,14 @@ public final class TreeGenerator {
      * Set a block (only if a previous block was not there) if {@link Math#random()}
      * returns a number less than the given probability.
      *
-     * @param position the position
-     * @param block the block
+     * @param position    the position
+     * @param block       the block
      * @param probability a probability between 0 and 1, inclusive
      * @return whether a block was changed
      * @throws MaxChangedBlocksException thrown if too many blocks are changed
      */
     private static <B extends BlockStateHolder<B>> boolean setChanceBlockIfAir(EditSession session, BlockVector3 position, B block, double probability)
-            throws MaxChangedBlocksException {
+        throws MaxChangedBlocksException {
         return Math.random() <= probability && setBlockIfAir(session, position, block);
     }
 
@@ -269,7 +269,7 @@ public final class TreeGenerator {
      * Set a block only if there's no block already there.
      *
      * @param position the position
-     * @param block the block to set
+     * @param block    the block to set
      * @return if block was changed
      * @throws MaxChangedBlocksException thrown if too many blocks are changed
      */

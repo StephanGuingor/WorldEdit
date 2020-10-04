@@ -36,8 +36,10 @@ import java.util.HashSet;
  */
 public class YAMLConfiguration extends LocalConfiguration {
 
-    @Unreported protected final YAMLProcessor config;
-    @Unreported protected final Logger logger;
+    @Unreported
+    protected final YAMLProcessor config;
+    @Unreported
+    protected final Logger logger;
 
     public YAMLConfiguration(YAMLProcessor config, Logger logger) {
         this.config = config;
@@ -57,17 +59,17 @@ public class YAMLConfiguration extends LocalConfiguration {
         wandItem = convertLegacyItem(config.getString("wand-item", wandItem));
 
         defaultChangeLimit = Math.max(-1, config.getInt(
-                "limits.max-blocks-changed.default", defaultChangeLimit));
+            "limits.max-blocks-changed.default", defaultChangeLimit));
         maxChangeLimit = Math.max(-1,
-                config.getInt("limits.max-blocks-changed.maximum", maxChangeLimit));
+            config.getInt("limits.max-blocks-changed.maximum", maxChangeLimit));
 
         defaultVerticalHeight = Math.max(1,
-                config.getInt("limits.vertical-height.default", defaultVerticalHeight));
+            config.getInt("limits.vertical-height.default", defaultVerticalHeight));
 
         defaultMaxPolygonalPoints = Math.max(-1,
-                config.getInt("limits.max-polygonal-points.default", defaultMaxPolygonalPoints));
+            config.getInt("limits.max-polygonal-points.default", defaultMaxPolygonalPoints));
         maxPolygonalPoints = Math.max(-1,
-                config.getInt("limits.max-polygonal-points.maximum", maxPolygonalPoints));
+            config.getInt("limits.max-polygonal-points.maximum", maxPolygonalPoints));
 
         defaultMaxPolyhedronPoints = Math.max(-1, config.getInt("limits.max-polyhedron-points.default", defaultMaxPolyhedronPoints));
         maxPolyhedronPoints = Math.max(-1, config.getInt("limits.max-polyhedron-points.maximum", maxPolyhedronPoints));
@@ -75,7 +77,7 @@ public class YAMLConfiguration extends LocalConfiguration {
         maxRadius = Math.max(-1, config.getInt("limits.max-radius", maxRadius));
         maxBrushRadius = config.getInt("limits.max-brush-radius", maxBrushRadius);
         maxSuperPickaxeSize = Math.max(1, config.getInt(
-                "limits.max-super-pickaxe-size", maxSuperPickaxeSize));
+            "limits.max-super-pickaxe-size", maxSuperPickaxeSize));
 
         butcherDefaultRadius = Math.max(-1, config.getInt("limits.butcher-radius.default", butcherDefaultRadius));
         butcherMaxRadius = Math.max(-1, config.getInt("limits.butcher-radius.maximum", butcherMaxRadius));
@@ -89,15 +91,15 @@ public class YAMLConfiguration extends LocalConfiguration {
         logFormat = config.getString("logging.format", logFormat);
 
         superPickaxeDrop = config.getBoolean("super-pickaxe.drop-items",
-                superPickaxeDrop);
+            superPickaxeDrop);
         superPickaxeManyDrop = config.getBoolean(
-                "super-pickaxe.many-drop-items", superPickaxeManyDrop);
+            "super-pickaxe.many-drop-items", superPickaxeManyDrop);
 
         useInventory = config.getBoolean("use-inventory.enable", useInventory);
         useInventoryOverride = config.getBoolean("use-inventory.allow-override",
-                useInventoryOverride);
+            useInventoryOverride);
         useInventoryCreativeOverride = config.getBoolean("use-inventory.creative-mode-overrides",
-                useInventoryCreativeOverride);
+            useInventoryCreativeOverride);
 
         navigationWand = convertLegacyItem(config.getString("navigation-wand.item", navigationWand));
         navigationWandMaxDistance = config.getInt("navigation-wand.max-distance", navigationWandMaxDistance);

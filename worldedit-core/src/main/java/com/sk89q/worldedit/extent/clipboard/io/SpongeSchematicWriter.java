@@ -107,7 +107,7 @@ public class SpongeSchematicWriter implements ClipboardWriter {
         Map<String, Tag> schematic = new HashMap<>();
         schematic.put("Version", new IntTag(CURRENT_VERSION));
         schematic.put("DataVersion", new IntTag(
-                WorldEdit.getInstance().getPlatformManager().queryCapability(Capability.WORLD_EDITING).getDataVersion()));
+            WorldEdit.getInstance().getPlatformManager().queryCapability(Capability.WORLD_EDITING).getDataVersion()));
 
         Map<String, Tag> metadata = new HashMap<>();
         metadata.put("WEOffsetX", new IntTag(offset.getBlockX()));
@@ -121,10 +121,10 @@ public class SpongeSchematicWriter implements ClipboardWriter {
         schematic.put("Length", new ShortTag((short) length));
 
         // The Sponge format Offset refers to the 'min' points location in the world. That's our 'Origin'
-        schematic.put("Offset", new IntArrayTag(new int[]{
-                min.getBlockX(),
-                min.getBlockY(),
-                min.getBlockZ(),
+        schematic.put("Offset", new IntArrayTag(new int[] {
+            min.getBlockX(),
+            min.getBlockY(),
+            min.getBlockZ(),
         }));
 
         int paletteMax = 0;
@@ -153,7 +153,7 @@ public class SpongeSchematicWriter implements ClipboardWriter {
                         values.remove("z");
 
                         values.put("Id", new StringTag(block.getNbtId()));
-                        values.put("Pos", new IntArrayTag(new int[] { x, y, z }));
+                        values.put("Pos", new IntArrayTag(new int[] {x, y, z}));
 
                         tileEntities.add(new CompoundTag(values));
                     }

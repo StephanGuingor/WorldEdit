@@ -77,8 +77,8 @@ public interface RegionSelector {
     /**
      * Tell the player information about his/her primary selection.
      *
-     * @param actor the actor
-     * @param session the session
+     * @param actor    the actor
+     * @param session  the session
      * @param position position
      */
     void explainPrimarySelection(Actor actor, LocalSession session, BlockVector3 position);
@@ -86,8 +86,8 @@ public interface RegionSelector {
     /**
      * Tell the player information about his/her secondary selection.
      *
-     * @param actor the actor
-     * @param session the session
+     * @param actor    the actor
+     * @param session  the session
      * @param position position
      */
     void explainSecondarySelection(Actor actor, LocalSession session, BlockVector3 position);
@@ -96,7 +96,7 @@ public interface RegionSelector {
      * Tell the player information about the region's changes. This may resend
      * all the defining region information if needed.
      *
-     * @param actor the actor
+     * @param actor   the actor
      * @param session the session
      */
     void explainRegionAdjust(Actor actor, LocalSession session);
@@ -147,7 +147,7 @@ public interface RegionSelector {
      *
      * @return number of blocks, or -1 if undefined
      * @apiNote This must be overridden by new subclasses. See {@link NonAbstractForCompatibility}
-     *          for details
+     * for details
      */
     @NonAbstractForCompatibility(
         delegateName = "getArea",
@@ -193,7 +193,7 @@ public interface RegionSelector {
      */
     default List<Component> getSelectionInfoLines() {
         return getInformationLines().stream()
-                .map(line -> TextComponent.of(line, TextColor.LIGHT_PURPLE))
-                .collect(Collectors.toList());
+            .map(line -> TextComponent.of(line, TextColor.LIGHT_PURPLE))
+            .collect(Collectors.toList());
     }
 }

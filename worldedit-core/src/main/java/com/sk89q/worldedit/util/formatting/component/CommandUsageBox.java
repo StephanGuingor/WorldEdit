@@ -43,8 +43,8 @@ public class CommandUsageBox extends TextComponentProducer {
     /**
      * Create a new usage box.
      *
-     * @param commands the commands to describe
-     * @param commandString the commands that were used, such as "/we" or "/brush sphere"
+     * @param commands        the commands to describe
+     * @param commandString   the commands that were used, such as "/we" or "/brush sphere"
      * @param helpRootCommand the command used to get subcommand help
      */
     public CommandUsageBox(List<Command> commands, String commandString, String helpRootCommand) throws InvalidComponentException {
@@ -54,10 +54,10 @@ public class CommandUsageBox extends TextComponentProducer {
     /**
      * Create a new usage box.
      *
-     * @param commands the commands to describe
-     * @param commandString the commands that were used, such as "/we" or "/brush sphere"
+     * @param commands        the commands to describe
+     * @param commandString   the commands that were used, such as "/we" or "/brush sphere"
      * @param helpRootCommand the command used to get subcommand help
-     * @param parameters list of parameters to use
+     * @param parameters      list of parameters to use
      */
     public CommandUsageBox(List<Command> commands, String commandString, String helpRootCommand,
                            @Nullable CommandParameters parameters) throws InvalidComponentException {

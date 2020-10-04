@@ -97,8 +97,8 @@ public class AssetLoaders {
      * Gets the Asset Loader for the given file of the given type.
      *
      * @param assetClass The class to get a loader for
-     * @param filename The filename to attempt to load
-     * @param <T> The returned asset type
+     * @param filename   The filename to attempt to load
+     * @param <T>        The returned asset type
      */
     @SuppressWarnings("unchecked")
     public <T> Optional<AssetLoader<T>> getAssetLoader(Class<T> assetClass, String filename) {
@@ -127,9 +127,8 @@ public class AssetLoaders {
      * Get the Asset Loaders for the given type.
      *
      * @param assetClass The class to get the loaders of
+     * @param <T>        The asset type
      * @return The list of asset loaders
-     *
-     * @param <T> The asset type
      */
     @SuppressWarnings("unchecked")
     public <T> List<AssetLoader<T>> getAssetLoaders(Class<T> assetClass) {

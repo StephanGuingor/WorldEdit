@@ -49,7 +49,7 @@ class FlattenedClipboardTransform {
     /**
      * Create a new instance.
      *
-     * @param original the original clipboard
+     * @param original  the original clipboard
      * @param transform the transform
      */
     private FlattenedClipboardTransform(Clipboard original, Transform transform) {
@@ -70,10 +70,10 @@ class FlattenedClipboardTransform {
         Vector3 maximum = region.getMaximumPoint().toVector3();
 
         Transform transformAround =
-                new CombinedTransform(
-                        new AffineTransform().translate(original.getOrigin().multiply(-1)),
-                        transform,
-                        new AffineTransform().translate(original.getOrigin()));
+            new CombinedTransform(
+                new AffineTransform().translate(original.getOrigin().multiply(-1)),
+                transform,
+                new AffineTransform().translate(original.getOrigin()));
 
         Vector3[] corners = new Vector3[] {
             minimum,
@@ -125,7 +125,7 @@ class FlattenedClipboardTransform {
     /**
      * Create a new instance to bake the transform with.
      *
-     * @param original the original clipboard
+     * @param original  the original clipboard
      * @param transform the transform
      * @return a builder
      */

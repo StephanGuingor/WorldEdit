@@ -63,8 +63,8 @@ public class BlockDataCyler implements DoubleActionBlockTool {
         BlockState block = world.getBlock(blockPoint);
 
         if (!config.allowedDataCycleBlocks.isEmpty()
-                && !player.hasPermission("worldedit.override.data-cycler")
-                && !config.allowedDataCycleBlocks.contains(block.getBlockType().getId())) {
+            && !player.hasPermission("worldedit.override.data-cycler")
+            && !config.allowedDataCycleBlocks.contains(block.getBlockType().getId())) {
             player.printError(TranslatableComponent.of("worldedit.tool.data-cycler.block-not-permitted"));
             return true;
         }
@@ -93,9 +93,9 @@ public class BlockDataCyler implements DoubleActionBlockTool {
                     try {
                         editSession.setBlock(blockPoint, newBlock);
                         player.printInfo(TranslatableComponent.of(
-                                "worldedit.tool.data-cycler.new-value",
-                                TextComponent.of(currentProperty.getName()),
-                                TextComponent.of(String.valueOf(currentProperty.getValues().get(index)))
+                            "worldedit.tool.data-cycler.new-value",
+                            TextComponent.of(currentProperty.getName()),
+                            TextComponent.of(String.valueOf(currentProperty.getValues().get(index)))
                         ));
                     } catch (MaxChangedBlocksException e) {
                         player.printError(TranslatableComponent.of("worldedit.tool.max-block-changes"));

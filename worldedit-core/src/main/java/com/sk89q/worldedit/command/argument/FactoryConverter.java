@@ -84,7 +84,8 @@ public class FactoryConverter<T> implements ArgumentConverter<T> {
     private final WorldEdit worldEdit;
     private final Function<WorldEdit, AbstractFactory<T>> factoryExtractor;
     private final String description;
-    @Nullable private final Consumer<ParserContext> contextTweaker;
+    @Nullable
+    private final Consumer<ParserContext> contextTweaker;
 
     private FactoryConverter(WorldEdit worldEdit,
                              Function<WorldEdit, AbstractFactory<T>> factoryExtractor,

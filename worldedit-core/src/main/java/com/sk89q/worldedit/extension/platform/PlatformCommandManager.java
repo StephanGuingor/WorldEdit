@@ -517,7 +517,7 @@ public final class PlatformCommandManager {
             ImmutableList<Command> cmd = e.getCommands();
             if (!cmd.isEmpty()) {
                 actor.printError(
-                        TranslatableComponent.of("worldedit.error.incorrect-usage",
+                    TranslatableComponent.of("worldedit.error.incorrect-usage",
                         HelpGenerator.create(e.getCommandParseResult()).getUsage())
                 );
             }
@@ -542,10 +542,10 @@ public final class PlatformCommandManager {
                     int changed = editSession.getBlockChangeCount();
                     double throughput = timeS == 0 ? changed : changed / timeS;
                     actor.printDebug(TranslatableComponent.of(
-                            "worldedit.command.time-elapsed",
-                            TextComponent.of(timeS),
-                            TextComponent.of(changed),
-                            TextComponent.of(Math.round(throughput))
+                        "worldedit.command.time-elapsed",
+                        TextComponent.of(timeS),
+                        TextComponent.of(changed),
+                        TextComponent.of(Math.round(throughput))
                     ));
                 }
 

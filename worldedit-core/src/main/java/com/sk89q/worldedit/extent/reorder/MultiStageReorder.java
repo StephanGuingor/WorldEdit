@@ -170,7 +170,7 @@ public class MultiStageReorder extends AbstractBufferingExtent implements Reorde
     /**
      * Create a new instance.
      *
-     * @param extent the extent
+     * @param extent  the extent
      * @param enabled true to enable
      */
     public MultiStageReorder(Extent extent, boolean enabled) {

@@ -147,7 +147,7 @@ public class CommandContextTest {
     public void testSlice() {
         try {
             CommandContext context = new CommandContext("foo bar baz");
-            assertArrayEquals(new String[] { "foo", "bar", "baz" }, context.getSlice(0));
+            assertArrayEquals(new String[] {"foo", "bar", "baz"}, context.getSlice(0));
 
         } catch (CommandException e) {
             log.warn("Error", e);

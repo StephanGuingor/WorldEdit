@@ -44,7 +44,7 @@ public class WeightedChoice<T> {
      * Create a new instance.
      *
      * @param function a function that assigns a score for each choice
-     * @param target the target score that the best choice should be closest to
+     * @param target   the target score that the best choice should be closest to
      */
     public WeightedChoice(Function<T, ? extends Number> function, double target) {
         checkNotNull(function);

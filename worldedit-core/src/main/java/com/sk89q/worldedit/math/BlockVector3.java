@@ -586,9 +586,9 @@ public final class BlockVector3 {
     /**
      * Perform a 2D transformation on this vector and return a new one.
      *
-     * @param angle in degrees
-     * @param aboutX about which x coordinate to rotate
-     * @param aboutZ about which z coordinate to rotate
+     * @param angle      in degrees
+     * @param aboutX     about which x coordinate to rotate
+     * @param aboutZ     about which z coordinate to rotate
      * @param translateX what to add after rotation
      * @param translateZ what to add after rotation
      * @return a new vector
@@ -652,9 +652,9 @@ public final class BlockVector3 {
      */
     public BlockVector3 getMinimum(BlockVector3 v2) {
         return new BlockVector3(
-                Math.min(x, v2.x),
-                Math.min(y, v2.y),
-                Math.min(z, v2.z)
+            Math.min(x, v2.x),
+            Math.min(y, v2.y),
+            Math.min(z, v2.z)
         );
     }
 
@@ -666,9 +666,9 @@ public final class BlockVector3 {
      */
     public BlockVector3 getMaximum(BlockVector3 v2) {
         return new BlockVector3(
-                Math.max(x, v2.x),
-                Math.max(y, v2.y),
-                Math.max(z, v2.z)
+            Math.max(x, v2.x),
+            Math.max(y, v2.y),
+            Math.max(z, v2.z)
         );
     }
 
