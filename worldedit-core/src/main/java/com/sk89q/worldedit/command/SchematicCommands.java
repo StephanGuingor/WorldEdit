@@ -20,7 +20,10 @@
 package com.sk89q.worldedit.command;
 
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.Lists;
 import com.google.common.io.MoreFiles;
+import com.sk89q.worldedit.EditSession;
+import com.sk89q.worldedit.EmptyClipboardException;
 import com.sk89q.worldedit.LocalConfiguration;
 import com.sk89q.worldedit.LocalSession;
 import com.sk89q.worldedit.WorldEdit;
@@ -38,8 +41,18 @@ import com.sk89q.worldedit.extent.clipboard.io.ClipboardFormat;
 import com.sk89q.worldedit.extent.clipboard.io.ClipboardFormats;
 import com.sk89q.worldedit.extent.clipboard.io.ClipboardReader;
 import com.sk89q.worldedit.extent.clipboard.io.ClipboardWriter;
+import com.sk89q.worldedit.function.mask.Mask;
+import com.sk89q.worldedit.function.operation.Operation;
 import com.sk89q.worldedit.function.operation.Operations;
+import com.sk89q.worldedit.internal.annotation.ClipboardMask;
+import com.sk89q.worldedit.internal.annotation.Selection;
+import com.sk89q.worldedit.math.BlockVector3;
+import com.sk89q.worldedit.math.Vector3;
 import com.sk89q.worldedit.math.transform.Transform;
+import com.sk89q.worldedit.regions.Region;
+import com.sk89q.worldedit.regions.RegionSelector;
+import com.sk89q.worldedit.regions.selector.CuboidRegionSelector;
+import com.sk89q.worldedit.registry.state.Property;
 import com.sk89q.worldedit.session.ClipboardHolder;
 import com.sk89q.worldedit.util.formatting.component.CodeFormat;
 import com.sk89q.worldedit.util.formatting.component.ErrorFormat;
@@ -54,6 +67,8 @@ import com.sk89q.worldedit.util.formatting.text.format.TextColor;
 import com.sk89q.worldedit.util.io.Closer;
 import com.sk89q.worldedit.util.io.file.FilenameException;
 import com.sk89q.worldedit.util.io.file.MorePaths;
+import com.sk89q.worldedit.util.io.MCFWriter;
+import com.sk89q.worldedit.world.World;
 import org.enginehub.piston.annotation.Command;
 import org.enginehub.piston.annotation.CommandContainer;
 import org.enginehub.piston.annotation.param.Arg;
@@ -68,14 +83,18 @@ import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.Callable;
 
 import static com.google.common.base.Preconditions.checkArgument;
@@ -98,6 +117,71 @@ public class SchematicCommands {
     public SchematicCommands(WorldEdit worldEdit) {
         checkNotNull(worldEdit);
         this.worldEdit = worldEdit;
+    }
+
+
+    @Command(
+        name = "vanillafy",
+        desc = "Transforms a schemtatic into a mcfunction file"
+    )
+    @CommandPermissions({"worldedit.clipboard.load", "worldedit.schematic.vanillafy"})
+    public void vanillafy(Actor actor,
+                          LocalSession localSession, @Arg(desc = "File name.")
+                                  String filename,
+                          @Arg(desc = "Format name.", def = "sponge")
+                                  String formatName,
+                          @Selection Region selection) throws WorldEditException, IOException {
+        LocalConfiguration config = worldEdit.getConfiguration();
+
+        // Load Schematic to Clipoard
+        File dir = worldEdit.getWorkingDirectoryPath(config.saveDir).toFile();
+
+        File file = worldEdit.getSafeSaveFile(actor, dir, filename,"schem", ClipboardFormats.getFileExtensionArray());
+        Clipboard clipboard;
+        ClipboardFormat format = ClipboardFormats.findByFile(file);
+        try (ClipboardReader reader = format.getReader(new FileInputStream(file))) {
+            clipboard = reader.read();
+        }
+        Region region = clipboard.getRegion();
+        BlockVector3 off = selection.getMinimumPoint().subtract(region.getMinimumPoint());
+
+//        Getting the file and writing to MCFUNCTION
+        StringBuilder tempStates = new StringBuilder("[");
+        ArrayList<String[]> data = new ArrayList<>();
+
+        for (BlockVector3 point : region) {
+            Map<Property<?>,Object> states = clipboard.getBlock(point).getStates();
+
+            for (Property<?> key: states.keySet()) {
+                tempStates.append(key.getName()).append("=").append(states.get(key).toString().toLowerCase()).append(",");
+            }
+
+            tempStates.append("]");
+//            Add data to Array List
+            data.add(new String[] {point.add(off).toString(),clipboard.getBlock(point).getBlockType().toString()+tempStates});
+            tempStates = new StringBuilder("[");
+        }
+
+
+        MCFWriter.writeToDataPack(dir,filename,data);
+
+        TextComponent success = TextComponent.of(filename, TextColor.GOLD)
+            .append(TextComponent.of(" was successfully ", TextColor.LIGHT_PURPLE))
+            .append(TextComponent.of("v", TextColor.BLUE))
+            .append(TextComponent.of("a", TextColor.AQUA))
+            .append(TextComponent.of("n", TextColor.GREEN))
+            .append(TextComponent.of("i", TextColor.YELLOW))
+            .append(TextComponent.of("l", TextColor.GOLD))
+            .append(TextComponent.of("l", TextColor.RED))
+            .append(TextComponent.of("a", TextColor.LIGHT_PURPLE))
+            .append(TextComponent.of("f", TextColor.DARK_PURPLE))
+            .append(TextComponent.of("i", TextColor.DARK_BLUE))
+            .append(TextComponent.of("e", TextColor.BLUE))
+            .append(TextComponent.of("d", TextColor.AQUA));
+
+        actor.printInfo(success);
+
+
     }
 
     @Command(
@@ -300,6 +384,7 @@ public class SchematicCommands {
             new SchematicListTask(saveDir, pathComparator, page, pageCommand),
             SubtleFormat.wrap("(Please wait... gathering schematic list.)"));
     }
+
 
     private static class SchematicLoadTask implements Callable<ClipboardHolder> {
         private final Actor actor;

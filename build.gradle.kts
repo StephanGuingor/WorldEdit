@@ -71,6 +71,8 @@ val updateMinecraft = tasks.register("updateMinecraft") {
     group = "My Tasks"
     description = "Moves jar into minecraft directory (fabric)"
 
+    dependsOn(subprojects.map { it.tasks.named("build") })
+
     doLast {
         if (Os.isFamily(Os.FAMILY_WINDOWS)) {
             project.exec {
