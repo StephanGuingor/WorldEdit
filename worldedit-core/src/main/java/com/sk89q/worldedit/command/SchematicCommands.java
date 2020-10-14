@@ -126,10 +126,16 @@ public class SchematicCommands {
     )
     @CommandPermissions({"worldedit.clipboard.load", "worldedit.schematic.vanillafy"})
     public void vanillafy(Actor actor,
-                          LocalSession localSession, @Arg(desc = "File name.")
+                          @Arg(desc = "File name.")
                                   String filename,
+                          @Arg(name="time",desc="Time", def= "100")
+                                  int timeHolo,
+                          @Arg(desc="Delta Time",def="1")
+                                int deltaTime,
                           @Arg(desc = "Format name.", def = "sponge")
                                   String formatName,
+                          @Switch(name= 'r',desc ="Randomizes the generation. (Default Sorts by Y)")
+                          boolean randomizedPrint,
                           @Selection Region selection) throws WorldEditException, IOException {
         LocalConfiguration config = worldEdit.getConfiguration();
 
@@ -162,8 +168,14 @@ public class SchematicCommands {
             tempStates = new StringBuilder("[");
         }
 
+        // Randomizes Data
+        if (randomizedPrint) {
+            data = MCFWriter.shuffleData(data);
+        } else {
+            data = MCFWriter.shuffleDataCluster(data);
 
-        MCFWriter.writeToDataPack(dir,filename,data);
+        }
+        MCFWriter.writeToDataPack(dir,filename,data,timeHolo,deltaTime);
 
         TextComponent success = TextComponent.of(filename, TextColor.GOLD)
             .append(TextComponent.of(" was successfully ", TextColor.LIGHT_PURPLE))

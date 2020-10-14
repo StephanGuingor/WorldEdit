@@ -22,19 +22,25 @@ package com.sk89q.worldedit.util.io;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 
 public class MCFWriter {
-    //Attributes
-    static final String hologramExt = "the_hand:hologram/";
 
-    public static void writeToDataPack(File hologramDir, String hologramName, ArrayList<String[]> data) {
+
+    public static void writeToDataPack(File baseDir, String hologramName, ArrayList<String[]> data,int timeHolo,int deltaTime) {
+
         hologramName = hologramName.toLowerCase().trim();
 
+
+        // Create Datapack structure
+        File newHologramDirectory = createDatapackBaseStructure(baseDir,hologramName);
+
         //Making new folder directory title the Hologram Name
-        File newDir = new File(hologramDir.getPath()+File.separator+hologramName);
+        File newDir = new File(newHologramDirectory.getPath()+File.separator+hologramName);
         newDir.mkdir();
 
         //Making setblock directory (this one will hold all mcfunctions with setblock command)
@@ -42,20 +48,63 @@ public class MCFWriter {
         setblockDir.mkdir();
 
         //Appending runner script to hologram
-        appendToHologramManager(hologramDir, hologramName);
+        appendToHologramManager(newHologramDirectory, hologramName);
 
         //Write Init File
         writeInitFile(newDir, hologramName);
 
         //Write remaining files
-        writeRunnerAndHelperFiles(newDir, setblockDir, hologramName, data);
+        writeRunnerAndHelperFiles(newDir, setblockDir, hologramName, data,timeHolo,deltaTime);
     }
 
-    public static void writeRunnerAndHelperFiles(File newDir, File setblocksDir, String hologramName, ArrayList<String[]> data) {
+    public static File createDatapackBaseStructure(File baseDir,String datapackName){
+
+        // Creating Base Folder
+        File newDir = new File(baseDir.getPath()+File.separator+datapackName);
+        newDir.mkdir();
+
+
+        try {
+            // Creating PackMC Meta
+            PrintWriter fw = new PrintWriter(new BufferedWriter(new FileWriter(newDir.getPath() + File.separator + "pack.mcmeta", false)));
+            fw.println("{\"pack\": {\"pack_format\": 6,\"description\": \"Datapack created using Vanillafy by Pseudo Elephant: https://www.youtube.com/channel/UC3Q20nzJ-n2e_ilzLflR1ew, \"}}");
+            fw.flush();
+            fw.close();
+        } catch (IOException e){
+            System.out.println(Arrays.toString(e.getStackTrace()));
+        }
+
+        // Data Directory
+        newDir = new File(newDir.getPath()+File.separator+"data");
+        newDir.mkdir();
+
+        String namespaceDir = newDir.getPath();
+        newDir = new File(namespaceDir+File.separator+"minecraft"+File.separator+"tags"+File.separator+"functions");
+        newDir.mkdirs();
+
+        try {
+            // Creating Tick Json
+            PrintWriter fw = new PrintWriter(new BufferedWriter(new FileWriter(newDir.getPath() + File.separator + "tick.json", false)));
+            fw.println("{\"values\": [\"" + datapackName+":hologram/" + "hologram_manager\"]}");
+            fw.flush();
+            fw.close();
+
+        }   catch (IOException e){
+            System.out.println(e.getStackTrace());
+        }
+
+        newDir = new File(namespaceDir+File.separator+datapackName+File.separator+"functions"+File.separator+"hologram");
+        newDir.mkdirs();
+
+        return newDir;
+
+    }
+
+    public static void writeRunnerAndHelperFiles(File newDir, File setblocksDir, String hologramName, ArrayList<String[]> data,int timeHolo,int deltaTime) {
         //Function to place Blocks
         int blocks = data.size();
         int blockToPlace = 1;
-        int maxTime = 100; //In Ticks!
+        int maxTime = timeHolo; //In Ticks!
         int maxBlocksPerIteration = (2*blocks)/maxTime;
 
         System.out.println("b = "+maxBlocksPerIteration);
@@ -68,7 +117,7 @@ public class MCFWriter {
             PrintWriter fw = new PrintWriter(new BufferedWriter(new FileWriter(runnerFile.getPath(), false)));
 
             //Appending End Statement of Loop
-            fw.println("execute if score dummy_player "+hologramName+"_bool matches 1 if score dummy_player "+hologramName+"_time matches " +maxTime+ " run scoreboard players set dummy_player "+hologramName+"_bool 0");
+            fw.println("execute if score dummy_player "+hologramName+"_bool matches 1 if score dummy_player "+hologramName+"_time matches " +maxTime*deltaTime+ " run scoreboard players set dummy_player "+hologramName+"_bool 0");
             fw.println("execute if score dummy_player "+hologramName+"_bool matches 0 run scoreboard players set dummy_player "+hologramName+"_time 0\n");
 
             int counter = 0;
@@ -80,6 +129,7 @@ public class MCFWriter {
                 //Creating Files Helper File For Given Iteration
                 File setblockFile = new File(setblocksDir.getPath()+"/"+hologramName+"_it_"+i+".mcfunction");
                 PrintWriter bw = new PrintWriter(new BufferedWriter(new FileWriter(setblockFile.getPath(), false)));
+                bw.println("### Datapack created using Vanillafy by Pseudo Elephant: https://www.youtube.com/channel/UC3Q20nzJ-n2e_ilzLflR1ew");
                 while(blockToPlace>0 && blocks>0) {
                     String coordinates = data.get(counter)[0].replaceAll("[,()]","");
                     String block = data.get(counter)[1];
@@ -93,7 +143,7 @@ public class MCFWriter {
                 bw.close();
 
                 //Appending to Runner File
-                fw.println("execute if score dummy_player "+hologramName+"_bool matches 1 if score dummy_player "+hologramName+"_time matches "+ i +" run function " + hologramExt + hologramName +"/setblocks"+"/"+hologramName+"_it_"+i);
+                fw.println("execute if score dummy_player "+hologramName+"_bool matches 1 if score dummy_player "+hologramName+"_time matches "+ i*deltaTime +" run function " + hologramName+":hologram/"  + hologramName +"/setblocks"+"/"+hologramName+"_it_"+i);
             }
 
             fw.println("\nexecute if score dummy_player "+hologramName+"_bool matches 1 run scoreboard players add dummy_player "+hologramName+"_time 1");
@@ -125,7 +175,7 @@ public class MCFWriter {
 
         try {
             PrintWriter fw = new PrintWriter(new BufferedWriter(new FileWriter(newFile.getPath(),true))); //Create new one
-            fw.println("execute if score dummy_player " +hologramName + "_bool " + "matches 1 run function " + hologramExt + hologramName +"/" + hologramName + "_runner");
+            fw.println("execute if score dummy_player " +hologramName + "_bool " + "matches 1 run function " + hologramName+":hologram/"  + hologramName +"/" + hologramName + "_runner");
             fw.flush();
             fw.close();
         } catch (Exception e) {
@@ -133,7 +183,7 @@ public class MCFWriter {
         }
     }
 
-    public static ArrayList<String[]> shuffleData(ArrayList<String[]> data) {
+    public static ArrayList<String[]> shuffleDataCluster(ArrayList<String[]> data) {
         ArrayList<String[]> shuffledList = new ArrayList<>();
         ArrayList<ArrayList<String[]>> clusters = getClusters(data);
         for (ArrayList<String[]> cluster: clusters) {
@@ -142,6 +192,11 @@ public class MCFWriter {
         }
 
         return shuffledList;
+    }
+
+    public static ArrayList<String[]> shuffleData(ArrayList<String[]> data) {
+        Collections.shuffle(data);
+        return data;
     }
 
     public static ArrayList<ArrayList<String[]>> getClusters(ArrayList<String[]> data){
